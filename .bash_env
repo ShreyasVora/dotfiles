@@ -1,0 +1,18 @@
+######################################
+# Contains all my bash env variables 
+######################################
+
+export PATH=$PATH:/home/svora/scripts/alias_scripts:/home/svora/scripts:/home/svora/support/tools:/home/svora/support/tools/serial_killers
+[[ "$DOMAIN" = "dev-lon" ]] && export CDPATH=$CDPATH:/srg/pro:/srg/pro/data
+export NO_XCONSOLE=true
+export EDITOR=vim
+
+# History controls
+# HISTFILESIZE is the max size of the HISTFILE. After this point, it deletes older records in favour of new ones
+# HISTSIZE is how many cached commands to keep in memory
+# ignoreboth ignores dups and also ignores spaces, ie a command that starts with a space is ignored.
+export HISTFILE="$HOME/bash/.bash_history"
+export HISTFILESIZE=100000
+export HISTSIZE=1000
+export HISTIGNORE=lt:ls:cd:lo:exit:dset:pwd:hi:b:history
+export HISTCONTROL=ignoreboth

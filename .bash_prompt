@@ -1,0 +1,21 @@
+#################################################################
+# This file contains the config for my custom bash command prompt
+#################################################################
+
+function __setprompt {
+    if [[ $DOMAIN = 'dev-lon' ]]; then x=1; else x=0; fi
+    local YELLOW="\033[$x;33m"
+    local MAGENTA="\033[$x;35m"
+    local GREEN="\033[$x;32m"
+    local NOCOLOR="\033[m"
+    local BLACK="\033[0;30m"
+    
+    #use '\! ' to add the number of commands in bash_history to the front of the cmd prompt
+    
+    PS1="\[$YELLOW\]$(date +%H:%M:%S)"
+    if [[ $TZ != 'GB' ]]; then
+        PS1+="[$(TZ=GB date +%H:%M)]"
+    fi
+    PS1+=" \[$MAGENTA\]$PROMPT$HOST:${PWD#"${PWD%/*/*}/"} \[$GREEN\]$(prompt_git_branch)\[$NOCOLOR\]% "
+}
+export PROMPT_COMMAND="history -a; __setprompt"
