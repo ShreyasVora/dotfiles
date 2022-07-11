@@ -359,5 +359,5 @@ function ms()
 {
 	# Make script alias
 	cp ~/scripts/templates/bash_script_template $1
-	vi $1
+	vim $1
 }
