@@ -354,3 +354,10 @@ function cp_issues()
 	cp $1 $iss_dir
 	chmod 666 $iss_dir/$1
 }
+
+function ms()
+{
+	# Make script alias
+	cp ~/scripts/templates/bash_script_template $1
+	vi $1
+}
