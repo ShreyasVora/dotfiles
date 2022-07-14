@@ -230,6 +230,20 @@ function central()
     cd /srg/dev/release/prod-config/prod/$1; pwd
 }
 
+function loop_central()
+{
+	cd /srg/dev/release/prod-config/prod > /dev/null
+	for n in $(ls)
+	do
+		if [[ $n = chi ]]; then 
+			continue
+		fi
+		cd $n 
+		eval $@
+		cd - > /dev/null
+	done 
+}
+
 function svr(){
 
     file=/srg/pro/data/procMan.ini
