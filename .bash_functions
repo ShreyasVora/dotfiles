@@ -333,7 +333,6 @@ function flip-links-me()
     # $1 should be the networks you want, in a csv list
 	# $2 should be the node you want to flip to
 
-	local networks_array=()
     local check_networks=
 
     for net in $(echo $1 | tr ',' ' '); do
