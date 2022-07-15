@@ -328,7 +328,7 @@ function svr(){
     fi
 }
 
-function flip-links-me()
+function flip_links_me()
 {
     # $1 should be the networks you want, in a csv list
 	# $2 should be the node you want to flip to
