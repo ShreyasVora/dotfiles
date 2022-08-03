@@ -340,7 +340,7 @@ function flip_links_me()
         then
             echo "$net is not a valid node."
         else
-            supro flip-links $net $2
+            supro /srg/codebase/support/pgm/flip-links $net $2
 
             if [[ "$net" != @(base|lead|current) ]]; # dont check non_central nodes
             then
