@@ -26,6 +26,7 @@ alias slack="slack -e --proxy-server=prism:2868 & "
 alias chrome='chromium-browser --proxy-server=prism:2868 &'
 alias chromium-browser='chromium-browser --proxy-server=prism:2868 &'
 alias gl='git log --name-status --no-merges'
+alias glt='git log --graph --decorate --oneline $(git rev-list -g --all)'
 alias gc='git commit'
 alias grepcsv='cd /home/svora/nodes/makoCode; /srg/pro/release/current/scr/grepc -node /home/svora/nodes/makoCode'
 alias ssh='ssh -X'
