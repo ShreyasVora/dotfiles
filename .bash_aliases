@@ -40,3 +40,4 @@ alias central_dist='supro /srg/pro/data/support/tools/support_central_config_dis
 alias gcmp='git checkout master && git pull'
 alias build_port_checker='go build -o go_bin/ tools/go_projects/port_checker/port_checker.go'
 alias riah='/home/svora/scripts/run_in_all_hosts.sh'
+alias pf='/home/svora/scripts/procflatAdj'
