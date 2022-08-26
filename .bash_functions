@@ -374,3 +374,50 @@ function ms()
 	cp ~/scripts/templates/bash_script_template $1
 	vim $1
 }
+
+crons ()
+{
+    local search=;
+    local user=null;
+    local err=ok;
+    while [[ $# -gt 0 ]]; do
+        arg=$1;
+        case $arg in
+            -s | -show)
+                echo -e "\nThe following users have crons on this box:";
+                sudo ls -1 /var/spool/cron/;
+                echo -e "\n\n";
+                return 0
+            ;;
+            -help)
+                echo -e "\nShows crons for all users or just the given one:";
+                echo "-u        : search this user only";
+                echo "-s        : show crons for all users";
+                echo -e "\nAlternative usage:\n";
+                echo "-s, -show";
+                return 0
+            ;;
+            *)
+                user=$1
+            ;;
+        esac;
+        shift;
+    done;
+    if [[ $user == "null" ]]; then
+        for cron in `sudo ls -1 /var/spool/cron/`;
+        do
+            user=$cron;
+            sudo cat /var/spool/cron/$cron;
+            if [ $? -eq 0 ]; then
+                echo -e "\n ^-------------------------------------------------------- $user ------------------------------------------------^\n\n";
+            fi;
+        done;
+    else
+        if `sudo ls -1  /var/spool/cron/ | grep -q "$user$"`; then
+            sudo crontab -l -u $user 2> /dev/null;
+        else
+            echo "No cronjob found for this user on this box, available users:";
+            sudo ls -1 /var/spool/cron/;
+        fi;
+    fi
+}
