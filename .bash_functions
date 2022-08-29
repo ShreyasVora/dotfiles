@@ -421,3 +421,8 @@ crons ()
         fi;
     fi
 }
+
+clean ()
+{
+	~/scripts/housekeep.sh -delete -dir . -days 0
+}
