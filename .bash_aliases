@@ -23,7 +23,7 @@ alias vt_logs='for host in `procflat -p vt | cut -d" " -f2 | sort -u`; do ssh $h
 alias wai='/srg/pro/data/config/whereAmI'
 alias d='xauth list | grep `hostname` | tail -n 1 | sed "s/^/xauth add /g"; echo export DISPLAY=$DISPLAY'
 alias slack="slack -e --proxy-server=prism:2868 & "
-alias chrome='chromium-browser --proxy-server=prism:2868 &'
+#alias chrome='chromium-browser --proxy-server=prism:2868 &'
 alias chromium-browser='chromium-browser --proxy-server=prism:2868 &'
 alias gl='git log --name-status --no-merges'
 alias glt='git log --graph --decorate --oneline $(git rev-list -g --all)'
