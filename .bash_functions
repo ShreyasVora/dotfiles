@@ -72,7 +72,7 @@ function proc() {
     if [[ $flag == "0" ]]; then
         printf "\n%s \n\n" "No matches found!"
     fi
-	cd -
+	cd - >/dev/null
     unset proc
 }
 
