@@ -4,6 +4,20 @@
 # This includes small ones for faster cd-ing, as well as bigger ones such as proc or svr
 # ############################################
 
+function llog() {
+	if [ -d /local/data/hosts/$SECOND/$HOST ]; then cd /local/data/hosts/$SECOND/$HOST; else cd $RUNTIME_DATA/data/hosts/$HOST; fi
+	pid=$1
+	if [ -z $pid ]; then
+		echo PID not specified
+		exit 1
+	fi
+	if [ -f *$pid ]; then
+		less *$pid
+	else
+		echo No file found for PID $pid
+	fi
+}
+
 # return list of log files that contain the given command in $1
 function proc() { 
 
