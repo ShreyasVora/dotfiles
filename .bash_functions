@@ -22,6 +22,25 @@ function llog() {
 	fi
 }
 
+function glog() {
+	if [ -d /local/data/hosts/$SECOND/$HOST ]; then 
+		parent_dir=/local/data/hosts/$SECOND/$HOST
+	else 
+		parent_dir=$RUNTIME_DATA/data/hosts/$HOST
+	fi
+	pid=$1
+	grep_str=$2
+	if [ -z $pid ]; then
+		echo PID not specified
+		exit 1
+	fi
+	if [ -f $parent_dir/*$pid ]; then
+		grep "$grep_str" $parent_dir/*$pid
+	else
+		echo No file found for PID $pid
+	fi
+}
+
 # return list of log files that contain the given command in $1
 function proc() { 
 
@@ -40,6 +59,9 @@ function proc() {
             proc=$2
             shift 2
             ;;
+		-cd)
+			cd_flag=true
+			;;
         *)
             tofind="$1"
             shift
@@ -72,7 +94,9 @@ function proc() {
     if [[ $flag == "0" ]]; then
         printf "\n%s \n\n" "No matches found!"
     fi
-	cd - >/dev/null
+	if [[ -z $cd_flag ]]; then
+		cd - >/dev/null
+	fi
     unset proc
 }
 
