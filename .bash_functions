@@ -61,6 +61,7 @@ function proc() {
             ;;
 		-cd)
 			cd_flag=true
+			shift
 			;;
         *)
             tofind="$1"
