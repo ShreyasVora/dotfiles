@@ -14,5 +14,5 @@ export EDITOR=vim
 export HISTFILE="$HOME/bash/.bash_history"
 export HISTFILESIZE=100000
 export HISTSIZE=1000
-export HISTIGNORE=lt:ls:cd:lo:exit:dset:pwd:hi:b:history
+export HISTIGNORE=lt:ls:cd:lo:exit:dset:pwd:hi:b:history:gs:gl
 export HISTCONTROL=ignoreboth
