@@ -279,7 +279,7 @@ function loop_central()
 	cd /srg/dev/release/prod-config/prod > /dev/null
 	for n in $(ls)
 	do
-		if [[ $n = chi/ ]]; then 
+		if [[ $n = chi/ ]] || [[ $n = aurora/ ]]; then 
 			continue
 		fi
 		cd $n 
