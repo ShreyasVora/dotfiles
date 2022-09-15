@@ -50,6 +50,7 @@ function proc() {
     divider=$divider$divider$divider
     width=100
     tofind='command'
+	cd_flag=
         
     flag=0 #flag for first match to print table header. if no data found flag no match
     while (( "$#" )); do 
