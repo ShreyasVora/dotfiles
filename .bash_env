@@ -2,7 +2,7 @@
 # Contains all my bash env variables 
 ######################################
 
-export PATH=$PATH:/home/svora/scripts/alias_scripts:/home/svora/scripts:/home/svora/support/tools:/home/svora/support/tools/serial_killers
+export PATH=$PATH:/home/svora/scripts/alias_scripts:/home/svora/scripts:/home/svora/support/tools:/home/svora/support/tools/serial_killers:/var/lib/snapd/snap/bin
 [[ "$DOMAIN" = "dev-lon" ]] && export CDPATH=$CDPATH:/srg/pro:/srg/pro/data
 export NO_XCONSOLE=true
 export EDITOR=vim
