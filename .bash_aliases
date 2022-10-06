@@ -25,7 +25,7 @@ alias d='xauth list | grep `hostname` | tail -n 1 | sed "s/^/xauth add /g"; echo
 alias slack="slack -e --proxy-server=extproxy:3128 & "
 #alias chrome='chromium-browser --proxy-server=extproxy:3128 &'
 alias chromium-browser='chromium-browser --proxy-server=extproxy:3128 &'
-alias gl='git log --name-status --no-merges -5'
+alias gl='git lol --name-status -10'
 alias glf='git log --name-status --no-merges'
 alias glt='git log --graph --decorate --oneline $(git rev-list -g --all)'
 alias gc='git commit'
