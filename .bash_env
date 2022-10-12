@@ -11,8 +11,9 @@ export EDITOR=vim
 # HISTFILESIZE is the max size of the HISTFILE. After this point, it deletes older records in favour of new ones
 # HISTSIZE is how many cached commands to keep in memory
 # ignoreboth ignores dups and also ignores spaces, ie a command that starts with a space is ignored.
-export HISTFILE="$HOME/bash/.bash_history"
+export HISTFILE="$HOME/dotfiles/.bash_history"
 export HISTFILESIZE=100000
 export HISTSIZE=1000
 export HISTIGNORE=lt:ls:cd:lo:exit:dset:pwd:hi:b:history:gs:gl
 export HISTCONTROL=ignoreboth
+export TERM='xterm-256color'
