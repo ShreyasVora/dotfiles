@@ -1,0 +1,32 @@
+DestroyModuleConfig FvwmButtons: *
+*FvwmButtonsGeometry 450x48-0-0
+*FvwmButtons(Swallow "FvwmPager" "FvwmPager 0 9")
+*FvwmPagerBack #908090
+*FvwmPagerFore #484048
+*FvwmPagerFont -adobe-helvetica-bold-r-*-*-10-*-*-*-*-*-*-*
+*FvwmPagerHilight #cab3ca
+*FvwmPagerGeometry -0-0
+*FvwmPagerSmallFont 5x8
+*FvwmPagerDeskTopScale 32
+*FvwmPagerLabel 0 "Desk 1"
+*FvwmPagerLabel 1 "Desk 2"
+*FvwmPagerLabel 2 "Desk 3"
+*FvwmPagerLabel 3 "Desk 4"
+*FvwmPagerLabel 4 "Desk 5"
+*FvwmPagerLabel 5 "Desk 6"
+*FvwmPagerLabel 6 "Desk 7"
+*FvwmPagerLabel 7 "Desk 8"
+*FvwmPagerLabel 8 "Desk 9"
+*FvwmPagerLabel 9 "Desk 10"
+
+#Exec xsetroot -fg \#888050 -bg \#fed -bitmap $RELEASE/data/icons/grainy.xbm
+
+Style "*" FocusFollowsMouse  
+# The alternative is ClickToFocus
+
+Module FvwmAuto 600
+#Style "*" SmartPlacement, RandomPlacement
+
+Key Alt_L A 64 Close
+Key F9    A  S Desk 0 8
+Key F10   A  S Desk 0 9

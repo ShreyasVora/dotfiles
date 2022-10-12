@@ -1,0 +1,15 @@
+[user]
+	name = Shreyas Vora
+	email = svora@mako.com
+[init]
+	defaultBranch = main
+[alias]
+	mwps = push -o merge_request.create -o merge_request.target=master -o merge_request.merge_when_pipeline_succeeds
+	when = !stat -c %y .git/FETCH_HEAD
+	lol = log --pretty=format:\"%C(auto)%h%d%Creset %C(cyan)(%cD)%Creset %C(green)%cn <%ce>%C(red) %s%Creset\" --no-merges
+	lolf = log --pretty=format:\"%C(auto)%h%d%Creset %C(cyan)(%aD -> %cD)%Creset %C(green)%cn <%ce>%C(red) %s%Creset\" --no-merges
+[safe]
+	directory = /export/srg/pro/data
+	directory = /srg/pro/data
+[advice]
+	addEmptyPathspec = false

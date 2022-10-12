@@ -1,0 +1,104 @@
+# This contains FVWM Buttons config, as well as keyboard shortcuts
+read .fvwm_before
+
+# A few clocks scattered round
+Exec xclock -bg black -fg lime -digital -update 1 -geom 248x38-2312-0
+Exec xclock -bg black -fg lime -digital -update 1 -geom 248x38-4872-0
+Exec xclock -bg black -fg lime -digital -update 1 -geom 248x38-2560-0
+Exec xclock -bg black -fg lime -digital -update 1 -geom 248x38-450-0
+
+###############################################################################
+# TWSs and Screens
+###############################################################################
+
+DestroyMenu TwsMenu
+
+AddToMenu TwsMenu
++	 "TWS"				                     Title
++    "arb%mini-french-flag.png%"             Exec pro-tws arb -geom +1140+300 
++    "de%mini-german-flag.png%"              Exec pro-tws de2 -geom +1140+300 
++    "bas%mini-dutch-flag.png%"          	 Exec pro-tws bas -geom +1140+300 
++    "ita%mini-italy-flag.png%"          	 Exec pro-tws ita -geom +1140+300 
++    "comm%mini-union-jack.png%"          	 Exec pro-tws com -geom +1140+300
++    "nord%mini-sweden-flag.png%"        	 Exec pro-tws nord -geom +1140+300 
++    ""										 Nop
++    "globex%mini-usa-flag.png%"         	 Exec pro-tws globex -geom +1140+300 
++    "can%mini-canada-flag.png%"             Exec pro-tws canxr -geom +1140+300
++    "brz%mini-brazil-flag.png%"             Exec pro-tws brzxr -geom +1140+300
++	 ""										 Nop
++    "korea%mini-korea-flag.png%"       	 Exec pro-tws kr-nhf -geom +1140+300 
++    "syd%mini-aus-flag.png%"            	 Exec pro-tws syd -geom +1140+300
++    ""										 Nop
++	 "Other"								 Popup OtherScreensMenu
+
+AddToMenu OtherScreensMenu
++    "sim%mini-sim.png%"                     Exec sim-tws 26th -geom +1140+300
++    "Chrome%mini-chrome.png%"           	 Exec chromium-browser --proxy-server=extproxy:3128 2> /dev/null 
++    "Chrome (dw703)%mini-chrome.png%"       Exec ssh -X uk01dw703 chromium-browser --proxy-server=extproxy:3128 2> /dev/null 
++    "Firefox%mini-firefox.png%"           	 Exec firefox 2> /dev/null 
++    "Remmina%mini-windows10.png%"       	 Exec remmina 2> /dev/null
++    "PyCharm%mini-python.png%"          	 Exec /snap/pycharm-community/current/bin/pycharm.sh
++    "sqlDeveloper%mini-sql-file.png%"		 Exec /oracle_client/product/11.2.0/sqldeveloper/sqldeveloper.sh
++    "PR Check"     	 	 	 	 	     Exec /home/svora/support/tools/load_pnl.sh -net arb,bas,nord,de,com,globex,ita -q
+
+###############################################################################
+# Shells
+###############################################################################
+
+AddToMenu TwsMenu
++    "Shells"        	 Title 
++    "Normal"            Exec xterm +sb -geom 425x104+0+0 -en utf-8
++    "Small"             Exec xterm +sb -geom 140x50 -en utf-8
++    "Large Font"        Exec xterm -font *-fixed-*-*-*-20-* -geom 253x68+0+0 -en utf-8
++    "Normal ->"         Exec xterm +sb -geom 425x104+2580+0 -en utf-8
+
+#+    "Red"               Exec xterm +sb -geom 150x50 -en utf-8 -cr White -fg White -bg Red4
+#+    "Blue"              Exec xterm +sb -geom 150x50 -en utf-8 -cr White -fg White -bg SteelBlue4
+#+    "Green"             Exec xterm +sb -geom 150x50 -en utf-8 -cr White -fg White -bg DarkSeaGreen4
+#+    "Honeydew"          Exec xterm +sb -geom 150x50 -en utf-8 -cr HoneyDew2 -fg DarkRed -bg NavyBlue
+
+###############################################################################
+# Quick Tools
+###############################################################################
+
+AddToMenu TwsMenu
++    "Tools"            Title
++    "Screenshot"       Exec import $(mktemp /home/svora/images/screenshot.$(date +'%Y%m%d.%H%M').XXX.png)
+
+###############################################################################
+# Not-so-quick Tools
+###############################################################################
+
+AddToMenu ToolsMenu
++   "Clear screenshots"         Exec rm -f /home/svora/images/screenshot.*.png
++   "Kill ssh procs"			Exec kill $(ps auwwx | grep ssh | grep hdb | tr -s ' ' | cut -d' ' -f2)
++   "Poke Henry"                Exec DISPLAY=uk01dw735:0.0; notify-send "oi"
+
+###############################################################################
+# Linux Settings / Config
+###############################################################################
+
+AddToMenu SettingsMenu
++        "Audio Settings"       Exec pavucontrol
++        "File Browser"         Exec nautilus
++        "Clock"                Exec xclock -digital -update 1
++        "Lock Screen"          Exec xset s activate
++        "Change Password"      Exec xterm -T "Change Password" -n Password -fg White -cr White -bg Red4 -geom 90x26 -e passwd
+
+###############################################################################
+# Destroy Right-Click Menu and recreate
+###############################################################################
+
+DestroyMenu RootMenu
+
+AddToMenu RootMenu
++     "Root Menu"           Title
++     "Tools"               Popup ToolsMenu
++     "Settings"            Popup SettingsMenu
++     "Fvwm_modules"        Popup Module-Popup
++     "LogOff"              Popup Quit-Verify
+
+AddToMenu Module-Popup
++        "SourceFvwm"       Restart --dont-preserve-state --pass-args fvwm
++        "SourceXdefs"      Exec xrdb -load .Xdefaults
+
