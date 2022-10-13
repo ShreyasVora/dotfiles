@@ -23,19 +23,39 @@ function llog() {
 }
 
 function glog() {
+	flag=
+	while (( "$#" )); do
+		case "$1" in
+			-i)
+				flag='-i'
+				shift
+				;;
+			*)
+				if [[ -z $pid ]]; then 
+					pid=$1
+				elif [[ -z $grep_str ]]; then
+					grep_str=$1
+				else
+					echo "Unrecognised extra argument(s) $#"
+					exit 1
+				fi
+				shift
+				;;
+		esac
+	done
+
 	if [ -d /local/data/hosts/$SECOND/$HOST ]; then 
 		parent_dir=/local/data/hosts/$SECOND/$HOST
 	else 
 		parent_dir=$RUNTIME_DATA/data/hosts/$HOST
 	fi
-	pid=$1
-	grep_str=$2
+
 	if [ -z $pid ]; then
 		echo PID not specified
 		exit 1
 	fi
 	if [ -f $parent_dir/*$pid ]; then
-		grep "$grep_str" $parent_dir/*$pid
+		grep $flag "$grep_str" $parent_dir/*$pid
 	else
 		echo No file found for PID $pid
 	fi
