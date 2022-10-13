@@ -46,3 +46,4 @@ alias build_port_checker='go build -o go_bin/ tools/go_projects/port_checker/por
 alias riah='/home/svora/scripts/run_in_all_hosts.sh'
 alias pf='/home/svora/scripts/procflatAdj'
 alias t='TERM=xterm-256color tmux'
+alias procc='proc -cd'
