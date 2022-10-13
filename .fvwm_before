@@ -1,5 +1,5 @@
 DestroyModuleConfig FvwmButtons: *
-*FvwmButtonsGeometry 450x48-0-0
+*FvwmButtonsGeometry 450x48-250-0
 *FvwmButtons(Swallow "FvwmPager" "FvwmPager 0 9")
 *FvwmPagerBack #908090
 *FvwmPagerFore #484048

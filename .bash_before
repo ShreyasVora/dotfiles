@@ -1,4 +1,4 @@
 # Some settings I have found that I like to use
 xset r rate 600 30 2>/dev/null
 setxkbmap gb 2>/dev/null
-xrdb -merge ~/.Xresources
+xrdb ~/.Xresources

@@ -5,7 +5,7 @@ read .fvwm_before
 Exec xclock -bg black -fg lime -digital -update 1 -geom 248x38-2312-0
 Exec xclock -bg black -fg lime -digital -update 1 -geom 248x38-4872-0
 Exec xclock -bg black -fg lime -digital -update 1 -geom 248x38-2560-0
-Exec xclock -bg black -fg lime -digital -update 1 -geom 248x38-450-0
+Exec xclock -bg black -fg lime -digital -update 1 -geom 248x38-0-0
 
 ###############################################################################
 # TWSs and Screens
@@ -47,15 +47,11 @@ AddToMenu OtherScreensMenu
 
 AddToMenu TwsMenu
 +    "Shells"        	 Title 
-+    "Normal"            Exec xterm +sb -geom 425x104+0+0 -en utf-8
++    "Full"              Exec xterm +sb -geom 425x104+0+0 -en utf-8
++    "Normal"            Exec xterm +sb -geom 210x50 -en utf-8
 +    "Small"             Exec xterm +sb -geom 140x50 -en utf-8
 +    "Large Font"        Exec xterm -font *-fixed-*-*-*-20-* -geom 253x68+0+0 -en utf-8
-+    "Normal ->"         Exec xterm +sb -geom 425x104+2580+0 -en utf-8
-
-#+    "Red"               Exec xterm +sb -geom 150x50 -en utf-8 -cr White -fg White -bg Red4
-#+    "Blue"              Exec xterm +sb -geom 150x50 -en utf-8 -cr White -fg White -bg SteelBlue4
-#+    "Green"             Exec xterm +sb -geom 150x50 -en utf-8 -cr White -fg White -bg DarkSeaGreen4
-#+    "Honeydew"          Exec xterm +sb -geom 150x50 -en utf-8 -cr HoneyDew2 -fg DarkRed -bg NavyBlue
++    "Full ->"           Exec xterm +sb -geom 425x104+2580+0 -en utf-8
 
 ###############################################################################
 # Quick Tools
