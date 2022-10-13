@@ -17,7 +17,7 @@ alias cpmr='ctrl_procman -me -read'
 alias cpr='ctrl_procman -read'
 alias ssh='ssh -X'
 alias c='clear'
-alias t='tmux'
+alias t='tmux; clear'
 
 # Other useful support aliases
 alias pf='/home/svora/scripts/procflatAdj'
@@ -43,3 +43,4 @@ alias gcmp='git checkout master && git pull'
 # SVORA stuff
 alias grepcsv='cd /home/svora/nodes/makoCode; /srg/pro/release/current/scr/grepc -node /home/svora/nodes/makoCode'
 alias riah='/home/svora/scripts/run_in_all_hosts.sh'
+alias cdc='cd /home/svora/dotfiles'
