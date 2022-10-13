@@ -6,6 +6,8 @@
 alias hist='cat /home/svora/bash/.bash_history | grep -i'
 alias vi='vim'
 alias grep='grep --color=auto'
+alias lessg='less +G'
+alias lessf='less +F'
 
 # Vi procMan files
 alias virt='vim $RELEASE/data/procMan.virt'
