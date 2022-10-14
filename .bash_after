@@ -8,5 +8,5 @@ source /home/svora/dotfiles/.bash_central
 
 # To enable tmux to start up when an xterm is launched with tmux_flag=true passed to it (as in my .fvwm_after)
 if [[ -n $tmux_flag ]]; then
-	tmux
+	tmux_flag= tmux 
 fi
