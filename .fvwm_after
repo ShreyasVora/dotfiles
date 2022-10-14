@@ -47,11 +47,11 @@ AddToMenu OtherScreensMenu
 
 AddToMenu TwsMenu
 +    "Shells"        	 Title 
-+    "Full"              Exec xterm +sb -geom 425x104+0+0 -en utf-8
++    "Full"              Exec tmux_flag=true xterm +sb -geom 425x104+0+0 -en utf-8
 +    "Normal"            Exec xterm +sb -geom 210x50+1282+700 -en utf-8
 +    "Small"             Exec xterm +sb -geom 140x36+1282+700 -en utf-8
-+    "Large Font"        Exec xterm +sb -geom 283x75+0+0 -en utf-8
-+    "Full ->"           Exec xterm +sb -geom 425x104+2580+0 -en utf-8
++    "Large Font"        Exec tmux_flag=true xterm +sb -geom 283x75+0+0 -en utf-8
++    "Full ->"           Exec tmux_flag=true xterm +sb -geom 425x104+2580+0 -en utf-8
 
 ###############################################################################
 # Quick Tools
