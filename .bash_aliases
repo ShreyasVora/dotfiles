@@ -3,7 +3,7 @@
 #########################################
 
 # Basic bash aliases
-alias hist='cat /home/svora/bash/.bash_history | grep -i'
+alias hist='cat /home/svora/dotfiles/.bash_history | grep -i'
 alias vi='vim'
 alias grep='grep --color=auto'
 alias lessg='less +G'
