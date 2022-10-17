@@ -2,7 +2,6 @@
 read .fvwm_before
 
 # A few clocks scattered round
-Exec pkill xclock
 Exec xclock -bg black -fg lime -digital -update 1 -geom 248x38-2312-0
 Exec xclock -bg black -fg lime -digital -update 1 -geom 248x38-4872-0
 Exec xclock -bg black -fg lime -digital -update 1 -geom 248x38-2560-0
@@ -69,6 +68,7 @@ AddToMenu TwsMenu
 AddToMenu ToolsMenu
 +   "Clear screenshots"         Exec rm -f /home/svora/images/screenshot.*.png
 +   "Kill ssh procs"			Exec kill $(ps auwwx | grep ssh | grep hdb | tr -s ' ' | cut -d' ' -f2)
++   "Kill clocks"               Exec pkill xclock
 +   "Poke Henry"                Exec DISPLAY=uk01dw735:0.0; notify-send "oi"
 
 ###############################################################################
