@@ -21,7 +21,7 @@ DestroyModuleConfig FvwmButtons: *
 
 #Exec xsetroot -fg \#888050 -bg \#fed -bitmap $RELEASE/data/icons/grainy.xbm
 
-Style "*" FocusFollowsMouse  
+# Style "*" FocusFollowsMouse  
 # The alternative is ClickToFocus
 
 Module FvwmAuto 600
