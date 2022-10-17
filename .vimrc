@@ -60,3 +60,9 @@ if &term =~ '256color'
 endif
 
 noremap! <C-?> <C-h>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+noremap <F7> gT
+noremap <F8> gt
