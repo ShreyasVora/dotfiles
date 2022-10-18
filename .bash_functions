@@ -61,32 +61,6 @@ function glog() {
 	fi
 }
 
-function pf() {
-	# Script to add -g option to procman instead of having to `| grep`
-	# If -g is not provided, it behaves like normal procflat
-
-	keep_args=
-	while [[ $# -gt 0 ]]
-	do
-	    arg=$1
-	    case $arg in
-	        -g)
-	            shift
-	            str_grep="$1"
-	            ;;
-	        *)
-                keep_args+="$arg "
-	    esac
-	    shift
-	done
-	
-	if [[ -z $str_grep ]]; then
-	        procflat $keep_args
-	else
-	        procflat $keep_args | grep "$str_grep"
-	fi
-}
-
 # return list of log files that contain the given command in $1
 function proc() { 
 

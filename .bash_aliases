@@ -22,6 +22,7 @@ alias c='clear'
 alias t='tmux; clear'
 
 # Other useful support aliases
+alias pf='/home/svora/scripts/procflatAdj'
 alias procc='proc -cd'
 alias d='xauth list | grep `hostname` | tail -n 1 | sed "s/^/xauth add /g"; echo export DISPLAY=$DISPLAY'
 alias ltoday='ls -FlAtr *$(h2e -t)*'
