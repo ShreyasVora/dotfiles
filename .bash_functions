@@ -4,6 +4,44 @@
 # This includes small ones for faster cd-ing, as well as bigger ones such as proc or svr
 # ############################################
 
+echo """
+What functions do I have here?
+
+==== LOGS ====
+log - less a log file by either giving it a PID or the log file name, no matter which directory you're in
+log - grep from a log file in the same way as above
+roc - filter logs based on process and command line args and display them in nice table format
+
+==== HOSTS ====
+hwshosts    - cat the hwshosts file and search it
+globalhosts - similar to above
+
+==== NAVIGATION ====
+cdv      - cd /srg/pro/data/var and subdirs
+cde      - cd /srg/pro/data/etc and subdirs
+cda      - cd /srg/pro/data and subdirs
+cdr      - cd /srg/pro/release and subdirs
+cdev     - cd /srg/pro/data/etc/vt
+cd(e|v)o - cd to corresponding dir for options/derivatives on this given network
+cd(e|v)s - cd to corresponding dir for stocks on this given network
+central  - cd /srg/dev/release/prod-config/prod and subdirs
+
+==== ISSUES ====
+cdi - cd to specified issues dir
+mki - make specified issues dir
+lti - lt specified issues dir
+cpi - cp a file to a specified issues dir
+ 
+==== MISC ====
+loop_central   - loop through central config dirs and run commands in all
+svr            - script to comment out or uncomment processes in procman in big batches
+flip_links_me  - a way to run flip_links as pro with an alias of my own. Think it's broken though
+ms             - make script (copy from by bash_template script)
+crons          - list all user crons on this box, or a particular user's cron
+clean          - clean up current working directory of any file older than a day old. Useful for /var/core
+""" > /dev/null
+
+
 function llog() {
 	if [ -d /local/data/hosts/$SECOND/$HOST ]; then 
 		parent_dir=/local/data/hosts/$SECOND/$HOST
@@ -417,20 +455,6 @@ function flip_links_me()
     if ! [[ -z $check_networks ]]; then
         /srg/pro/data/support/tools/slack_alerts/send_comments_to_slack.sh
     fi
-}
-
-function cp_issues()
-{
-	# $1 should be the file to copy
-	# $2 should be the ticket number
-	
-	iss_dir=/srg/pro/data/var/issues/$2
-	if ! [[ -d $iss_dir ]]; then
-		mkdir $iss_dir
-		chmod 777 $iss_dir
-	fi
-	cp $1 $iss_dir
-	chmod 666 $iss_dir/$1
 }
 
 function ms()

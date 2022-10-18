@@ -23,8 +23,8 @@ alias t='tmux; clear'
 
 # Other useful support aliases
 alias pf='/home/svora/scripts/procflatAdj'
-alias procc='proc -cd'
-alias d='xauth list | grep `hostname` | tail -n 1 | sed "s/^/xauth add /g"; echo export DISPLAY=$DISPLAY'
+alias procc='proc -cd'  # My proc function does not cd by default
+alias d='xauth list | grep `hostname` | tail -n 1 | sed "s/^/xauth add /g"; echo export DISPLAY=$DISPLAY'  # To echo the information that would be needed to set display properly
 alias ltoday='ls -FlAtr *$(h2e -t)*'
 alias wai='/srg/pro/data/config/whereAmI'
 alias hivecheck='python3 /home/svora/support/tools/hive_check.py'
@@ -38,11 +38,13 @@ alias central_dist='supro /srg/pro/data/support/tools/support_central_config_dis
 alias gl='git lol --name-status -10'
 alias gc='git commit'
 alias ga='git add .'
+alias gr='git restore .'
+alias gu='git unstage .'
 alias gd='git diff'
 alias gds='git diff --staged'
 alias gcmp='git checkout master && git pull'
 
 # SVORA stuff
-alias grepcsv='cd /home/svora/nodes/makoCode; /srg/pro/release/current/scr/grepc -node /home/svora/nodes/makoCode'
-alias riah='/home/svora/scripts/run_in_all_hosts.sh'
-alias cd.='cd /home/svora/dotfiles'
+alias grepcsv='cd ~/nodes/makoCode; /srg/pro/release/current/scr/grepc -node ~/nodes/makoCode'
+alias riah='~/scripts/run_in_all_hosts.sh'
+alias cd.='cd ~/dotfiles'

@@ -1,4 +1,5 @@
 XTerm.vt100.backarrowKey: true
+! This is what enables copying to Remmina
 XTerm*selectToClipboard: true
 xterm*loginShell: true
 xterm*background:  #000000

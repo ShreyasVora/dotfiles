@@ -3,6 +3,15 @@
 # otherwise only work in prod
 #########################################################
 
+# Which functions do we have here?
+# - procflat
+# - vini
+# - vora
+# - vcomm
+# - vde
+# - varb
+# - vbas
+
 procflat(){
 
 # Incase this gets copied to a prod network lets make sure it only works here.
