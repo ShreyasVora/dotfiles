@@ -51,9 +51,7 @@ function llog() {
 	pid=$1
 	if [ -z $pid ]; then
 		echo PID not specified
-		exit 1
-	fi
-	if [ -f $parent_dir/*$pid ]; then
+	elif [ -f $parent_dir/*$pid ]; then
 		less $parent_dir/*$pid
 	else
 		echo No file found for PID $pid
@@ -90,9 +88,7 @@ function glog() {
 
 	if [ -z $pid ]; then
 		echo PID not specified
-		exit 1
-	fi
-	if [ -f $parent_dir/*$pid ]; then
+	elif [ -f $parent_dir/*$pid ]; then
 		grep $flag "$grep_str" $parent_dir/*$pid
 	else
 		echo No file found for PID $pid
