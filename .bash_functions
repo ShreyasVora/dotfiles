@@ -60,6 +60,8 @@ function llog() {
 
 function glog() {
 	flag=
+	pid=
+	grep_str=
 	while (( "$#" )); do
 		case "$1" in
 			-i)
