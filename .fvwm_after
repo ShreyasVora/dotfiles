@@ -34,7 +34,6 @@ AddToMenu TwsMenu
 AddToMenu OtherScreensMenu
 + "sim%mini-sim.png%"                Exec sim-tws 26th -geom +1140+300
 + "Chrome%mini-chrome.png%"          Exec chromium-browser --proxy-server=extproxy:3128 2> /dev/null 
-+ "Chrome (dw703)%mini-chrome.png%"  Exec ssh -X uk01dw703 chromium-browser --proxy-server=extproxy:3128 2> /dev/null 
 + "Firefox%mini-firefox.png%"        Exec firefox 2> /dev/null 
 + "Remmina%mini-windows10.png%"      Exec remmina 2> /dev/null
 + "PyCharm%mini-python.png%"         Exec /snap/pycharm-community/current/bin/pycharm.sh
