@@ -9,5 +9,10 @@ source /home/svora/dotfiles/.bash_central
 # To enable tmux to start up when an xterm is launched with tmux_flag=true passed to it (as in my .fvwm_after)
 if [[ -n $tmux_flag ]]; then
 	tmux_flag=  # Unset this flag so subsequent shells don't try and launch nested tmux sessions
-	tmux attach # Launch tmux
+	tmux ls 2> /dev/null
+	if [ $? = 1 ]; then
+		tmux
+	else
+		tmux attach # Launch tmux
+	fi
 fi
