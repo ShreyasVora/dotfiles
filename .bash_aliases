@@ -33,6 +33,7 @@ alias hivecheck='python3 /home/svora/support/tools/hive_check.py'
 alias build_port_checker='go build -o go_bin/ tools/go_projects/port_checker/port_checker.go'
 alias capacity_planning='python3 ~/support/tools/capacity_planning.py -config ~/support/tools/capacity_planning.json -network'
 alias central_dist='supro /srg/pro/data/support/tools/support_central_config_dist.sh -net'
+alias central_logs='lt ../../logs/$(pwd | rev | cut -d/ -f1 | rev)* | tail | sed "s:../../logs/::g"'
 
 # Git shortcuts
 alias gl='git lol --name-status -10'
