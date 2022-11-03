@@ -39,6 +39,7 @@ flip_links_me  - a way to run flip_links as pro with an alias of my own. Think i
 ms             - make script (copy from by bash_template script)
 crons          - list all user crons on this box, or a particular user's cron
 clean          - clean up current working directory of any file older than a day old. Useful for /var/core
+vwhich         - vi a file that isn't in pwd but is in path
 """ > /dev/null
 
 
@@ -512,4 +513,9 @@ crons ()
 clean ()
 {
 	~/scripts/housekeep.sh -delete -dir . -days 0
+}
+
+vwhich ()
+{
+	vim $(which $1)
 }
