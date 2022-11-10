@@ -10,7 +10,7 @@ What functions do I have here?
 ==== LOGS ====
 log - less a log file by either giving it a PID or the log file name, no matter which directory you're in
 log - grep from a log file in the same way as above
-roc - filter logs based on process and command line args and display them in nice table format
+proc - filter logs based on process and command line args and display them in nice table format
 
 ==== HOSTS ====
 hwshosts    - cat the hwshosts file and search it
@@ -25,6 +25,8 @@ cdev     - cd /srg/pro/data/etc/vt
 cd(e|v)o - cd to corresponding dir for options/derivatives on this given network
 cd(e|v)s - cd to corresponding dir for stocks on this given network
 central  - cd /srg/dev/release/prod-config/prod and subdirs
+gou      - goto -user ...
+gop      - goto -net . -p . -f .
 
 ==== ISSUES ====
 cdi - cd to specified issues dir
@@ -518,4 +520,33 @@ clean ()
 vwhich ()
 {
 	vim $(which $1)
+}
+
+gou()
+{
+	if [[ -z $1 ]]; then
+		echo Need to specify user as first arg and optionally d as second arg to sudo to them.
+	else
+		user=$1
+		flag=
+		if [[ $2 = d ]]; then
+			flag='-disp'
+		elif [[ -n $2 ]]; then
+			echo "WARNING: Unrecognised argument: $2"
+		fi
+		~/scripts/goto -user $user $flag
+	fi
+}
+
+gop()
+{
+	additional=
+	if [[ -n $1 ]] && [[ -n $2 ]]; then
+		if [[ -n $3 ]]; then
+			additional="-f $3"
+		fi
+		~/scripts/goto -net $1 -p $2 $additional
+	else
+		echo Need to provide at least two arguments for the network and the process. Optional third to filter.
+	fi
 }
