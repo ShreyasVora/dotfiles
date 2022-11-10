@@ -212,7 +212,7 @@ function cpi()
 	elif [[ -z $2 ]]; then
 		echo No issues dir to copy to specified
 	elif ! [[ -d /srg/pro/data/var/issues/$2 ]]; then
-		echo Issues dir does not exist. mki it first
+		echo "Issues dir ($2) does not exist. mki it first"
 	else
 		cp $1 /srg/pro/data/var/issues/$2
 	fi
