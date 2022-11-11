@@ -352,9 +352,10 @@ function svr(){
 
     file=/srg/pro/data/procMan.ini
     flag=
-    pre=#sv
+    pre=#svrcomment
     post=
     regexString='.*'
+	err=
 
     while [[ $# -gt 0 ]]; do
         case "$1" in
@@ -391,8 +392,34 @@ function svr(){
             flag=undo
             shift
             ;;
+		-help)
+			err='Usage:'
+			shift
+			;;
         esac
     done
+
+	if [[ -n $err ]]; then
+		echo $err
+		cat << EOF
+A function to primarily comment out commands in procMan for the purposes of bouncing. You can do other search and replaces, and you can also specify a different file.
+
+-p : process
+-s : string (to filter for in command) [default='.*']
+-f : file [default=/srg/pro/data/procMan.ini]
+-b : before string [default=#svrcomment]
+-a : after string
+-t : set mode to test (preview changes to file)
+-d : set mode to do (make changes to file)
+-u : set mode to undo (undo changes made in file)
+
+The search and replace works as follows:
+/^command = .*\$process.*\$string/\$before\1\$after/
+
+If you don't set a mode, then you're just in grep mode and it just searches.
+EOF
+	return
+	fi
 
     # Identifies which hosts are affected by any changes which will be made. Doesn't apply to undo types, as it won't show up in procflat here.
     affected_hosts=`procflat -p $proc -f $file | grep -E "$regexString" | cut -d' ' -f2 | sort -u | tr '\n' ' '`
