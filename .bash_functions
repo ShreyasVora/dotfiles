@@ -107,7 +107,16 @@ EOF
 	elif [ -f $parent_dir/*$pid.gz ]; then
 		zcat $parent_dir/*$pid.gz | grep -P "$sta" | grep -i -P "$cins" | grep -v -P "$excl" | less
 	else
-		echo No file found for PID $pid
+		new_pid=$(ps auwwx | grep $pid | grep -v '\bgrep\b' | awk '{print $2}')
+		if [[ $(echo "$new_pid" | wc -l) -gt 1 ]]; then
+			echo ERROR: Multiple PIDs found for search string $pid. Please restrict your search. PIDs found: $new_pid
+		elif [ -z $new_pid ]; then		
+			echo Is $pid a PID? If so, no log file found. Is it a search pattern? If so, process does not appear to be running at the moment.
+		elif [ -f $parent_dir/*$new_pid ]; then
+			cat $parent_dir/*$new_pid | grep -P "$sta" | grep -i -P "$cins" | grep -v -P "$excl" | less
+		else
+			echo "File not found for $pid. We found a unique PID for this search ($new_pid), but couldn't find a file for this process in $parent_dir"
+		fi
 	fi
 }
 
