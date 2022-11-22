@@ -8,8 +8,7 @@ echo """
 What functions do I have here?
 
 ==== LOGS ====
-log - less a log file by either giving it a PID or the log file name, no matter which directory you're in
-log - grep from a log file in the same way as above
+llog - less a log file by either giving it a PID or the log file name, no matter which directory you're in. Accepts gzipped files, and you can give it extra args to grep the log
 proc - filter logs based on process and command line args and display them in nice table format
 
 ==== HOSTS ====
@@ -52,49 +51,61 @@ function llog() {
 		parent_dir=$RUNTIME_DATA/data/hosts/$HOST
 	fi
 	pid=$1
-	if [ -z $pid ]; then
-		echo PID not specified
-	elif [ -f $parent_dir/*$pid ]; then
-		less $parent_dir/*$pid
-	else
-		echo No file found for PID $pid
-	fi
-}
-
-function glog() {
-	flag=
-	pid=
-	grep_str=
-	while (( "$#" )); do
+	sta=
+	cins=
+	excl=
+	err=
+	shift
+	while [[ $# -gt 0 ]]; do
 		case "$1" in
 			-i)
-				flag='-i'
 				shift
+				cins+="(?=.*$1)"
+				;;
+			-v)
+				shift
+				excl+="(?=.*$1)"
+				;;
+			-help)
+				err=true
 				;;
 			*)
-				if [[ -z $pid ]]; then 
-					pid=$1
-				elif [[ -z $grep_str ]]; then
-					grep_str=$1
-				else
-					echo "Unrecognised extra argument(s) $#"
-					exit 1
-				fi
-				shift
+				sta+="(?=.*$1)"
 				;;
 		esac
+		shift
 	done
 
-	if [ -d /local/data/hosts/$SECOND/$HOST ]; then 
-		parent_dir=/local/data/hosts/$SECOND/$HOST
-	else 
-		parent_dir=$RUNTIME_DATA/data/hosts/$HOST
+	if [[ -n $err ]]; then
+		cat << EOF
+Usage:  llog [ log name / PID ] [ grep args ]
+This function will grep a log file for whatever you give it, and will less the output.
+
+First argument is mandatory and must be either the log file or the PID. We search for if *\$1 exists, else if *\$1.gz exists.
+All additional args are optional.
+
+-i : case insensitive pattern search
+-v : exclude pattern from search
+*  : case sensitive pattern search
+EOF
+	fi
+	
+	if [[ -z $sta ]]; then
+		sta=".*"
+	fi
+	if [[ -z $cins ]]; then
+		cins=".*"
+	fi
+	if [[ -z $excl ]]; then
+		excl="asd1DS1D1851sf1sa118F7D181GF178S1F4S1FSF7hdfUYHDFSIUNDFYUuhfds45s1df4181815148df48sdf"
 	fi
 
 	if [ -z $pid ]; then
 		echo PID not specified
 	elif [ -f $parent_dir/*$pid ]; then
-		grep $flag "$grep_str" $parent_dir/*$pid
+		cat $parent_dir/*$pid | grep -P "$sta" | grep -i -P "$cins" | grep -v -P "$excl" | less
+	elif [ -f $parent_dir/*$pid.gz ]; then
+		zcat $parent_dir/*$pid.gz | grep -P "$sta" | grep -i -P "$cins" | grep -v -P "$excl" | less
 	else
 		echo No file found for PID $pid
 	fi
