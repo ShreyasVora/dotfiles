@@ -110,7 +110,7 @@ EOF
 		file=$parent_dir/*$pid.gz
 		zcat $file | grep -P "$sta" | grep -i -P "$cins" | grep -v -P "$excl" | less
 	else
-		new_pid=$(ps auwwx | awk '{$3=$4=$5=$6=$7=$8=""; print $0}' | grep $pid | awk "\$1\$2\$3\$4 !~ /$pid/" | grep -vE '\b(grep|awk)\b')
+		new_pid=$(ps auwwx | awk '$1 ~ /^pro$/ {$3=$4=$5=$6=$7=$8=""; print $0}' | grep $pid | awk "\$1\$2\$3\$4 !~ /$pid/" | grep -vE '\b(grep|awk)\b')
 		if [[ $(echo "$new_pid" | wc -l) -gt 1 ]]; then
 			echo -e "ERROR: Multiple PIDs found for search string $pid. Please restrict your search. PIDs found:\n$new_pid"
 		elif [ -z $new_pid ]; then		
