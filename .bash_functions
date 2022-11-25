@@ -55,6 +55,7 @@ function llog() {
 	cins=
 	excl=
 	err=
+	file=
 	shift
 	while [[ $# -gt 0 ]]; do
 		case "$1" in
@@ -103,20 +104,26 @@ EOF
 	if [ -z $pid ]; then
 		echo PID not specified
 	elif [ -f $parent_dir/*$pid ]; then
-		cat $parent_dir/*$pid | grep -P "$sta" | grep -i -P "$cins" | grep -v -P "$excl" | less
+		file=$parent_dir/*$pid
+		cat $file | grep -P "$sta" | grep -i -P "$cins" | grep -v -P "$excl" | less
 	elif [ -f $parent_dir/*$pid.gz ]; then
-		zcat $parent_dir/*$pid.gz | grep -P "$sta" | grep -i -P "$cins" | grep -v -P "$excl" | less
+		file=$parent_dir/*$pid.gz
+		zcat $file | grep -P "$sta" | grep -i -P "$cins" | grep -v -P "$excl" | less
 	else
-		new_pid=$(ps auwwx | grep $pid | grep -v '\bgrep\b' | awk '{$3=$4=$5=$6=$7=$8=""; print $0}')
+		new_pid=$(ps auwwx | awk '{$3=$4=$5=$6=$7=$8=""; print $0}' | grep $pid | awk "\$1\$2\$3\$4 !~ /$pid/" | grep -vE '\b(grep|awk)\b')
 		if [[ $(echo "$new_pid" | wc -l) -gt 1 ]]; then
 			echo -e "ERROR: Multiple PIDs found for search string $pid. Please restrict your search. PIDs found:\n$new_pid"
 		elif [ -z $new_pid ]; then		
 			echo "Is $pid a PID? If so, no log file found. Is it a search pattern? If so, process does not appear to be running at the moment."
 		elif [ -f $parent_dir/*$(echo $new_pid | awk '{print $2}') ]; then
-			cat $parent_dir/*$(echo $new_pid | awk '{print $2}') | grep -P "$sta" | grep -i -P "$cins" | grep -v -P "$excl" | less
+			file=$parent_dir/*$(echo $new_pid | awk '{print $2}')
+			cat $file | grep -P "$sta" | grep -i -P "$cins" | grep -v -P "$excl" | less
 		else
 			echo "File not found for $pid. We found a unique PID for this search ($new_pid), but couldn't find a file for this process in $parent_dir"
 		fi
+	fi
+	if [[ -n $file ]]; then
+		echo Reading $file.
 	fi
 }
 
