@@ -472,7 +472,7 @@ EOF
         echo Done !
         grep -E --color "$proc.*$regexString" $file
     elif [[ $flag = undo ]]; then
-        sed -i -E "s/#sv//g" $file
+        sed -i -E "s/$pre//g" $file
         grep -E --color "$proc.*$regexString" $file
     else
         echo 'Failed :('
