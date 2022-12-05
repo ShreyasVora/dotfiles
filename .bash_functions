@@ -103,6 +103,9 @@ EOF
 
 	if [ -z $pid ]; then
 		echo PID not specified
+	elif [ -f $parent_dir/*$pid ] && [[ "$pid" =~ .gz$ ]]; then
+		file=$parent_dir/*$pid
+		zcat $file | grep -P "$sta" | grep -i -P "$cins" | grep -v -P "$excl" | less
 	elif [ -f $parent_dir/*$pid ]; then
 		file=$parent_dir/*$pid
 		cat $file | grep -P "$sta" | grep -i -P "$cins" | grep -v -P "$excl" | less
