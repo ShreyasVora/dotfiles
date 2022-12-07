@@ -56,6 +56,7 @@ function llog() {
 	excl=
 	err=
 	file=
+	lessflg=
 	shift
 	while [[ $# -gt 0 ]]; do
 		case "$1" in
@@ -65,7 +66,16 @@ function llog() {
 				;;
 			-v)
 				shift
-				excl+="(?=.*$1)"
+				excl+="|$1"
+				;;
+			+F)
+				lessflg='+F'
+				;;
+			+G)
+				lessflg='+G'
+				;;
+			-d)
+				debug=true
 				;;
 			-help)
 				err=true
@@ -77,7 +87,7 @@ function llog() {
 		shift
 	done
 
-	if [[ -n $err ]]; then
+	if [[ -n $err ]] || [[ $pid = '-help' ]]; then
 		cat << EOF
 Usage:  llog [ log name / PID ] [ grep args ]
 This function will grep a log file for whatever you give it, and will less the output.
@@ -87,8 +97,12 @@ All additional args are optional.
 
 -i : case insensitive pattern search
 -v : exclude pattern from search
+-d : enable debug mode
++F : set +F less flag
++G : set +G less flag
 *  : case sensitive pattern search
 EOF
+	return
 	fi
 	
 	if [[ -z $sta ]]; then
@@ -99,28 +113,36 @@ EOF
 	fi
 	if [[ -z $excl ]]; then
 		excl="asd1DS1D1851sf1sa118F7D181GF178S1F4S1FSF7hdfUYHDFSIUNDFYUuhfds45s1df4181815148df48sdf"
+	else
+		excl=$(echo $excl | sed -e 's/^|/\(/g' -e 's/$/)/g')
 	fi
 
-	if [ -z $pid ]; then
+	if $debug; then
+		echo "File is $pid"
+		echo "Parent dir is $parent_dir"
+		echo "Searching for $sta, case insensitive $cins, and excluding $excl"
+	fi
+
+	if [[ -z $pid ]]; then
 		echo PID not specified
-	elif [ -f $parent_dir/*$pid ] && [[ "$pid" =~ .gz$ ]]; then
+	elif compgen -G "$parent_dir/*$pid" >/dev/null && [[ "$pid" =~ .gz$ ]]; then
 		file=$parent_dir/*$pid
-		zcat $file | grep -P "$sta" | grep -i -P "$cins" | grep -v -P "$excl" | less
-	elif [ -f $parent_dir/*$pid ]; then
+		zcat $file | grep -P "$sta" | grep -i -P "$cins" | grep -v -E "$excl" | less $lessflg
+	elif compgen -G "$parent_dir/*$pid" >/dev/null; then
 		file=$parent_dir/*$pid
-		cat $file | grep -P "$sta" | grep -i -P "$cins" | grep -v -P "$excl" | less
-	elif [ -f $parent_dir/*$pid.gz ]; then
+		cat $file | grep -P "$sta" | grep -i -P "$cins" | grep -v -E "$excl" | less $lessflg
+	elif compgen -G "$parent_dir/*$pid.gz" >/dev/null; then
 		file=$parent_dir/*$pid.gz
-		zcat $file | grep -P "$sta" | grep -i -P "$cins" | grep -v -P "$excl" | less
+		zcat $file | grep -P "$sta" | grep -i -P "$cins" | grep -v -E "$excl" | less $lessflg
 	else
-		new_pid=$(ps auwwx | awk '$1 ~ /^pro$/ {$3=$4=$5=$6=$7=$8=""; print $0}' | grep $pid | awk "\$1\$2\$3\$4 !~ /$pid/" | grep -vE '\b(grep|awk)\b')
+		new_pid=$(ps auwwx | awk '$1 ~ /^pro$/ {$3=$4=$5=$6=$7=$8=""; print $0}' | grep $pid | awk "\$1\$2\$3\$4 "'!'"~ /$pid/" | grep -vE '\b(grep|awk)\b')
 		if [[ $(echo "$new_pid" | wc -l) -gt 1 ]]; then
 			echo -e "ERROR: Multiple PIDs found for search string $pid. Please restrict your search. PIDs found:\n$new_pid"
-		elif [ -z $new_pid ]; then		
+		elif [[ -z $new_pid ]]; then		
 			echo "Is $pid a PID? If so, no log file found. Is it a search pattern? If so, process does not appear to be running at the moment."
-		elif [ -f $parent_dir/*$(echo $new_pid | awk '{print $2}') ]; then
+		elif compgen -G "$parent_dir/*$(echo $new_pid | awk '{print $2}')" >/dev/null; then
 			file=$parent_dir/*$(echo $new_pid | awk '{print $2}')
-			cat $file | grep -P "$sta" | grep -i -P "$cins" | grep -v -P "$excl" | less
+			cat $file | grep -P "$sta" | grep -i -P "$cins" | grep -v -E "$excl" | less $lessflg
 		else
 			echo "File not found for $pid. We found a unique PID for this search ($new_pid), but couldn't find a file for this process in $parent_dir"
 		fi
