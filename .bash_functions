@@ -57,6 +57,8 @@ function llog() {
 	err=
 	file=
 	lessflg=
+	debug=
+	mode=llog_cat
 	shift
 	while [[ $# -gt 0 ]]; do
 		case "$1" in
@@ -73,6 +75,9 @@ function llog() {
 				;;
 			+G)
 				lessflg='+G'
+				;;
+			-t)
+				mode=llog_tail
 				;;
 			-d)
 				debug=true
@@ -100,6 +105,7 @@ All additional args are optional.
 -d : enable debug mode
 +F : set +F less flag
 +G : set +G less flag
+-t : set mode to tail (rather than cat)
 *  : case sensitive pattern search
 EOF
 	return
@@ -117,23 +123,35 @@ EOF
 		excl=$(echo $excl | sed -e 's/^|/\(/g' -e 's/$/)/g')
 	fi
 
-	if $debug; then
-		echo "File is $pid"
-		echo "Parent dir is $parent_dir"
-		echo "Searching for $sta, case insensitive $cins, and excluding $excl"
-	fi
+	function llog_cat() {
+		if [[ $2 = z ]]; then
+			zcat $1 | grep -P "$sta" | grep -i -P "$cins" | grep -v -E "$excl" | less $lessflg
+		else
+			cat $1 | grep -P "$sta" | grep -i -P "$cins" | grep -v -E "$excl" | less $lessflg
+		fi
+	}
+	
+	function llog_tail() {
+		if [[ $2 = z ]]; then
+			echo ERROR: Tail method chosen for gzipped file.
+		else
+			tmpfile=/tmp/llog_tail.log
+			tail -fn 100000 $1 | grep --line-buffered -P "$sta" | grep --line-buffered -i -P "$cins" | grep --line-buffered -v -E "$excl" > $tmpfile &
+			sleep 0.2; less $lessflg $tmpfile; kill %; rm $tmpfile
+		fi
+	}
 
 	if [[ -z $pid ]]; then
 		echo PID not specified
 	elif compgen -G "$parent_dir/*$pid" >/dev/null && [[ "$pid" =~ .gz$ ]]; then
 		file=$parent_dir/*$pid
-		zcat $file | grep -P "$sta" | grep -i -P "$cins" | grep -v -E "$excl" | less $lessflg
+		$mode $file z
 	elif compgen -G "$parent_dir/*$pid" >/dev/null; then
 		file=$parent_dir/*$pid
-		cat $file | grep -P "$sta" | grep -i -P "$cins" | grep -v -E "$excl" | less $lessflg
+		$mode $file
 	elif compgen -G "$parent_dir/*$pid.gz" >/dev/null; then
 		file=$parent_dir/*$pid.gz
-		zcat $file | grep -P "$sta" | grep -i -P "$cins" | grep -v -E "$excl" | less $lessflg
+		$mode $file z
 	else
 		new_pid=$(ps auwwx | awk '$1 ~ /^pro$/ {$3=$4=$5=$6=$7=$8=""; print $0}' | grep $pid | awk "\$1\$2\$3\$4 "'!'"~ /$pid/" | grep -vE '\b(grep|awk)\b')
 		if [[ $(echo "$new_pid" | wc -l) -gt 1 ]]; then
@@ -142,10 +160,16 @@ EOF
 			echo "Is $pid a PID? If so, no log file found. Is it a search pattern? If so, process does not appear to be running at the moment."
 		elif compgen -G "$parent_dir/*$(echo $new_pid | awk '{print $2}')" >/dev/null; then
 			file=$parent_dir/*$(echo $new_pid | awk '{print $2}')
-			cat $file | grep -P "$sta" | grep -i -P "$cins" | grep -v -E "$excl" | less $lessflg
+			$mode $file
 		else
 			echo "File not found for $pid. We found a unique PID for this search ($new_pid), but couldn't find a file for this process in $parent_dir"
 		fi
+	fi
+
+	if $debug; then
+		echo "File is $pid, view mode is $mode"
+		echo "Parent dir is $parent_dir"
+		echo "Searching for $sta, case insensitive $cins, and excluding $excl"
 	fi
 	if [[ -n $file ]]; then
 		echo Reading $file.
