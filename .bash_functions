@@ -166,7 +166,7 @@ EOF
 		fi
 	fi
 
-	if $debug; then
+	if [[ -n $debug ]]; then
 		echo "File is $pid, view mode is $mode"
 		echo "Parent dir is $parent_dir"
 		echo "Searching for $sta, case insensitive $cins, and excluding $excl"
