@@ -3,12 +3,64 @@
 #################################################################
 
 function __setprompt {
-    if [[ $DOMAIN = 'dev-lon' ]]; then x=1; else x=0; fi
-    local YELLOW="\033[$x;33m"
-    local MAGENTA="\033[$x;35m"
-    local GREEN="\033[$x;32m"
+    case $DOMAIN in
+		'dev-lon')
+			bg=5
+			fg=16
+			;;
+		'pro-arb')
+			bg=216
+			fg=16
+			;;
+		'pro-de')
+			bg=129
+			fg=15
+			;;
+		'pro-bas')
+			bg=33
+			fg=15
+			;;
+		'pro-ita')
+			bg=9
+			fg=15
+			;;
+		'pro-comm')
+			bg=101
+			fg=16
+			;;
+		'pro-nord')
+			bg=123
+			fg=16
+			;;
+		'pro-globex')
+			bg=94
+			fg=15
+			;;
+		'pro-can')
+			bg=208
+			fg=16
+			;;
+		'pro-brz')
+			bg=2
+			fg=16
+			;;
+		'pro-syd')
+			bg=44
+			fg=16
+			;;
+		'pro-kr-nhf')
+			bg=106
+			fg=16
+			;;
+		*)
+			bg=0
+			fg=15
+			;;
+	esac
+    local YELLOW="\033[1;38;5;3m"
+    local DIR_COLOUR="\033[1;48;5;$bg;38;5;${fg}m"
+    local GREEN="\033[1;38;5;2m"
     local NOCOLOR="\033[m"
-    local BLACK="\033[0;30m"
     
     #use '\! ' to add the number of commands in bash_history to the front of the cmd prompt
     
@@ -16,6 +68,6 @@ function __setprompt {
     if [[ $TZ != 'GB' ]]; then
         PS1+="[$(TZ=GB date +%H:%M)]"
     fi
-    PS1+=" \[$MAGENTA\]$PROMPT$HOST:${PWD#"${PWD%/*/*}/"} \[$GREEN\]$(prompt_git_branch)\[$NOCOLOR\]% "
+    PS1+=" \[$DIR_COLOUR\]$PROMPT$HOST:${PWD#"${PWD%/*/*}/"}\[$NOCOLOR\] \[$GREEN\]$(prompt_git_branch)\[$NOCOLOR\]% "
 }
 export PROMPT_COMMAND="history -a; __setprompt"
