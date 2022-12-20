@@ -5,8 +5,8 @@
 function __setprompt {
     case $DOMAIN in
 		'dev-lon')
-			bg=5
-			fg=16
+			bg=0
+			fg=27
 			;;
 		'pro-arb')
 			bg=216
@@ -58,7 +58,11 @@ function __setprompt {
 			;;
 	esac
     local YELLOW="\033[1;38;5;3m"
-    local DIR_COLOUR="\033[1;48;5;$bg;38;5;${fg}m"
+	if [[ $bg = 0 ]]; then
+		local DIR_COLOUR="\033[1;38;5;${fg}m"
+	else
+		local DIR_COLOUR="\033[1;48;5;$bg;38;5;${fg}m"
+	fi
     local GREEN="\033[1;38;5;2m"
     local NOCOLOR="\033[m"
     
