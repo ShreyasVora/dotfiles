@@ -186,6 +186,7 @@ function proc() {
     width=100
     tofind='command'
 	cd_flag=
+	proc=
         
     flag=0 #flag for first match to print table header. if no data found flag no match
     while (( "$#" )); do 
