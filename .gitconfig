@@ -14,5 +14,6 @@
 	directory = /export/srg/pro/data
 	directory = /srg/pro/data
 	directory = /export/srg/pro/data/support
+	directory = /srg/pro/data/support
 [advice]
 	addEmptyPathspec = false
