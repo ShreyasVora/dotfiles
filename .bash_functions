@@ -209,7 +209,7 @@ function proc() {
     proc="${proc:=vtServer}"
     if [ -d /local/data/hosts/$SECOND/$HOST ]; then cd /local/data/hosts/$SECOND/$HOST; else cd $RUNTIME_DATA/data/hosts/$HOST; fi
     # $1 command to find
-    for line in $(ls -1tr $proc* ); do
+    for line in $(ls -1tr $proc* | grep -vE 'evtdump'); do
         if [[ `( head -7 $line | zgrep  -m 1 -i "$tofind"  2> /dev/null )`  ]]; then # is the algo found in command? supress errors
 
             if [[ $flag ==  "0" ]]; then
