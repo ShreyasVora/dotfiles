@@ -35,7 +35,7 @@ AddToMenu OtherScreensMenu
 + "sim%mini-sim.png%"                Exec sim-tws 26th -geom +1140+300
 + "Chrome%mini-chrome.png%"          Exec chromium-browser --proxy-server=extproxy:3128 2> /dev/null 
 + "Firefox%mini-firefox.png%"        Exec firefox 2> /dev/null 
-+ "Remmina%mini-windows10.png%"      Exec /usr/bin/remmina 2> /dev/null
++ "Windows%mini-windows10.png%"      Exec /usr/bin/remmina 2> /dev/null
 + "PyCharm%mini-python.png%"         Exec /snap/pycharm-community/current/bin/pycharm.sh
 + "sqlDeveloper%mini-sql-file.png%"	 Exec /oracle_client/product/11.2.0/sqldeveloper/sqldeveloper.sh
 + "PR Check"     	 	 	 	 	 Exec /home/svora/support/tools/load_pnl.sh -net arb,bas,nord,de,com,globex,ita -q
@@ -46,11 +46,11 @@ AddToMenu OtherScreensMenu
 
 AddToMenu TwsMenu
 + "Shells"        	 Title 
-+ "Tmux attach"         Exec tmux_flag=attach xterm +sb -geom 283x75+0+0 -en utf-8
-+ "Tmux detached"       Exec tmux_flag=launch xterm +sb -geom 140x36+1282+700 -en utf-8
++ "Shell Join"          Exec tmux_flag=attach xterm +sb -geom 283x75+0+0 -en utf-8
++ "Shell New"           Exec tmux_flag=launch xterm +sb -geom 140x36+1282+700 -en utf-8
 #+ "Small Tmux"          Exec tmux_flag=attach xterm +sb -geom 425x104+0+0 -en utf-8
 #+ "Bash default"        Exec xterm +sb -geom 210x50+1282+700 -en utf-8
-+ "Tmux ->"             Exec tmux_flag=launch xterm +sb -geom 283x75+2580+0 -en utf-8
++ "Shell ->"            Exec tmux_flag=launch xterm +sb -geom 283x75+2580+0 -en utf-8
 
 ###############################################################################
 # Quick Tools
