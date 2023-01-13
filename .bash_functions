@@ -293,9 +293,9 @@ function cpi()
 	elif ! [[ -d /srg/pro/data/var/issues/$2 ]]; then
 		echo "Issues dir ($2) does not exist. mki it first"
 	elif ! [[ -f $1 ]]; then
-		cp /local/data/hosts/$HOST/*$1 /srg/pro/data/var/issues/$2
+		rsync -az /local/data/hosts/$HOST/*$1 /srg/pro/data/var/issues/$2
 	else
-		cp $1 /srg/pro/data/var/issues/$2
+		rsync -az $1 /srg/pro/data/var/issues/$2
 	fi
 }
 
