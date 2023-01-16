@@ -56,4 +56,5 @@ alias gcmp='git checkout master && git pull'
 # SVORA stuff
 alias grepcsv='cd ~/nodes/makoCode; /srg/pro/release/current/scr/grepc -node ~/nodes/makoCode'
 alias riah='~/scripts/run_in_all_hosts.sh'
+alias riahp='~/scripts/run_in_all_hosts.sh -prod'
 alias cd.='cd ~/dotfiles'
