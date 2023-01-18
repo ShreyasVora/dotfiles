@@ -5,7 +5,7 @@ set nocompatible
 filetype indent plugin on
 
 syntax on
-colorscheme pablo
+colorscheme koehler
 set t_md=
 
 " case insensitive search
