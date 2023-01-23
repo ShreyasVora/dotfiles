@@ -5,8 +5,10 @@
 # Add some important directories to my path
 export PATH=$PATH:/home/svora/scripts/alias_scripts:/home/svora/scripts:/home/svora/support/tools:/home/svora/support/tools/serial_killers
 [[ "$DOMAIN" = "dev-lon" ]] && export CDPATH=$CDPATH:/srg/pro:/srg/pro/data
+
 export NO_XCONSOLE=true
 export EDITOR=vim
+export LESS=WS${LESS/e/}#10
 
 # History controls - this is how all commands in my bash history are stored so I can easily go back and see what I ran in the past
 # HISTFILESIZE is the max size of the HISTFILE. After this point, it deletes older records in favour of new ones

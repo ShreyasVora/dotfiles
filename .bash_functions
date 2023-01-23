@@ -25,6 +25,7 @@ cd(e|v)o - cd to corresponding dir for options/derivatives on this given network
 cd(e|v)s - cd to corresponding dir for stocks on this given network
 central  - cd /srg/dev/release/prod-config/prod and subdirs
 gou      - goto -user ...
+gout     - same as gou, but with tmux pane split
 gop      - goto -net . -p . -f .
 
 ==== ISSUES ====
@@ -125,9 +126,9 @@ EOF
 
 	function llog_cat() {
 		if [[ $2 = z ]]; then
-			zcat $1 | grep -P "$sta" | grep -i -P "$cins" | grep -v -E "$excl" | less $lessflg
+			zcat $1 | grep -P "$sta" | grep -i -P "$cins" | grep -v -E "$excl" | less -f $lessflg
 		else
-			cat $1 | grep -P "$sta" | grep -i -P "$cins" | grep -v -E "$excl" | less $lessflg
+			cat $1 | grep -P "$sta" | grep -i -P "$cins" | grep -v -E "$excl" | less -f $lessflg
 		fi
 	}
 	
@@ -137,7 +138,7 @@ EOF
 		else
 			tmpfile=/tmp/llog_tail.log
 			tail -fn 100000 $1 | grep --line-buffered -P "$sta" | grep --line-buffered -i -P "$cins" | grep --line-buffered -v -E "$excl" > $tmpfile &
-			sleep 0.2; less $lessflg $tmpfile; kill %; rm $tmpfile; wait $! 2>/dev/null
+			sleep 0.2; less -f $lessflg $tmpfile; kill %; rm $tmpfile; wait $! 2>/dev/null
 		fi
 	}
 
@@ -628,6 +629,12 @@ vwhich ()
 	vim $(which $1)
 }
 
+tmux-split-cmd() 
+{ 
+	tmux split-window -dh -t $TMUX_PANE "bash --rcfile <(echo '. ~/.bashrc;$*')" 
+	tmux select-pane -R -t $TMUX_PANE
+}
+
 gou()
 {
 	if [[ -z $1 ]]; then
@@ -641,6 +648,22 @@ gou()
 			echo "WARNING: Unrecognised argument: $2"
 		fi
 		~/scripts/goto -user $user $flag
+	fi
+}
+
+gout()
+{
+	if [[ -z $1 ]]; then
+		echo Need to specify user as first arg and optionally d as second arg to sudo to them.
+	else
+		user=$1
+		flag=
+		if [[ $2 = d ]]; then
+			flag='-disp'
+		elif [[ -n $2 ]]; then
+			echo "WARNING: Unrecognised argument: $2"
+		fi
+		tmux-split-cmd "~/scripts/goto -user $user $flag"
 	fi
 }
 
