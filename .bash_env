@@ -17,6 +17,6 @@ export LESS=WS${LESS/e/}#10
 export HISTFILE="$HOME/dotfiles/.bash_history"
 export HISTFILESIZE=100000
 export HISTSIZE=1000
-export HISTIGNORE=lt:ls:cd:lo:exit:dset:pwd:hi:b:history:gs:gl
+export HISTIGNORE=lt:ls:cd:lo:exit:pwd:hi:b:history:gs:gl:c
 export HISTCONTROL=ignoreboth
 export TERM='xterm-256color'
