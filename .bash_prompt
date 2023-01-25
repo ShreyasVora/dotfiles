@@ -57,7 +57,7 @@ function __setprompt {
 			fg=15
 			;;
 	esac
-    local YELLOW="\033[1;38;5;3m"
+    local TIME="\033[1;38;5;8m"
 	if [[ $bg = 0 ]]; then
 		local DIR_COLOUR="\033[1;38;5;${fg}m"
 	else
@@ -68,7 +68,7 @@ function __setprompt {
     
     #use '\! ' to add the number of commands in bash_history to the front of the cmd prompt
     
-    PS1="\[$YELLOW\]$(date +%H:%M:%S)"
+    PS1="\[$TIME\]$(date +%H:%M:%S)"
     if [[ $TZ != 'GB' ]]; then
         PS1+="[$(TZ=GB date +%H:%M)]"
     fi
