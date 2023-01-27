@@ -654,16 +654,11 @@ gou()
 gout()
 {
 	if [[ -z $1 ]]; then
-		echo Need to specify user as first arg and optionally d as second arg to sudo to them.
+		echo Need to specify user.
 	else
 		user=$1
-		flag=
-		if [[ $2 = d ]]; then
-			flag='-disp'
-		elif [[ -n $2 ]]; then
-			echo "WARNING: Unrecognised argument: $2"
-		fi
-		tmux-split-cmd "~/scripts/goto -user $user $flag"
+		tmux-split-cmd "~/scripts/goto -user $user -disp"
+		~/scripts/goto -user $user
 	fi
 }
 
