@@ -27,6 +27,7 @@ central  - cd /srg/dev/release/prod-config/prod and subdirs
 gou      - goto -user ...
 gout     - same as gou, but with tmux pane split
 gop      - goto -net . -p . -f .
+tgb      - tmux go to box. ssh's to the current window name
 
 ==== ISSUES ====
 cdi - cd to specified issues dir
@@ -672,5 +673,17 @@ gop()
 		~/scripts/goto -net $1 -p $2 $additional
 	else
 		echo Need to provide at least two arguments for the network and the process. Optional third to filter.
+	fi
+}
+
+tgb()
+{
+	box=$(tmux display-message -p '#W')
+	if [[ -z $box ]]; then
+		echo "tmux window has no name, so no box to go to."
+	elif ! grep -q "^$box:" /admin/var/sysid/globalhosts; then
+		echo "$box not found in globalhosts file"
+	else
+		ssh $box
 	fi
 }
