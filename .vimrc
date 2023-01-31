@@ -10,10 +10,12 @@ colorscheme koehler
 set background=dark
 highlight Search ctermbg=blue
 
+" set cursorline and columns, add mapping to toggle on/off
 set cursorline
 set cursorcolumn
-highlight CursorLine ctermbg=17
-highlight CursorColumn ctermbg=17
+highlight CursorLine cterm=bold ctermbg=234
+highlight CursorColumn cterm=bold ctermbg=234
+nnoremap H :set cursorline! cursorcolumn!<CR>
 
 " think this is required to help vim work in tmux
 set t_md=
@@ -59,6 +61,11 @@ set incsearch
 if maparg('<C-L>', 'n') ==# ''
   nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 endif
+
+" Add ]n amd [n binds to switch between matches from :vimgrep/pattern/ %,
+" :copen
+nnoremap <silent> ]n :cnext<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+nnoremap <silent> [n :cprevious<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 
 " show matching bracket
 set showmatch
