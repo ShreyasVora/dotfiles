@@ -630,12 +630,6 @@ vwhich ()
 	vim $(which $1)
 }
 
-tmux-split-cmd() 
-{ 
-	tmux split-window -dh -t $TMUX_PANE "bash --rcfile <(echo '. ~/.bashrc;$*')" 
-	tmux select-pane -R -t $TMUX_PANE
-}
-
 gou()
 {
 	if [[ -z $1 ]]; then
@@ -654,6 +648,11 @@ gou()
 
 gout()
 {
+	tmux-split-cmd () { 
+		tmux split-window -dh -t $TMUX_PANE "bash --rcfile <(echo '. ~/.bashrc;$*')" 
+		tmux select-pane -R -t $TMUX_PANE
+	}
+
 	if [[ -z $1 ]]; then
 		echo Need to specify user.
 	else
