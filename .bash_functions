@@ -622,7 +622,46 @@ crons ()
 
 clean ()
 {
-	~/scripts/housekeep.sh -delete -dir . -days 0
+	days=0
+	force=
+	dryrun=
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+        -days)
+            days="$2"
+            shift 2
+            ;;
+        -f)
+            force='-force'
+            shift
+            ;;
+        -n)
+            dryrun='-n'
+            shift
+            ;;
+		-help)
+			err='Usage:'
+			shift
+			;;
+		*)
+			err="Unrecognised argument $1"
+			shift
+			;;
+        esac
+    done
+
+	if [[ -n $err ]]; then
+		echo $err
+		cat << EOF
+Clean a directory of old files.
+
+-days : INT : how many days old the files have to be to be deleted
+-f : FLAG : force delete (ie if not owned by me)
+-n : FLAG : dryrun
+EOF
+	return
+	fi
+	~/scripts/housekeep.sh -delete -dir . -days 0 $force $dryrun
 }
 
 vwhich ()
