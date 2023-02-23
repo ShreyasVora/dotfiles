@@ -52,7 +52,7 @@ alias gr='git restore .'
 alias gu='git unstage .'
 alias gd='git diff'
 alias gds='git diff --staged'
-alias gg='clear; git status; git diff; git add .; git status'
+alias gg='clear; git status; git --no-pager diff; git add .; git status'
 alias gcmp='git checkout master && git pull'
 
 # SVORA stuff
