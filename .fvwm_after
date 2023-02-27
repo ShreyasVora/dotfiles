@@ -46,11 +46,15 @@ AddToMenu OtherScreensMenu
 
 AddToMenu TwsMenu
 + "Shells"        	 Title 
-+ "Shell Join"          Exec tmux_flag=attach xterm +sb -geom 283x75+0+0 -en utf-8
-+ "Shell New"           Exec tmux_flag=launch xterm +sb -geom 140x36+1282+700 -en utf-8
-#+ "Small Tmux"          Exec tmux_flag=attach xterm +sb -geom 425x104+0+0 -en utf-8
-#+ "Bash default"        Exec xterm +sb -geom 210x50+1282+700 -en utf-8
-+ "Shell ->"            Exec tmux_flag=launch xterm +sb -geom 283x75+2580+0 -en utf-8
++ "Tmux Main"          Exec tmux_flag=attach xterm +sb -geom 283x75+0+0 -en utf-8
++ "Tmux temp"          Exec tmux_flag=launch xterm +sb -geom 140x36+1282+700 -en utf-8
++ "Other"	           Popup OtherShellsMenu
+
+AddToMenu OtherShellsMenu
++ "Small Font Tmux"    Exec tmux_flag=attach xterm +sb -geom 425x104+0+0 -en utf-8
++ "Bash default"       Exec xterm +sb -geom 210x50+1282+700 -en utf-8
++ "Tmux ->"            Exec tmux_flag=launch xterm +sb -geom 283x75+2580+0 -en utf-8
++ "Gnome"              Exec gnome-terminal
 
 ###############################################################################
 # Quick Tools
