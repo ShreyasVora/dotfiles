@@ -4,6 +4,15 @@ $include /etc/inputrc
 set completion-ignore-case On
 set colored-stats On
 set mark-symlinked-directories On
-#set show-all-if-ambiguous On
-set show-all-if-unmodified On
+set show-all-if-ambiguous On
+#set show-all-if-unmodified On
 set visible-stats On
+set menu-complete-display-prefix On
+
+# cycle through all possible matching files in dir
+TAB:menu-complete
+"\e[Z":menu-complete-backward
+
+# Cycle through history based on characters already typed on the line
+"\e[A":history-search-backward
+"\e[B":history-search-forward
