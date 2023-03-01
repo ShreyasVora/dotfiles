@@ -1,10 +1,15 @@
 $include /etc/inputrc
 
+# Run bind -l or -p or -v to view details about what can be set in inputrc
+
 # This line sets readline to display possible completions using different colors to indicate their file types. The colors are determined by the environmental variableset colored-stats On
 set completion-ignore-case On
-set colored-stats On
+# need to set LS_COLORS with dircolors before enabling color settings
+# set colored-stats On
+# set colored-completion-prefix On
 set mark-symlinked-directories On
-set show-all-if-ambiguous On
+#set show-all-if-ambiguous On
+set skip-completed-text On
 #set show-all-if-unmodified On
 set visible-stats On
 set menu-complete-display-prefix On
@@ -16,3 +21,9 @@ TAB:menu-complete
 # Cycle through history based on characters already typed on the line
 "\e[A":history-search-backward
 "\e[B":history-search-forward
+
+# Ctrl-Delete: delete next word
+"\e[3;5~": shell-kill-word
+
+# Ctrl-Backspace: delete previous word
+"\C-?": unix-word-rubout

@@ -10,6 +10,20 @@ export NO_XCONSOLE=true
 export EDITOR=vim
 export LESS=WS${LESS/e/}#10
 
+if [[ $(date +%a) = Mon ]]; then
+	export GREP_COLORS='ms=1;31'
+elif [[ $(date +%a) = Tue ]]; then
+	export GREP_COLORS='ms=1;32'
+elif [[ $(date +%a) = Wed ]]; then
+	export GREP_COLORS='ms=1;33'
+elif [[ $(date +%a) = Thur ]]; then
+	export GREP_COLORS='ms=1;34'
+elif [[ $(date +%a) = Fri ]]; then
+	export GREP_COLORS='ms=1;35'
+else 
+	export GREP_COLORS='ms=1;32'
+fi
+
 # History controls - this is how all commands in my bash history are stored so I can easily go back and see what I ran in the past
 # HISTFILESIZE is the max size of the HISTFILE. After this point, it deletes older records in favour of new ones
 # HISTSIZE is how many cached commands to keep in memory
