@@ -26,4 +26,4 @@ TAB:menu-complete
 "\e[3;5~": shell-kill-word
 
 # Ctrl-Backspace: delete previous word
-"\C-?": unix-word-rubout
+# Doesn't work "\C-?": unix-word-rubout
