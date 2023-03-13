@@ -98,3 +98,6 @@ noremap! <C-?> <C-h>
 noremap <F7> gT
 noremap <F8> gt
 
+"call plug#begin()
+"Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
+"call plug#end()
