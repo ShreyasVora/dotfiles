@@ -18,9 +18,9 @@ set menu-complete-display-prefix On
 TAB:menu-complete
 "\e[Z":menu-complete-backward
 
-# Cycle through history based on characters already typed on the line
-"\e[A":history-search-backward
-"\e[B":history-search-forward
+# Cycle through history based on characters already typed on the line (with ctrl+up/down arrows)
+"\e[1;5A":history-search-backward
+"\e[1;5B":history-search-forward
 
 # Ctrl-Delete: delete next word
 "\e[3;5~": shell-kill-word
