@@ -22,7 +22,6 @@ AddToMenu TwsMenu
 + "comm%mini-union-jack.png%"   Exec pro-tws com -geom +1140+300
 + "nord%mini-sweden-flag.png%"  Exec pro-tws nord -geom +1140+300 
 + ""							Nop
-+ "globex%mini-usa-flag.png%"   Exec pro-tws globex -geom +1140+300 
 + "can%mini-canada-flag.png%"   Exec pro-tws canxr -geom +1140+300
 + "brz%mini-brazil-flag.png%"   Exec pro-tws brzxr -geom +1140+300
 + ""							Nop
@@ -33,6 +32,7 @@ AddToMenu TwsMenu
 
 AddToMenu OtherScreensMenu
 + "sim%mini-sim.png%"                Exec sim-tws 26th -geom +1140+300
++ "Slack%mini-slack.png%"            Exec slack.sh 2>/dev/null
 + "Chrome%mini-chrome.png%"          Exec chromium-browser --proxy-server=extproxy:3128 2> /dev/null 
 + "Firefox%mini-firefox.png%"        Exec firefox 2> /dev/null 
 + "Windows%mini-windows10.png%"      Exec /usr/bin/remmina 2> /dev/null
