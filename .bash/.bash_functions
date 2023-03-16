@@ -43,6 +43,7 @@ ms             - make script (copy from by bash_template script)
 crons          - list all user crons on this box, or a particular user's cron
 clean          - clean up current working directory of any file older than a day old. Useful for /var/core
 vwhich         - vi a file that isn't in pwd but is in path
+svscst         - become pro and add /home/svora/scripts/strippedStackDump to tmux buffer
 """ > /dev/null
 
 
@@ -731,6 +732,12 @@ tgb()
 	elif ! grep -q "^$box:" /admin/var/sysid/globalhosts; then
 		echo "$box not found in globalhosts file"
 	else
-		ssh $box
+		ssh $box; lo
 	fi
+}
+
+svscst()
+{
+	ssh -X uk01dw708 'echo /home/svora/scripts/strippedStackDump | tmux loadb -' 2>/dev/null
+	sudo su - pro
 }
