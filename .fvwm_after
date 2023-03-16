@@ -47,6 +47,7 @@ AddToMenu OtherScreensMenu
 AddToMenu TwsMenu
 + "Shells"        	 Title 
 + "Tmux Main"     Exec tmux_flag=attach gnome-terminal --geometry 282x74+0+0
++ "Tmux SMain"    Exec tmux_flag=attach gnome-terminal --geometry 362x89+0+0
 + "Tmux temp"     Exec tmux_flag=launch gnome-terminal --geometry 141x37+1267+660
 + "Gnome"         Exec gnome-terminal --geometry 141x37+1267+660
 + "Other"	      Popup OtherShellsMenu
