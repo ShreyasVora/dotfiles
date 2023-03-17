@@ -46,17 +46,18 @@ AddToMenu OtherScreensMenu
 
 AddToMenu TwsMenu
 + "Shells"        	 Title 
-+ "Tmux Main"     Exec tmux_flag=attach gnome-terminal --geometry 282x75+0+0
-+ "Tmux SMain"    Exec tmux_flag=attach gnome-terminal --geometry 362x90+0+0
-+ "Tmux temp"     Exec tmux_flag=launch gnome-terminal --geometry 141x37+1267+660
-+ "Gnome"         Exec gnome-terminal --geometry 141x37+1267+660
++ "Tmux Main"     Exec gnome-terminal --profile large_font_fullscreen --geometry +0+0
++ "Tmux SMain"    Exec gnome-terminal --profile small_font_fullscreen --geometry +0+0
++ "Tmux 2nd"      Exec gnome-terminal --profile tmux_additional --geometry +400+450
++ "Tmux temp"     Exec gnome-terminal --profile tmux_temp --geometry +1267+660
++ "Gnome"         Exec gnome-terminal --geometry +1267+660
 + "Other"	      Popup OtherShellsMenu
 
 AddToMenu OtherShellsMenu
 + "Gnome"         Exec gnome-terminal --geometry 141x38+1267+660
 + "Terminator"    Exec terminator --geometry=1279x676+0+0
 + "xterm"         Exec xterm +sb -geom 141x36+1282+700 -en utf-8
-+ "Tmux ->"       Exec tmux_flag=attach gnome-terminal --geometry=282x75+2550+0
++ "Tmux ->"       Exec gnome-terminal --profile large_font_fullscreen --geometry +2550+0
 
 ###############################################################################
 # Quick Tools
