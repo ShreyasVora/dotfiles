@@ -103,6 +103,7 @@ AddToMenu RootMenu
 + "LogOff"       Popup Quit-Verify
 
 AddToMenu Module-Popup
++ "FvwmConsole"  Module FvwmConsole
 + "SourceFvwm"   Restart --dont-preserve-state --pass-args fvwm
 + "SourceXdefs"  Exec xrdb -load .Xdefaults
 
