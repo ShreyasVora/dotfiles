@@ -97,7 +97,7 @@ endif
 noremap! <C-?> <C-h>
 noremap <F7> gT
 noremap <F8> gt
-nnoremap <F9> :!%:p<CR>
+nnoremap <F9> :!clear && %:p<CR>
 
 "call plug#begin()
 "Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
