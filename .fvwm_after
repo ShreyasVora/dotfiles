@@ -46,8 +46,8 @@ AddToMenu OtherScreensMenu
 
 AddToMenu TwsMenu
 + "Shells"        	 Title 
-+ "Tmux Main"     Exec gnome-terminal --profile large_font_fullscreen --geometry +0+0
-+ "Tmux SMain"    Exec gnome-terminal --profile small_font_fullscreen --geometry +0+0
++ "Tmux Main"     Exec gnome-terminal --profile small_font_fullscreen --geometry +0+0
++ "Tmux LMain"    Exec gnome-terminal --profile large_font_fullscreen --geometry +0+0
 + "Tmux 2nd"      Exec gnome-terminal --profile tmux_additional --geometry +400+450
 + "Tmux temp"     Exec gnome-terminal --profile tmux_temp --geometry +1267+660
 + "Gnome"         Exec gnome-terminal --geometry +1267+660
@@ -76,7 +76,7 @@ AddToMenu ToolsMenu
 + "Clear screenshots"   Exec rm -f /home/svora/images/screenshot.*.png
 + "Kill ssh procs"  	Exec kill $(ps auwwx | grep ssh | grep hdb | tr -s ' ' | cut -d' ' -f2)
 + "Kill clocks"         Exec pkill xclock
-+ "Poke Henry"          Exec DISPLAY=uk01dw735:0.0; notify-send "oi"
+#+ "Poke Henry"          Exec DISPLAY=uk01dw735:0.0; notify-send "oi"
 
 ###############################################################################
 # Linux Settings / Config
