@@ -189,13 +189,13 @@ MenuStyle * MenuColorset 1
 # Navigation Buttons
 
 DestroyModuleConfig FvwmButtonsXLoad: *
-*FvwmButtonsXLoad: Geometry 1750x20+255-0
+*FvwmButtonsXLoad: Geometry 1740x20+255-0
 *FvwmButtonsXload: Font "xft:Sans:Bold:size=8:antialias=True"
 *FvwmButtonsXLoad: Colorset 1
 *FvwmButtonsXLoad: ActiveColorset 2
 *FvwmButtonsXLoad: PressColorset 7
 *FvwmButtonsXLoad: Rows 1
-*FvwmButtonsXLoad: Columns 20
+*FvwmButtonsXLoad: Columns 18
 *FvwmButtonsXLoad: (1x1+0+0, \
 	Title 'arb', \
 	Action(Mouse 1) 'Exec pro-tws arb -geom +1140+300', \
@@ -271,13 +271,12 @@ DestroyModuleConfig FvwmButtonsXLoad: *
 	Title 'ScShot', \
 	Action(Mouse 1) 'Exec import $(mktemp /home/svora/images/screenshot.$(date +'%Y%m%d.%H%M').XXX.png', \
 	Action(Mouse 3) 'Exec rm -f /home/svora/images/screenshot.*.png')
-# Gap
-*FvwmButtonsXLoad: (1x1+18+0, \
+*FvwmButtonsXLoad: (1x1+17+0, \
 	Title 'Lock', \
 	Action(Mouse 1) 'Exec xset s activate', \
 	Action(Mouse 3) 'Popup Quit-Verify')
 
-Module FvwmButtons FvwmButtonsXload
+#Module FvwmButtons FvwmButtonsXload
 Style "FvwmButtons" StaysOnTop
 
 ###############################################################################
@@ -323,3 +322,13 @@ Style "FvwmButtons" StaysOnTop
 
 #Style "FvwmIconMan" StaysOnTop
 
+DestroyModuleConfig FvwmButtonsXLoadPanel: *
+*FvwmButtonsXLoadPanel: Colorset 4
+*FvwmButtonsXLoadPanel: Geometry 20x20-550-0
+*FvwmButtonsXLoadPanel: Rows 1
+*FvwmButtonsXLoadPanel: Frame 1
+*FvwmButtonsXLoadPanel: Padding 0 0
+*FvwmButtonsXLoadPanel: (Panel(left, steps 20, delay 20, position top, smooth, indicator 10) \
+        "FvwmButtonsXLoad" 'Module FvwmButtons FvwmButtonsXLoad')
+
+Module FvwmButtons FvwmButtonsXloadPanel
