@@ -88,6 +88,7 @@ Key Alt_L A 64 Close
 
 Colorset 0  fg #ffffff, bg #003c3c
 Colorset 1  fg #000000, bg #dfa700
+Colorset 2  fg #ffffff, bg #3c0000
 MenuStyle * MenuColorset 0
 *FvwmButtons: Colorset 0
 *FvwmPager: Colorset '*' 0
@@ -103,54 +104,64 @@ Style "FvwmButtons" StaysOnTop
 # ==============================================================
 
 DestroyModuleConfig FvwmButtonsXLoad: *
-*FvwmButtonsXLoad: Geometry 1750x48+255-0
+*FvwmButtonsXLoad: Geometry 1750x20+255-0
 *FvwmButtonsXload: Font "xft:Sans:Bold:size=8:antialias=True"
 *FvwmButtonsXLoad: Colorset 0
+*FvwmButtonsXLoad: ActiveColorset 1
+*FvwmButtonsXLoad: PressColorset 2
 *FvwmButtonsXLoad: Rows 1
 *FvwmButtonsXLoad: Columns 20
 *FvwmButtonsXLoad: (1x1+0+0, \
         Title 'arb', \
         Action(Mouse 1) 'Exec pro-tws arb -geom +1140+300', \
+        Action(Mouse 2) 'Exec ssh_tunnel arb vtMonitor -geom +1140+0', \
         Action(Mouse 3) 'Exec gnome-terminal --geometry +1267+660 -- ssh bonnie')
 *FvwmButtonsXLoad: (1x1+1+0, \
         Title "comm", \
-        Action(Mouse 1) 'Exec pro-tws comm -geom +1140+300', \
+        Action(Mouse 1) 'Exec pro-tws com -geom +1140+300', \
+        Action(Mouse 2) 'Exec ssh_tunnel com vtMonitor -geom +1140+0', \
         Action(Mouse 3) 'Exec gnome-terminal --geometry +1267+660 -- ssh kelly')
 *FvwmButtonsXLoad: (1x1+2+0, \
         Title "de", \
         Action(Mouse 1) 'Exec pro-tws de -geom +1140+300', \
+        Action(Mouse 2) 'Exec ssh_tunnel de vtMonitor -geom +1140+0', \
         Action(Mouse 3) 'Exec gnome-terminal --geometry +1267+660 -- ssh rocky')
 *FvwmButtonsXLoad: (1x1+3+0, \
         Title "bas", \
         Action(Mouse 1) 'Exec pro-tws bas -geom +1140+300', \
+        Action(Mouse 2) 'Exec ssh_tunnel bas vtMonitor -geom +1140+0', \
         Action(Mouse 3) 'Exec gnome-terminal --geometry +1267+660 -- ssh vegas')
 *FvwmButtonsXLoad: (1x1+4+0, \
         Title "ita", \
         Action(Mouse 1) 'Exec pro-tws ita -geom +1140+300', \
+        Action(Mouse 2) 'Exec ssh_tunnel ita vtMonitor -geom +1140+0', \
         Action(Mouse 3) 'Exec gnome-terminal --geometry +1267+660 -- ssh ducati')
 *FvwmButtonsXLoad: (1x1+5+0, \
         Title 'nord', \
         Action(Mouse 1) 'Exec pro-tws nord -geom +1140+300', \
+        Action(Mouse 2) 'Exec ssh_tunnel nord vtMonitor -geom +1140+0', \
         Action(Mouse 3) 'Exec gnome-terminal --geometry +1267+660 -- ssh ikea')
 *FvwmButtonsXLoad: (1x1+6+0, \
         Title 'can', \
-        Action(Mouse 1) 'Exec pro-tws can -geom +1140+300', \
+        Action(Mouse 1) 'Exec pro-tws canxr -geom +1140+300', \
+        Action(Mouse 2) 'Exec ssh_tunnel canxr vtMonitor -geom +1140+0', \
         Action(Mouse 3) 'Exec gnome-terminal --geometry +1267+660 -- ssh jacques')
 *FvwmButtonsXLoad: (1x1+7+0, \
         Title 'brz', \
-        Action(Mouse 1) 'Exec pro-tws brz -geom +1140+300', \
+        Action(Mouse 1) 'Exec pro-tws brzxr -geom +1140+300', \
+        Action(Mouse 2) 'Exec ssh_tunnel brzxr vtMonitor -geom +1140+0', \
         Action(Mouse 3) 'Exec gnome-terminal --geometry +1267+660 -- ssh jaguar')
 *FvwmButtonsXLoad: (1x1+8+0, \
-        Title 'krx', \
+        Title 'kr-nhf', \
         Action(Mouse 1) 'Exec pro-tws kr-nhf -geom +1140+300', \
+        Action(Mouse 2) 'Exec ssh_tunnel kr-nhf vtMonitor -geom +1140+0', \
         Action(Mouse 3) 'Exec gnome-terminal --geometry +1267+660 -- ssh soju')
 *FvwmButtonsXLoad: (1x1+9+0, \
         Title 'syd', \
         Action(Mouse 1) 'Exec pro-tws syd -geom +1140+300', \
+        Action(Mouse 2) 'Exec ssh_tunnel syd vtMonitor -geom +1140+0', \
         Action(Mouse 3) 'Exec gnome-terminal --geometry +1267+660 -- ssh acdc')
-*FvwmButtonsXLoad: (1x1+10+0, \
-        Title '', \
-        Action(Mouse 1) 'Nop'
+# Gap
 *FvwmButtonsXLoad: (1x1+11+0, \
         Title 'Main', \
         Action(Mouse 1) 'Exec gnome-terminal --profile small_font_fullscreen --geometry +0+0', \
@@ -165,9 +176,7 @@ DestroyModuleConfig FvwmButtonsXLoad: *
         Action(Mouse 1) 'Exec /usr/bin/remmina 2> /dev/null', \
         Action(Mouse 2) 'Exec chromium-browser --proxy-server=extproxy:3128 2> /dev/null', \
         Action(Mouse 3) 'Exec slack.sh 2>/dev/null')
-*FvwmButtonsXLoad: (1x1+14+0, \
-        Title '', \
-        Action(Mouse 1) 'Nop'
+# Gap
 *FvwmButtonsXLoad: (1x1+15+0, \
         Title 'FVWM', \
         Action(Mouse 1) 'Restart --dont-preserve-state --pass-args fvwm', \
@@ -176,9 +185,7 @@ DestroyModuleConfig FvwmButtonsXLoad: *
         Title 'ScShot', \
         Action(Mouse 1) 'Exec import $(mktemp /home/svora/images/screenshot.$(date +'%Y%m%d.%H%M').XXX.png', \
         Action(Mouse 3) 'Exec rm -f /home/svora/images/screenshot.*.png')
-*FvwmButtonsXLoad: (1x1+17+0, \
-        Title '', \
-        Action(Mouse 1) 'Nop'
+# Gap
 *FvwmButtonsXLoad: (1x1+18+0, \
         Title 'Lock', \
         Action(Mouse 1) 'Exec xset s activate', \
