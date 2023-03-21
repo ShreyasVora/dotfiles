@@ -422,7 +422,11 @@ function cdvs()
 
 function central()
 {
-    cd /srg/dev/release/prod-config/prod/$1; pwd
+	if [[ $DOMAIN = "dev-lon" ]]; then
+		cd /srg/dev/release/prod-config/prod/$1; pwd
+	else
+		cd /srg/pro/data/$1; pwd
+	fi
 }
 
 function loop_central()
