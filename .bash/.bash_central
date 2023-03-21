@@ -11,6 +11,7 @@
 # - vde
 # - varb
 # - vbas
+# - vstr
 
 procflat(){
 
@@ -133,9 +134,23 @@ __central_vde () {
     fi
 }
 
+# -----------------------------------------------------------------------------
+# procMan.streamers
+__central_vstr () {
+    # Incase this gets copied to a prod network lets make sure it only works here.
+    if [[ "$DOMAIN" == "dev-lon" ]] && pwd | grep -q '/srg/dev/release/prod-config'; then
+        __pba_git_root=`git rev-parse --show-toplevel`
+
+        vi $__pba_git_root/procMan.streamers
+    else
+        vi $RELEASE/data/procMan.streamers
+	fi
+}
+
 alias vini='__central_vini'
 alias vora='__central_vora'
 alias varb='__central_varb'
 alias vcomm='__central_vcom'
 alias vbas='__central_vbas'
 alias vde='__central_vde'
+alias vstr='__central_vstr'
