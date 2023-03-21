@@ -107,7 +107,7 @@ PipeRead 'for i in /home/svora/.fvwm/colors/CdeColors/*.fvwm2rc; do \
 
 AddToMenu RootMenu
 + "Root Menu"    Title
-+ "CdeColorMenu" Popup CdeColorMenu
++ "Colours Menu" Popup CdeColorMenu
 + "Tools"        Popup ToolsMenu
 + "Settings"     Popup SettingsMenu
 + "Fvwm_modules" Popup Module-Popup
