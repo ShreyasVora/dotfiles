@@ -95,19 +95,19 @@ AddToMenu SettingsMenu
 
 DestroyMenu RootMenu
 
-DestroyMenu CdeColorMenu
-AddToMenu CdeColorMenu "Cde Colors" Title
+DestroyMenu CdeColorChangeMenu
+AddToMenu CdeColorChangeMenu "Cde Colors" Title
 PipeRead 'for i in /home/svora/.fvwm/colors/CdeColors/*.fvwm2rc; do \
-  echo "AddToMenu CdeColorMenu $(basename -s .fvwm2rc $i) Read $i"; done'
+  echo "AddToMenu CdeColorChangeMenu $(basename -s .fvwm2rc $i) Read $i"; done'
 
-DestroyMenu CdeColorSelectMenu
-AddToMenu CdeColorSelectMenu "Color Selection" Title
+DestroyMenu CdeColorSetMenu
+AddToMenu CdeColorSetMenu "Color Selection" Title
 PipeRead 'for i in /home/svora/.fvwm/colors/CdeColors/*.fvwm2rc; do \
-  echo "AddToMenu CdeColorSelectMenu $(basename -s .fvwm2rc $i) Exec ln -nfs $i /home/svora/.fvwm/colors/scheme.fvwm2rc"; done'
+  echo "AddToMenu CdeColorSetMenu $(basename -s .fvwm2rc $i) Exec ln -nfs $i /home/svora/.fvwm/colors/scheme.fvwm2rc"; done'
 
 AddToMenu RootMenu
 + "Root Menu"    Title
-+ "Colours Menu" Popup CdeColorMenu
++ "Colours Menu" Popup CdeColorSetMenu
 + "Tools"        Popup ToolsMenu
 + "Settings"     Popup SettingsMenu
 + "Fvwm_modules" Popup Module-Popup
@@ -265,7 +265,7 @@ DestroyModuleConfig FvwmButtonsXLoad: *
 *FvwmButtonsXLoad: (1x1+15+0, \
 	Title 'FVWM', \
 	Action(Mouse 1) 'Restart --dont-preserve-state --pass-args fvwm', \
-	Action(Mouse 2) 'Popup CdeColorSelectMenu', \
+	Action(Mouse 2) 'Popup CdeColorChangeMenu', \
 	Action(Mouse 3) 'Exec pkill xclock')
 *FvwmButtonsXLoad: (1x1+16+0, \
 	Title 'ScShot', \
