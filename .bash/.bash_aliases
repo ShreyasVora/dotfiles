@@ -38,7 +38,6 @@ alias wai='/srg/pro/data/config/whereAmI'
 
 # Support repo scripts
 alias capacity_planning='python3 ~/support/tools/capacity_planning.py -config ~/support/tools/capacity_planning.json -network'
-alias c='central'
 alias central-dist='supro /srg/pro/data/support/tools/support_central_config_dist.sh -net'
 alias central-logs='lt ../../logs/$(pwd | rev | cut -d/ -f1 | rev)* | tail | sed "s:../../logs/::g"'
 alias central-tests='cd /srg/dev/release/prod-config/tests'
