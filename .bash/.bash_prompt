@@ -1,6 +1,9 @@
 #################################################################
 # This file contains the config for my custom bash command prompt
 #################################################################
+#
+# Useful resource for this:
+# https://unix.stackexchange.com/questions/124407/what-color-codes-can-i-use-in-my-bash-ps1-prompt
 
 function __setprompt {
     case $DOMAIN in

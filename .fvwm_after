@@ -125,23 +125,27 @@ AddToMenu Module-Popup
 ######
 # 3: Colorsets
 #
-#   0 - Default
-#   1 - Inactive Windows
-#   3 - Inactive Windows Borders
-#   4 - Active Windows Borders
-#   5 - Menu - Inactive Item
-#   6 - Menu - Active Item
-#   7 - Menu - Grayed Item
-#  10+ Modules
+# 14 - arb
+# 15 - comm
+# 16 - de
+# 17 - bas
+# 18 - ita
+# 19 - nord
+# 20 - can 
+# 21 - brz
+# 22 - kr-nhf
+# 23 - syd
 ###########
-Colorset 0  fg #ffffff, bg #003c3c
-Colorset 1  fg #ffffff, bg #003c3c
-Colorset 2  fg #000000, bg #8f9f8f
-Colorset 3  fg black, bg #4d4d4d, hi #676767, sh #303030
-Colorset 4  fg black, bg #2d2d2d, hi #474747, sh #101010
-Colorset 5  fg #000000, bg #ffffff
-Colorset 6  fg #ffffff, bg #2d2d2d
-Colorset 7  fg grey30, bg #ffffff
+Colorset 14  fg #000000, bg #ffaf87
+Colorset 15  fg #000000, bg #87875f
+Colorset 16  fg #ffffff, bg #af00ff
+Colorset 17  fg #ffffff, bg #0087ff
+Colorset 18  fg #ffffff, bg #ff0000
+Colorset 19  fg #000000, bg #87ffff
+Colorset 20  fg #000000, bg #ff5f00
+Colorset 21  fg #000000, bg #008000
+Colorset 22  fg #000000, bg #87af00
+Colorset 23  fg #000000, bg #00d7d7
 
 Read /home/svora/.fvwm/colors/scheme.fvwm2rc
 
@@ -198,51 +202,61 @@ DestroyModuleConfig FvwmButtonsXLoad: *
 *FvwmButtonsXLoad: Columns 18
 *FvwmButtonsXLoad: (1x1+0+0, \
 	Title 'arb', \
+	ColorSet 14
 	Action(Mouse 1) 'Exec pro-tws arb -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel arb vtMonitor -geom +1140+0', \
 	Action(Mouse 3) 'Exec gnome-terminal --geometry +1267+660 -- ssh bonnie')
 *FvwmButtonsXLoad: (1x1+1+0, \
 	Title "comm", \
+	ColorSet 15
 	Action(Mouse 1) 'Exec pro-tws com -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel com vtMonitor -geom +1140+0', \
 	Action(Mouse 3) 'Exec gnome-terminal --geometry +1267+660 -- ssh kelly')
 *FvwmButtonsXLoad: (1x1+2+0, \
 	Title "de", \
+	ColorSet 16
 	Action(Mouse 1) 'Exec pro-tws de -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel de vtMonitor -geom +1140+0', \
 	Action(Mouse 3) 'Exec gnome-terminal --geometry +1267+660 -- ssh rocky')
 *FvwmButtonsXLoad: (1x1+3+0, \
 	Title "bas", \
+	ColorSet 17
 	Action(Mouse 1) 'Exec pro-tws bas -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel bas vtMonitor -geom +1140+0', \
 	Action(Mouse 3) 'Exec gnome-terminal --geometry +1267+660 -- ssh vegas')
 *FvwmButtonsXLoad: (1x1+4+0, \
 	Title "ita", \
+	ColorSet 18
 	Action(Mouse 1) 'Exec pro-tws ita -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel ita vtMonitor -geom +1140+0', \
 	Action(Mouse 3) 'Exec gnome-terminal --geometry +1267+660 -- ssh ducati')
 *FvwmButtonsXLoad: (1x1+5+0, \
 	Title 'nord', \
+	ColorSet 19
 	Action(Mouse 1) 'Exec pro-tws nord -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel nord vtMonitor -geom +1140+0', \
 	Action(Mouse 3) 'Exec gnome-terminal --geometry +1267+660 -- ssh ikea')
 *FvwmButtonsXLoad: (1x1+6+0, \
 	Title 'can', \
+	ColorSet 20
 	Action(Mouse 1) 'Exec pro-tws canxr -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel canxr vtMonitor -geom +1140+0', \
 	Action(Mouse 3) 'Exec gnome-terminal --geometry +1267+660 -- ssh jacques')
 *FvwmButtonsXLoad: (1x1+7+0, \
 	Title 'brz', \
+	ColorSet 21
 	Action(Mouse 1) 'Exec pro-tws brzxr -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel brzxr vtMonitor -geom +1140+0', \
 	Action(Mouse 3) 'Exec gnome-terminal --geometry +1267+660 -- ssh jaguar')
 *FvwmButtonsXLoad: (1x1+8+0, \
 	Title 'kr-nhf', \
+	ColorSet 22
 	Action(Mouse 1) 'Exec pro-tws kr-nhf -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel kr-nhf vtMonitor -geom +1140+0', \
 	Action(Mouse 3) 'Exec gnome-terminal --geometry +1267+660 -- ssh soju')
 *FvwmButtonsXLoad: (1x1+9+0, \
 	Title 'syd', \
+	ColorSet 23
 	Action(Mouse 1) 'Exec pro-tws syd -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel syd vtMonitor -geom +1140+0', \
 	Action(Mouse 3) 'Exec gnome-terminal --geometry +1267+660 -- ssh acdc')
