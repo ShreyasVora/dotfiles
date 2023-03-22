@@ -138,7 +138,7 @@ EOF
 		if [[ $2 = z ]]; then
 			echo ERROR: Tail method chosen for gzipped file.
 		else
-			tmpfile=/tmp/llog_tail.log
+			tmpfile=$(mktemp)
 			tail -fn 100000 $1 | grep --line-buffered -P "$sta" | grep --line-buffered -i -P "$cins" | grep --line-buffered -v -E "$excl" > $tmpfile &
 			sleep 0.2; less -f $lessflg $tmpfile; kill %; rm $tmpfile; wait $! 2>/dev/null
 		fi
