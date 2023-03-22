@@ -17,3 +17,7 @@
 	directory = /srg/pro/data/support
 [advice]
 	addEmptyPathspec = false
+[http]
+	proxy = http://extproxy:3128
+[https]
+	proxy = http://extproxy:3128
