@@ -1,5 +1,11 @@
+" Remap leader to ,
+let mapleader = ","
+
 " turn off compatibility mode
 set nocompatible
+
+" Necessary for ctrlspace plugin
+set hidden
 
 " determine filetype and indent accordingly
 filetype indent plugin on
@@ -36,7 +42,7 @@ set visualbell
 
 " allow use of mouse
 if has('mouse')
-	set mouse=a
+  set mouse=a
 endif
 
 " line nos
@@ -70,6 +76,9 @@ nnoremap <silent> [n :cprevious<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-
 " show matching bracket
 set showmatch
 
+" show what keys are being hit in the bottom right
+set showcmd
+
 "how many 10ths of a second to blink with matching brackets
 set mat=2
 
@@ -78,7 +87,7 @@ set shiftwidth=4
 set tabstop=4
 
 if &term =~ '256color'
-	 set t_ut=
+ set t_ut=
 endif
 
 " vim very magic searching
@@ -95,10 +104,42 @@ endif
 "noremap ?V? ?\V
 
 noremap! <C-?> <C-h>
+nnoremap <F6> :wn<CR>
 noremap <F7> gT
 noremap <F8> gt
 nnoremap <F9> :!clear && %:p<CR>
 
-"call plug#begin()
-"Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
-"call plug#end()
+if($DOMAIN == "dev-lon")
+
+set showtabline=0
+let g:airline#extensions#ctrlspace#enabled = 1
+let g:CtrlSpaceStatuslineFunction = "airline#extensions#ctrlspace#statusline()"
+
+" Airline Config
+" ==============
+"
+let g:airline_theme = 'onedark'      " Still experimenting here
+let g:airline#extensions#tabline#enabled = 1
+" let g:airline_powerline_fonts = 1       Couldn't get this to work :(
+let g:airline#extensions#tabline#left_alt_sep = '>'
+let g:airline#extensions#tabline#left_sep = '>'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline_left_sep='>'
+let g:airline_right_sep='<'
+let g:airline_focuslost_inactive = 0
+let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+let g:airline#parts#ffenc#skip_expected_string='[unix]'
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#bufferline#enabled = 1
+
+call plug#begin()
+Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'bling/vim-bufferline'
+Plug 'vim-ctrlspace/vim-ctrlspace'
+call plug#end()
+
+endif
