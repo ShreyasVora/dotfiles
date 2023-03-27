@@ -283,7 +283,7 @@ DestroyModuleConfig FvwmButtonsXLoad: *
 	Action(Mouse 3) 'Exec pkill xclock')
 *FvwmButtonsXLoad: (1x1+16+0, \
 	Title 'ScShot', \
-	Action(Mouse 1) 'Exec import $(mktemp /home/svora/images/screenshot.$(date +'%Y%m%d.%H%M').XXX.png', \
+	Action(Mouse 1) 'Exec import $(mktemp /home/svora/images/screenshot.$(date +"%Y%m%d.%H%M").XXX.png)', \
 	Action(Mouse 3) 'Exec rm -f /home/svora/images/screenshot.*.png')
 *FvwmButtonsXLoad: (1x1+17+0, \
 	Title 'Lock', \
