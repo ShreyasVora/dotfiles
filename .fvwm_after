@@ -14,27 +14,10 @@ Exec xclock -bg black -fg lime -digital -update 1 -geom 248x38-0-0
 DestroyMenu TwsMenu
 
 AddToMenu TwsMenu
-+ "TWS"				            Title
-+ "arb%mini-french-flag.png%"   Exec pro-tws arb -geom +1140+300 
-+ "de%mini-german-flag.png%"    Exec pro-tws de2 -geom +1140+300 
-+ "bas%mini-dutch-flag.png%"    Exec pro-tws bas -geom +1140+300 
-+ "ita%mini-italy-flag.png%"    Exec pro-tws ita -geom +1140+300 
-+ "comm%mini-union-jack.png%"   Exec pro-tws com -geom +1140+300
-+ "nord%mini-sweden-flag.png%"  Exec pro-tws nord -geom +1140+300 
-+ ""							Nop
-+ "can%mini-canada-flag.png%"   Exec pro-tws canxr -geom +1140+300
-+ "brz%mini-brazil-flag.png%"   Exec pro-tws brzxr -geom +1140+300
-+ ""							Nop
-+ "korea%mini-korea-flag.png%"  Exec pro-tws kr-nhf -geom +1140+300 
-+ "syd%mini-aus-flag.png%"      Exec pro-tws syd -geom +1140+300
-+ ""							Nop
-+ "Other"						Popup OtherScreensMenu
-
-AddToMenu OtherScreensMenu
 + "sim%mini-sim.png%"                Exec sim-tws 26th -geom +1140+300
 + "Slack%mini-slack.png%"            Exec slack.sh 2>/dev/null
-+ "Chrome%mini-chrome.png%"          Exec chromium-browser --proxy-server=extproxy:3128 2> /dev/null 
-+ "Firefox%mini-firefox.png%"        Exec firefox 2> /dev/null 
++ "Chrome%mini-chrome.png%"          Exec chromium-browser --proxy-server=extproxy:3128 2> /dev/null
++ "Firefox%mini-firefox.png%"        Exec firefox 2> /dev/null
 + "Windows%mini-windows10.png%"      Exec /usr/bin/remmina 2> /dev/null
 + "PyCharm%mini-python.png%"         Exec /snap/pycharm-community/current/bin/pycharm.sh
 + "sqlDeveloper%mini-sql-file.png%"	 Exec /oracle_client/product/11.2.0/sqldeveloper/sqldeveloper.sh
@@ -44,14 +27,14 @@ AddToMenu OtherScreensMenu
 # Shells
 ###############################################################################
 
-AddToMenu TwsMenu
-+ "Shells"        	 Title 
-+ "Tmux Main"     Exec gnome-terminal --profile small_font_fullscreen --geometry +0+0
-+ "Tmux LMain"    Exec gnome-terminal --profile large_font_fullscreen --geometry +0+0
-+ "Tmux 2nd"      Exec gnome-terminal --profile tmux_additional --geometry +400+450
-+ "Tmux temp"     Exec gnome-terminal --profile tmux_temp --geometry +1267+660
-+ "Gnome"         Exec gnome-terminal --geometry +1267+660
-+ "Other"	      Popup OtherShellsMenu
+#AddToMenu TwsMenu
+#+ "Shells"        	 Title
+#+ "Tmux Main"     Exec gnome-terminal --profile small_font_fullscreen --geometry +0+0
+#+ "Tmux LMain"    Exec gnome-terminal --profile large_font_fullscreen --geometry +0+0
+#+ "Tmux 2nd"      Exec gnome-terminal --profile tmux_additional --geometry +400+450
+#+ "Tmux temp"     Exec gnome-terminal --profile tmux_temp --geometry +1267+660
+#+ "Gnome"         Exec gnome-terminal --geometry +1267+660
+#+ "Other"	      Popup OtherShellsMenu
 
 AddToMenu OtherShellsMenu
 + "Gnome"         Exec gnome-terminal --geometry 141x38+1267+660
@@ -73,10 +56,7 @@ AddToMenu TwsMenu
 ###############################################################################
 
 AddToMenu ToolsMenu
-+ "Clear screenshots"   Exec rm -f /home/svora/images/screenshot.*.png
 + "Kill ssh procs"  	Exec kill $(ps auwwx | grep ssh | grep hdb | tr -s ' ' | cut -d' ' -f2)
-+ "Kill clocks"         Exec pkill xclock
-#+ "Poke Henry"          Exec DISPLAY=uk01dw735:0.0; notify-send "oi"
 
 ###############################################################################
 # Linux Settings / Config
@@ -98,12 +78,12 @@ DestroyMenu RootMenu
 DestroyMenu CdeColorChangeMenu
 AddToMenu CdeColorChangeMenu "Cde Colors" Title
 PipeRead 'for i in /home/svora/.fvwm/colors/CdeColors/*.fvwm2rc; do \
-  echo "AddToMenu CdeColorChangeMenu $(basename -s .fvwm2rc $i) Read $i"; done'
+	echo "AddToMenu CdeColorChangeMenu $(basename -s .fvwm2rc $i) Read $i"; done'
 
 DestroyMenu CdeColorSetMenu
 AddToMenu CdeColorSetMenu "Color Selection" Title
 PipeRead 'for i in /home/svora/.fvwm/colors/CdeColors/*.fvwm2rc; do \
-  echo "AddToMenu CdeColorSetMenu $(basename -s .fvwm2rc $i) Exec ln -nfs $i /home/svora/.fvwm/colors/scheme.fvwm2rc"; done'
+	echo "AddToMenu CdeColorSetMenu $(basename -s .fvwm2rc $i) Exec ln -nfs $i /home/svora/.fvwm/colors/scheme.fvwm2rc"; done'
 
 AddToMenu RootMenu
 + "Root Menu"    Title
@@ -123,7 +103,9 @@ AddToMenu Module-Popup
 ###############################################################################
 
 ######
-# 3: Colorsets
+# Colorsets
+#
+# 0-8 are defined in the imported theme files
 #
 # 14 - arb
 # 15 - comm
@@ -131,7 +113,7 @@ AddToMenu Module-Popup
 # 17 - bas
 # 18 - ita
 # 19 - nord
-# 20 - can 
+# 20 - can
 # 21 - brz
 # 22 - kr-nhf
 # 23 - syd
@@ -149,16 +131,11 @@ Colorset 23  fg #000000, bg #00d7d7
 
 Read /home/svora/.fvwm/colors/scheme.fvwm2rc
 
-#Colorset 0  fg #ffffff, bg #003c3c
-#Colorset 1  fg #000000, bg #dfa700
-#Colorset 2  fg #003c3c, bg #ffffff
-
 MenuStyle * MenuColorset 1
 *FvwmButtons: Colorset 1
 *FvwmPager: Colorset '*' 1
 *FvwmPager: WindowColorsets '*' 2
 *FvwmPager: HilightColorset '*' 2
-#*FvwmPager: SloppyFocus
 
 ###############################################################################
 # FVWM Buttons Config
@@ -343,6 +320,6 @@ DestroyModuleConfig FvwmButtonsXLoadPanel: *
 *FvwmButtonsXLoadPanel: Frame 1
 *FvwmButtonsXLoadPanel: Padding 0 0
 *FvwmButtonsXLoadPanel: (Panel(left, steps 20, delay 20, position top, smooth, indicator 10) \
-        "FvwmButtonsXLoad" 'Module FvwmButtons FvwmButtonsXLoad')
+"FvwmButtonsXLoad" 'Module FvwmButtons FvwmButtonsXLoad')
 
 Module FvwmButtons FvwmButtonsXloadPanel
