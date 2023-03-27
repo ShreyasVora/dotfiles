@@ -14,7 +14,7 @@ set autoindent                   " when creating new line
 set visualbell                   " use visual instead of audio warning
 set wildmenu wildoptions=pum     " when using tab completion for filenames, show popup menu instead of horizontal menu
 set noswapfile                   " no swp file
-set guicursor=
+set guioptions+=a                " visual mode text copied to clipboard
 
 " --------------------
 " Colorscheme settings
@@ -66,9 +66,8 @@ if maparg('<C-L>', 'n') ==# ''
 	nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 endif
 
-" Add ]n amd [n binds to switch between matches from :vimgrep/pattern/ %,
-" :copen         -  I don't use this, but found it and it seems quite cool so
-" not deleting it
+" Add ]n amd [n binds to switch between matches from :vimgrep/pattern/ %, :copen
+" I don't use this, but found it and it seems quite cool so not deleting it
 nnoremap <silent> ]n :cnext<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 nnoremap <silent> [n :cprevious<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 
@@ -76,12 +75,14 @@ nnoremap <silent> [n :cprevious<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-
 noremap! <C-?> <C-h>
 " Save and go to next file in buffer
 nnoremap <F6> :wn<CR>
-" Go to previous tab
-noremap <F7> gT
-" Go to next tab
-noremap <F8> gt
 " Clear shell output and execute current script with no args
 nnoremap <F9> :!clear && %:p<CR>
+" Use Leader to move buffers / tabs. Map d to close buffer
+nnoremap <Leader><Left> :bprev<CR>
+nnoremap <Leader><Right> :bnext<CR>
+noremap <Leader><Up> gT
+noremap <Leader><Down> gt
+nnoremap <Leader>d :bd<CR>
 
 
 
@@ -103,6 +104,11 @@ if($DOMAIN == "dev-lon")
 	Plug 'bling/vim-bufferline'
 	Plug 'vim-ctrlspace/vim-ctrlspace'
 	call plug#end()
+
+	" NERDTree Config            > View filestructure in tree view
+	" ---------------
+	nnoremap <Leader>n :NERDTreeToggle<CR>
+	let NERDTreeShowHidden=1
 
 	" Airline Config             > Customise status bar and tabline
 	" --------------
