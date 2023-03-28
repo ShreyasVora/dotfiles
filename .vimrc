@@ -57,6 +57,8 @@ endif
 
 nnoremap ; :
 nnoremap <Leader>, <C-w>
+nnoremap <C-Up> {
+nnoremap <C-Down> }
 
 " Toggle cursorline / column highlighting
 nnoremap H :set cursorline! cursorcolumn!<CR>
