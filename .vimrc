@@ -15,6 +15,7 @@ set visualbell                   " use visual instead of audio warning
 set wildmenu wildoptions=pum     " when using tab completion for filenames, show popup menu instead of horizontal menu
 set noswapfile                   " no swp file
 set guioptions+=a                " visual mode text copied to clipboard
+set timeoutlen=3000              " Configure timeout time in ms for various command types
 
 " --------------------
 " Colorscheme settings
@@ -59,6 +60,14 @@ nnoremap ; :
 nnoremap <Leader>, <C-w>
 nnoremap <C-Up> {
 nnoremap <C-Down> }
+
+" When you have search results up, but want to highlight something else
+" without jumping there, hit ctrl-f. Yeah I know, very niche.
+nnoremap <C-f> :let @/=""<Left>
+
+" Toggle list mode on or off. This displays whitespace characters nicely
+set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+nnoremap <Leader>l :set list! list?<CR>
 
 " Toggle cursorline / column highlighting
 nnoremap H :set cursorline! cursorcolumn!<CR>
@@ -105,6 +114,7 @@ if($DOMAIN == "dev-lon")
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'bling/vim-bufferline'
 	Plug 'vim-ctrlspace/vim-ctrlspace'
+	Plug 'Xuyuanp/nerdtree-git-plugin'
 	call plug#end()
 
 	" NERDTree Config            > View filestructure in tree view
