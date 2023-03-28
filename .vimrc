@@ -26,6 +26,13 @@ set cursorline cursorcolumn
 highlight Search ctermbg=blue
 highlight CursorLine cterm=bold ctermbg=236
 highlight CursorColumn cterm=bold ctermbg=236
+hi VertSplit ctermbg=19 ctermfg=19
+
+" Vim folds, game changing
+set foldcolumn=1
+set foldmethod=syntax
+hi foldcolumn ctermbg=bg ctermfg=14
+hi folded ctermbg=bg
 
 " allow use of mouse
 if has('mouse')
@@ -56,11 +63,37 @@ endif
 " Key mappings
 " ==============
 
+" Fundamental
+" -----------
 nnoremap ; :
 nnoremap <Leader>, <C-w>
 nnoremap <C-Up> {
 nnoremap <C-Down> }
+" Map backspace to erase
+noremap! <C-?> <C-h>
+" Save and go to next file in buffer
+nnoremap <F6> :wn<CR>
+" Clear shell output and execute current script with no args
+nnoremap <F9> :!clear && %:p<CR>
+" Use Leader to move buffers / tabs. Map d to close buffer
+nnoremap <Leader><Left> :bprev<CR>
+nnoremap <Leader><Right> :bnext<CR>
+noremap <Leader><Up> gT
+noremap <Leader><Down> gt
+nnoremap <Leader>d :bd<CR>
 
+" Vim folds
+" zf creates a fold
+" zE deletes all folds in file
+" zo opens fold, zc closes. za toggles open/closed
+" zR opens all folds in file, zM closes them
+" If I find folds annoying, I will disable the below mapping
+nnoremap <Space> za
+nnoremap z<Up> zk
+nnoremap z<Down> zj
+
+" Misc
+" -----------
 " When you have search results up, but want to highlight something else
 " without jumping there, hit ctrl-f. Yeah I know, very niche.
 nnoremap <C-f> :let @/=""<Left>
@@ -82,19 +115,6 @@ endif
 nnoremap <silent> ]n :cnext<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 nnoremap <silent> [n :cprevious<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 
-" Map backspace to erase
-noremap! <C-?> <C-h>
-" Save and go to next file in buffer
-nnoremap <F6> :wn<CR>
-" Clear shell output and execute current script with no args
-nnoremap <F9> :!clear && %:p<CR>
-" Use Leader to move buffers / tabs. Map d to close buffer
-nnoremap <Leader><Left> :bprev<CR>
-nnoremap <Leader><Right> :bnext<CR>
-noremap <Leader><Up> gT
-noremap <Leader><Down> gt
-nnoremap <Leader>d :bd<CR>
-
 
 
 " ============================
@@ -115,12 +135,31 @@ if($DOMAIN == "dev-lon")
 	Plug 'bling/vim-bufferline'
 	Plug 'vim-ctrlspace/vim-ctrlspace'
 	Plug 'Xuyuanp/nerdtree-git-plugin'
+	Plug 'matze/vim-ini-fold'
 	call plug#end()
 
 	" NERDTree Config            > View filestructure in tree view
 	" ---------------
+	"  Best shortcuts in NERDTree
+	" t: Open the selected file in a new tab
+	" i: Open the selected file in a horizontal split window
+	" s: Open the selected file in a vertical split window
+	" I: Toggle hidden files
+	" m: Show the NERD Tree menu
+	" R: Refresh the tree, useful if files change outside of Vim
+	" ?: Toggle NERD Tree's quick help
+	"
+	" Define colors
+	hi Directory ctermfg=red
+	" Mapping to open NERDTree
 	nnoremap <Leader>n :NERDTreeToggle<CR>
+	" Enable seeing hidden files (beginning with .)
 	let NERDTreeShowHidden=1
+	" Start NERDTree if vim is opened without a file specified
+	autocmd StdinReadPre * let s:std_in=1
+	autocmd VimEnter * :if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+	" Close the tab if NERDTree is the only window remaining in it.
+	autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 	" Airline Config             > Customise status bar and tabline
 	" --------------
@@ -144,5 +183,8 @@ if($DOMAIN == "dev-lon")
 	set showtabline=0
 	let g:airline#extensions#ctrlspace#enabled = 1
 	let g:CtrlSpaceStatuslineFunction = "airline#extensions#ctrlspace#statusline()"
+
+	" Vim ini fold autocmd
+	autocmd BufRead * normal zR
 
 endif
