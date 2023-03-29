@@ -16,6 +16,7 @@ set wildmenu wildoptions=pum     " when using tab completion for filenames, show
 set noswapfile                   " no swp file
 set guioptions+=a                " visual mode text copied to clipboard
 set timeoutlen=3000              " Configure timeout time in ms for various command types
+set list                         " By default, show whitespace characters
 
 " --------------------
 " Colorscheme settings
@@ -67,6 +68,8 @@ endif
 " -----------
 nnoremap ; :
 nnoremap <Leader>, <C-w>
+" Comment out lines matching previous search
+nnoremap <Leader># :%g//s/^/#sv/gc<CR>
 nnoremap <C-Up> {
 nnoremap <C-Down> }
 " Map backspace to erase
