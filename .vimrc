@@ -31,7 +31,7 @@ hi VertSplit ctermbg=19 ctermfg=19
 
 " Vim folds, game changing
 set foldcolumn=1
-set foldmethod=syntax
+set foldmethod=indent
 hi foldcolumn ctermbg=bg ctermfg=39
 hi folded ctermbg=bg ctermfg=39
 
