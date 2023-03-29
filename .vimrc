@@ -32,8 +32,8 @@ hi VertSplit ctermbg=19 ctermfg=19
 " Vim folds, game changing
 set foldcolumn=1
 set foldmethod=syntax
-hi foldcolumn ctermbg=bg ctermfg=14
-hi folded ctermbg=bg
+hi foldcolumn ctermbg=bg ctermfg=39
+hi folded ctermbg=bg ctermfg=39
 
 " allow use of mouse
 if has('mouse')
