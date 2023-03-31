@@ -159,10 +159,20 @@ if($DOMAIN == "dev-lon")
 	" Enable seeing hidden files (beginning with .)
 	let NERDTreeShowHidden=1
 	" Start NERDTree if vim is opened without a file specified
-	autocmd StdinReadPre * let s:std_in=1
-	autocmd VimEnter * :if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 	" Close the tab if NERDTree is the only window remaining in it.
 	autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+	" Fugitive                   > An implementation of git into vim
+	" --------
+	autocmd StdinReadPre * let s:std_in=1
+	augroup GitOnVimStartup
+		autocmd!
+		autocmd VimEnter * if argc() == 0 && isdirectory(getcwd()) && system('git rev-parse --is-inside-work-tree >/dev/null 2>&1') == 0 | call timer_start(100, { -> execute('0Git') }) | endif
+	augroup END
+
+	" Git gutter                 > Show git status of lines in left bar
+" ----------
+	nnoremap <Leader>g :GitGutterLineHighlightsToggle<CR>
 
 	" Airline Config             > Customise status bar and tabline
 	" --------------
