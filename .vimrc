@@ -12,10 +12,10 @@ set ignorecase smartcase         " case insensitive search except when using cap
 set backspace=indent,eol,start   " allow backspacing over autoindent, line break and start of insert action
 set autoindent                   " when creating new line
 set visualbell                   " use visual instead of audio warning
-set wildmenu wildoptions=pum     " when using tab completion for filenames, show popup menu instead of horizontal menu
+set wildmenu                     " when using tab completion for filenames
 if index(split(&wildoptions, ','), 'pum') != -1
 	set wildoptions=pum
-endif
+endif                            " show popup menu instead of horizontal menu
 set noswapfile                   " no swp file
 set guioptions+=a                " visual mode text copied to clipboard
 set timeoutlen=3000              " Configure timeout time in ms for various command types
