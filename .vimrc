@@ -17,7 +17,7 @@ if index(split(&wildoptions, ','), 'pum') != -1
 	set wildoptions=pum
 endif                            " show popup menu instead of horizontal menu
 set noswapfile                   " no swp file
-set guioptions+=a                " visual mode text copied to clipboard
+set guioptions+=a                " visual mode text copied to clipboard (this doesn't seem to work)
 set timeoutlen=3000              " Configure timeout time in ms for various command types
 set list                         " By default, show whitespace characters
 
@@ -60,6 +60,16 @@ set shiftwidth=4 tabstop=4 " tab = 4 spaces
 if &term =~ '256color'
 	set t_ut=
 endif
+
+" ------------
+" Autocommands
+" ------------
+
+augroup SetFileType
+	autocmd!
+	autocmd BufRead,BufNewFile .bash* set filetype=sh
+	autocmd BufRead,BufNewFile procMan.* set filetype=dosini
+augroup END
 
 
 
