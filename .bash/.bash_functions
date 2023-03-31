@@ -23,7 +23,6 @@ cdr      - cd /srg/pro/release and subdirs
 cdev     - cd /srg/pro/data/etc/vt
 cd(e|v)o - cd to corresponding dir for options/derivatives on this given network
 cd(e|v)s - cd to corresponding dir for stocks on this given network
-c        - cd /srg/dev/release/prod-config/prod and subdirs if in devlon, else cd /srg/pro/data/ and subdirs
 gou      - goto -user ...
 gout     - same as gou, but with tmux pane split
 gop      - goto -net . -p . -f .
@@ -415,15 +414,6 @@ function cdvs()
 		cd /srg/pro/data/var/asx
 	elif [[ $dom = kr ]]; then
 		cd /srg/pro/data/var/krx
-	fi
-}
-
-function c()
-{
-	if [[ $DOMAIN = "dev-lon" ]]; then
-		cd /srg/dev/release/prod-config/prod/$1; pwd
-	else
-		cd /srg/pro/data/$1; pwd
 	fi
 }
 

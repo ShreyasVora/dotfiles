@@ -4,7 +4,7 @@
 
 # Add some important directories to my path
 export PATH=$PATH:/home/svora/scripts/alias_scripts:/home/svora/scripts:/home/svora/support/tools:/home/svora/support/tools/serial_killers
-[[ "$DOMAIN" = "dev-lon" ]] && export CDPATH=$CDPATH:/srg/pro:/srg/pro/data
+[[ "$DOMAIN" = "dev-lon" ]] && export CDPATH=$CDPATH:/srg/pro:/srg/pro/data:/srg/dev/release/prod-config/prod
 
 export NO_XCONSOLE=true
 export EDITOR=vim
