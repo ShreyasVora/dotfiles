@@ -13,7 +13,7 @@ set backspace=indent,eol,start   " allow backspacing over autoindent, line break
 set autoindent                   " when creating new line
 set visualbell                   " use visual instead of audio warning
 set wildmenu wildoptions=pum     " when using tab completion for filenames, show popup menu instead of horizontal menu
-if wildoptions&? =~ 'pum'
+if index(split(&wildoptions, ','), 'pum') != -1
 	set wildoptions=pum
 endif
 set noswapfile                   " no swp file
