@@ -13,6 +13,9 @@ set backspace=indent,eol,start   " allow backspacing over autoindent, line break
 set autoindent                   " when creating new line
 set visualbell                   " use visual instead of audio warning
 set wildmenu wildoptions=pum     " when using tab completion for filenames, show popup menu instead of horizontal menu
+if has('pum')
+	set wildoptions=pum
+endif
 set noswapfile                   " no swp file
 set guioptions+=a                " visual mode text copied to clipboard
 set timeoutlen=3000              " Configure timeout time in ms for various command types
@@ -131,14 +134,15 @@ if($DOMAIN == "dev-lon")
 	" sensible default settings for vim
 	" Plug 'tpope/vim-sensible'
 	Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
+	Plug 'Xuyuanp/nerdtree-git-plugin'
 	Plug 'tpope/vim-fugitive'
 	Plug 'airblade/vim-gitgutter'
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'bling/vim-bufferline'
 	Plug 'vim-ctrlspace/vim-ctrlspace'
-	Plug 'Xuyuanp/nerdtree-git-plugin'
 	Plug 'matze/vim-ini-fold'
+	Plug 'tpope/vim-unimpaired'
 	call plug#end()
 
 	" NERDTree Config            > View filestructure in tree view
@@ -171,7 +175,7 @@ if($DOMAIN == "dev-lon")
 	augroup END
 
 	" Git gutter                 > Show git status of lines in left bar
-" ----------
+	" ----------
 	nnoremap <Leader>g :GitGutterLineHighlightsToggle<CR>
 
 	" Airline Config             > Customise status bar and tabline
