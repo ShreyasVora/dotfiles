@@ -13,9 +13,7 @@ set backspace=indent,eol,start   " allow backspacing over autoindent, line break
 set autoindent                   " when creating new line
 set visualbell                   " use visual instead of audio warning
 set wildmenu                     " when using tab completion for filenames
-if index(split(&wildoptions, ','), 'pum') != -1
-	set wildoptions=pum
-endif                            " show popup menu instead of horizontal menu
+silent! set wildoptions=pum      " show popup menu instead of horizontal menu
 set noswapfile                   " no swp file
 set guioptions+=a                " visual mode text copied to clipboard (this doesn't seem to work)
 set timeoutlen=3000              " Configure timeout time in ms for various command types
@@ -181,7 +179,7 @@ if($DOMAIN == "dev-lon")
 	autocmd StdinReadPre * let s:std_in=1
 	augroup GitOnVimStartup
 		autocmd!
-		autocmd VimEnter * if argc() == 0 && isdirectory(getcwd()) && system('git rev-parse --is-inside-work-tree >/dev/null 2>&1') == 0 | call timer_start(100, { -> execute('0Git') }) | endif
+	autocmd VimEnter * if argc() == 0 | call timer_start(100, { -> execute('silent! 0Git') }) | endif
 	augroup END
 
 	" Git gutter                 > Show git status of lines in left bar
