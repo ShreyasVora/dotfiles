@@ -710,7 +710,7 @@ gop()
 		if [[ -n $3 ]]; then
 			additional="-f $3"
 		fi
-		~/scripts/goto -net "$1" -p "$2" "$additional"
+		~/scripts/goto -net "$1" -p "$2" $additional
 	else
 		echo Need to provide at least two arguments for the network and the process. Optional third to filter.
 	fi
