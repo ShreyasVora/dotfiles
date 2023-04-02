@@ -28,7 +28,8 @@ set cursorline cursorcolumn
 highlight Search ctermbg=blue
 highlight CursorLine cterm=bold ctermbg=236
 highlight CursorColumn cterm=bold ctermbg=236
-hi VertSplit ctermbg=19 ctermfg=19
+highlight VertSplit ctermbg=19 ctermfg=19
+highlight QuickFixLine ctermbg=8 ctermfg=0
 
 " Vim folds, game changing
 set foldcolumn=1
