@@ -143,6 +143,7 @@ EOF
 		fi
 	}
 
+	LESS+=S
 	if [[ -z $pid ]]; then
 		echo PID not specified
 	elif compgen -G "./*$pid" >/dev/null && [[ "$pid" =~ .gz$ ]]; then
@@ -176,6 +177,7 @@ EOF
 			echo "File not found for $pid. We found a unique PID for this search ($new_pid), but couldn't find a file for this process in $parent_dir"
 		fi
 	fi
+	LESS=${LESS/S/}
 
 	if [[ -n $debug ]]; then
 		echo "File is $pid, view mode is $mode"

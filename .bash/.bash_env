@@ -8,7 +8,7 @@ export PATH=$PATH:/home/svora/scripts/alias_scripts:/home/svora/scripts:/home/sv
 
 export NO_XCONSOLE=true
 export EDITOR=vim
-export LESS=WS${LESS/e/}#10
+export LESS=W${LESS/e/}#10
 
 if [[ $(date +%a) = Mon ]]; then
 	export GREP_COLORS='ms=1;31'

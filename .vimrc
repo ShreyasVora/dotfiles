@@ -96,6 +96,9 @@ nnoremap <Leader><Right> :bnext<CR>
 noremap <Leader><Up> gT
 noremap <Leader><Down> gt
 nnoremap <Leader>d :bd<CR>
+nnoremap <Leader>co :copen<CR>
+nnoremap <Leader>cl :cclose<CR>
+nnoremap <Leader>ww :Gw<CR>
 
 " Vim folds
 " zf creates a fold
@@ -155,32 +158,21 @@ if($DOMAIN == "dev-lon")
 	call plug#end()
 
 	" NERDTree Config            > View filestructure in tree view
-	" ---------------
-	"  Best shortcuts in NERDTree
-	" t: Open the selected file in a new tab
-	" i: Open the selected file in a horizontal split window
-	" s: Open the selected file in a vertical split window
-	" I: Toggle hidden files
-	" m: Show the NERD Tree menu
-	" R: Refresh the tree, useful if files change outside of Vim
-	" ?: Toggle NERD Tree's quick help
-	"
 	" Define colors
 	hi Directory ctermfg=red
 	" Mapping to open NERDTree
 	nnoremap <Leader>n :NERDTreeToggle<CR>
 	" Enable seeing hidden files (beginning with .)
 	let NERDTreeShowHidden=1
-	" Start NERDTree if vim is opened without a file specified
 	" Close the tab if NERDTree is the only window remaining in it.
 	autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 	" Fugitive                   > An implementation of git into vim
 	" --------
 	autocmd StdinReadPre * let s:std_in=1
-	augroup GitOnVimStartup
+	augroup FugitiveAutocommand
 		autocmd!
-	autocmd VimEnter * if argc() == 0 | call timer_start(100, { -> execute('silent! 0Git') }) | endif
+		autocmd VimEnter * if argc() == 0 | call timer_start(100, { -> execute('silent! 0Git') }) | endif
 	augroup END
 
 	" Git gutter                 > Show git status of lines in left bar
