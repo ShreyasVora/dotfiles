@@ -1,5 +1,5 @@
 ######################################
-# Contains all my bash env variables 
+# Contains all my bash env variables
 ######################################
 
 # Add some important directories to my path
@@ -20,7 +20,7 @@ elif [[ $(date +%a) = Thur ]]; then
 	export GREP_COLORS='ms=1;34'
 elif [[ $(date +%a) = Fri ]]; then
 	export GREP_COLORS='ms=1;35'
-else 
+else
 	export GREP_COLORS='ms=1;32'
 fi
 
