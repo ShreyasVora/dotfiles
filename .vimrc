@@ -4,6 +4,8 @@
 
 let mapleader = ","              " Remap leader to ,
 set nocompatible                 " turn off compatibility mode
+set viminfo+=:1000               " Increase vim command history
+set history=1000                 " Increase vim command history
 set hidden                       " Necessary for ctrlspace plugin
 filetype indent plugin on        " determine filetype and indent accordingly
 syntax on                        " set colour scheme settings
@@ -26,8 +28,8 @@ colorscheme koehler
 set background=dark
 set cursorline cursorcolumn
 highlight Search ctermbg=blue
-highlight CursorLine cterm=bold ctermbg=236
-highlight CursorColumn cterm=bold ctermbg=236
+highlight CursorLine cterm=bold ctermbg=234
+highlight CursorColumn cterm=bold ctermbg=234
 highlight VertSplit ctermbg=19 ctermfg=19
 highlight QuickFixLine ctermbg=8 ctermfg=0
 
@@ -118,6 +120,7 @@ nnoremap <C-f> :let @/=""<Left>
 
 " Toggle list mode on or off. This displays whitespace characters nicely
 set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+highlight SpecialKey ctermfg=238
 nnoremap <Leader>l :set list! list?<CR>
 
 " Toggle cursorline / column highlighting
@@ -178,6 +181,7 @@ if($DOMAIN == "dev-lon")
 	" Git gutter                 > Show git status of lines in left bar
 	" ----------
 	nnoremap <Leader>g :GitGutterLineHighlightsToggle<CR>
+	command! Gqf GitGutterQuickFix | copen
 
 	" Airline Config             > Customise status bar and tabline
 	" --------------
