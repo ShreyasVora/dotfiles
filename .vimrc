@@ -181,6 +181,7 @@ if($DOMAIN == "dev-lon")
 	" Git gutter                 > Show git status of lines in left bar
 	" ----------
 	nnoremap <Leader>g :GitGutterLineHighlightsToggle<CR>
+	let g:gitgutter_preview_win_floating = 1
 	command! Gqf GitGutterQuickFix | copen
 
 	" Airline Config             > Customise status bar and tabline
