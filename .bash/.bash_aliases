@@ -33,6 +33,7 @@ alias cprs='ctrl_procman -read -f procMan.spark'
 alias pf='/home/svora/scripts/procflatAdj'
 alias procc='proc -cd'  # My proc function does not cd by default
 alias d='xauth list | grep `hostname` | tail -n 1 | sed "s/^/xauth add /g"; echo export DISPLAY=$DISPLAY'  # To echo the information that would be needed to set display properly
+alias lt='ls -FlAtr --color=auto'
 alias ltoday='ls -FlAtr *$(h2e -t)*'
 alias wai='/srg/pro/data/config/whereAmI'
 
