@@ -44,7 +44,7 @@ alias c-dist='supro /srg/pro/data/support/tools/support_central_config_dist.sh -
 alias c-dist.='supro /srg/pro/data/support/tools/support_central_config_dist.sh -net $(pwd | awk -F/ "{print \$NF}")'
 alias c-logs='lt ../../logs/$(pwd | rev | cut -d/ -f1 | rev)* | tail | sed "s:../../logs/::g"'
 alias c-tests='cd /srg/dev/release/prod-config/tests'
-alias cgrep='grep --exclude-dir=.git --exclude=\*.patch -r'
+alias cgrep='grep --exclude-dir=.git --exclude=\*.patch --exclude-dir=unused -r'
 
 # Git shortcuts
 alias gl='git --no-pager lol --name-status -5'
