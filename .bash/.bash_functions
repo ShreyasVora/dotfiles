@@ -222,7 +222,7 @@ function proc() {
 	proc="${proc:=vtServer}"
 	if [ -d /local/data/hosts/$SECOND/$HOST ]; then cd /local/data/hosts/$SECOND/$HOST; else cd $RUNTIME_DATA/data/hosts/$HOST; fi
 	# $1 command to find
-	for line in $(ls -1tr $(find . -type f -regextype awk -regex "\./$proc.*[0-9]+(\.gz)?" | sed 's:^./::')); do
+	for line in $(files=$(find . -type f -regextype awk -regex "\./$proc.*[0-9]+(\.gz)?" | sed 's:^./::'); if [[ -n $files ]]; then ls -1tr $files; fi); do
 		if [[ `( head -7 $line | zgrep  -m 1 -i "$tofind"  2> /dev/null )`  ]]; then # is the algo found in command? supress errors
 			if [[ $flag ==  "0" ]]; then
 				printf "$header" "Date" "Total Size (bytes)" "File Name" "Command"
