@@ -292,7 +292,7 @@ function lti()
 
 function mki()
 {
-	[[ -n $1 ]] && mkdir /srg/pro/data/var/issues/$1 || echo "No dir specified"
+	[[ -n $1 ]] && mkdir -m 777 /srg/pro/data/var/issues/$1 || echo "No dir specified"
 }
 
 function cpi()
