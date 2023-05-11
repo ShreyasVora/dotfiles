@@ -2,7 +2,7 @@
 XTerm.vt100.backarrowKey: true
 ! This is what enables copying to Remmina
 XTerm*selectToClipboard: true
-! I don't know what this does
+! I dont know what this does
 xterm*loginShell: true
 xterm*termName: xterm-color
 xterm*vt100*geometry: 80x50
@@ -11,13 +11,13 @@ xterm*eightBitInput: false
 ! Set xterm colours
 xterm*background:  #000000
 xterm*foreground: #ffffff
-! Set cursor to be an underline and set it's colour
+! Set cursor to be an underline and set its colour
 xterm*vt100.cursorColor: #ff0000
 xterm*vt100.cursorUnderLine: true
 ! Define character classes that define a word (so double click knows what to use as a word separator and what not to use)
 xterm*charClass: 33:48,35:48,37:48,43:48,45-47:48,64:48,95:48,126:48
 xterm*vt100.charClass: 33:48,35:48,37:48,43:48,45-47:48,64:48,95:48,126:48
-! Determines behaviour on triple click - cuts from current word to end of line and doesn't copy the newline character so you can paste without executing the command
+! Determines behaviour on triple click - cuts from current word to end of line and doesnt copy the newline character so you can paste without executing the command
 XTerm*vt100.cutNewline: false
 XTerm*vt100.cutToBeginningOfLine: false
 ! A variant of jumpScroll which suppresses screen refreshes if you catted a large file. So you can Ctrl+C quickly
@@ -31,7 +31,7 @@ xterm*on5Clicks: page
 xterm*visualBell: true
 xterm*visualBellLine: true
 !
-! Some color settings I don't use
+! Some color settings I dont use
 !xterm*color0:  #282828
 !xterm*color8:  #928374
 !xterm*color1:  #cc241d
