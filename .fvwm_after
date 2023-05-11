@@ -85,6 +85,56 @@ AddToMenu CdeColorSetMenu "Color Selection" Title
 PipeRead 'for i in /home/svora/.fvwm/colors/CdeColors/*.fvwm2rc; do \
 	echo "AddToMenu CdeColorSetMenu $(basename -s .fvwm2rc $i) Exec ln -nfs $i /home/svora/.fvwm/colors/scheme.fvwm2rc"; done'
 
+DestroyMenu arbHostsMenu
+AddToMenu arbHostsMenu "pro-arb Hosts" Title
+PipeRead 'for i in $(grep pro-arb /admin/var/sysid/globalhosts | grep -v workstation | cut -d: -f1 | grep -vE "(v(r|c|f|)(d|m|k|h|l)(b|s)|hv|virt|00[0-9]$)"); do \
+	echo "AddToMenu arbHostsMenu $i Exec gnome-terminal --geometry +1267+660 -- ssh $i"; done'
+
+DestroyMenu commHostsMenu
+AddToMenu commHostsMenu "pro-comm Hosts" Title
+PipeRead 'for i in $(grep pro-comm /admin/var/sysid/globalhosts | grep -v workstation | cut -d: -f1 | grep -vE "(v(r|c|f|)(d|m|k|h|l)(b|s)|hv|virt|00[0-9]$)"); do \
+	echo "AddToMenu commHostsMenu $i Exec gnome-terminal --geometry +1267+660 -- ssh $i"; done'
+
+DestroyMenu deHostsMenu
+AddToMenu deHostsMenu "pro-de Hosts" Title
+PipeRead 'for i in $(grep pro-de /admin/var/sysid/globalhosts | grep -v workstation | cut -d: -f1 | grep -vE "(v(r|c|f|)(d|m|k|h|l)(b|s)|hv|virt|00[0-9]$)"); do \
+	echo "AddToMenu deHostsMenu $i Exec gnome-terminal --geometry +1267+660 -- ssh $i"; done'
+
+DestroyMenu basHostsMenu
+AddToMenu basHostsMenu "pro-bas Hosts" Title
+PipeRead 'for i in $(grep pro-bas /admin/var/sysid/globalhosts | grep -v workstation | cut -d: -f1 | grep -vE "(v(r|c|f|)(d|m|k|h|l)(b|s)|hv|virt|00[0-9]$)"); do \
+	echo "AddToMenu basHostsMenu $i Exec gnome-terminal --geometry +1267+660 -- ssh $i"; done'
+
+DestroyMenu itaHostsMenu
+AddToMenu itaHostsMenu "pro-ita Hosts" Title
+PipeRead 'for i in $(grep pro-ita /admin/var/sysid/globalhosts | grep -v workstation | cut -d: -f1 | grep -vE "(v(r|c|f|)(d|m|k|h|l)(b|s)|hv|virt|00[0-9]$)"); do \
+	echo "AddToMenu itaHostsMenu $i Exec gnome-terminal --geometry +1267+660 -- ssh $i"; done'
+
+DestroyMenu nordHostsMenu
+AddToMenu nordHostsMenu "pro-nord Hosts" Title
+PipeRead 'for i in $(grep pro-nord /admin/var/sysid/globalhosts | grep -v workstation | cut -d: -f1 | grep -vE "(v(r|c|f|)(d|m|k|h|l)(b|s)|hv|virt|00[0-9]$)"); do \
+	echo "AddToMenu nordHostsMenu $i Exec gnome-terminal --geometry +1267+660 -- ssh $i"; done'
+
+DestroyMenu canHostsMenu
+AddToMenu canHostsMenu "pro-can Hosts" Title
+PipeRead 'for i in $(grep pro-can /admin/var/sysid/globalhosts | grep -v workstation | cut -d: -f1 | grep -vE "(v(r|c|f|)(d|m|k|h|l)(b|s)|hv|virt|00[0-9]$)"); do \
+	echo "AddToMenu canHostsMenu $i Exec gnome-terminal --geometry +1267+660 -- ssh $i"; done'
+
+DestroyMenu brzHostsMenu
+AddToMenu brzHostsMenu "pro-brz Hosts" Title
+PipeRead 'for i in $(grep pro-brz /admin/var/sysid/globalhosts | grep -v workstation | cut -d: -f1 | grep -vE "(v(r|c|f|)(d|m|k|h|l)(b|s)|hv|virt|00[0-9]$)"); do \
+	echo "AddToMenu brzHostsMenu $i Exec gnome-terminal --geometry +1267+660 -- ssh $i"; done'
+
+DestroyMenu kr-nhfHostsMenu
+AddToMenu kr-nhfHostsMenu "pro-kr-nhf Hosts" Title
+PipeRead 'for i in $(grep pro-kr-nhf /admin/var/sysid/globalhosts | grep -v workstation | cut -d: -f1 | grep -vE "(v(r|c|f|)(d|m|k|h|l)(b|s)|hv|virt|00[0-9]$)"); do \
+	echo "AddToMenu kr-nhfHostsMenu $i Exec gnome-terminal --geometry +1267+660 -- ssh $i"; done'
+
+DestroyMenu sydHostsMenu
+AddToMenu sydHostsMenu "pro-syd Hosts" Title
+PipeRead 'for i in $(grep pro-syd /admin/var/sysid/globalhosts | grep -v workstation | cut -d: -f1 | grep -vE "(v(r|c|f|)(d|m|k|h|l)(b|s)|hv|virt|00[0-9]$)"); do \
+	echo "AddToMenu sydHostsMenu $i Exec gnome-terminal --geometry +1267+660 -- ssh $i"; done'
+
 AddToMenu RootMenu
 + "Root Menu"    Title
 + "Colours Menu" Popup CdeColorSetMenu
@@ -182,61 +232,61 @@ DestroyModuleConfig FvwmButtonsXLoad: *
 	ColorSet 14, \
 	Action(Mouse 1) 'Exec pro-tws arb -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel arb vtMonitor -geom +240+0', \
-	Action(Mouse 3) 'Exec gnome-terminal --geometry +1267+660 -- ssh bonnie')
+	Action(Mouse 3) 'Popup arbHostsMenu')
 *FvwmButtonsXLoad: (1x1+1+0, \
 	Title "comm", \
 	ColorSet 15, \
 	Action(Mouse 1) 'Exec pro-tws com -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel com vtMonitor -geom +240+0', \
-	Action(Mouse 3) 'Exec gnome-terminal --geometry +1267+660 -- ssh kelly')
+	Action(Mouse 3) 'Popup commHostsMenu')
 *FvwmButtonsXLoad: (1x1+2+0, \
 	Title "de", \
 	ColorSet 16, \
 	Action(Mouse 1) 'Exec pro-tws de -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel de vtMonitor -geom +240+0', \
-	Action(Mouse 3) 'Exec gnome-terminal --geometry +1267+660 -- ssh rocky')
+	Action(Mouse 3) 'Popup deHostsMenu')
 *FvwmButtonsXLoad: (1x1+3+0, \
 	Title "bas", \
 	ColorSet 17, \
 	Action(Mouse 1) 'Exec pro-tws bas -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel bas vtMonitor -geom +240+0', \
-	Action(Mouse 3) 'Exec gnome-terminal --geometry +1267+660 -- ssh vegas')
+	Action(Mouse 3) 'Popup basHostsMenu')
 *FvwmButtonsXLoad: (1x1+4+0, \
 	Title "ita", \
 	ColorSet 18, \
 	Action(Mouse 1) 'Exec pro-tws ita -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel ita vtMonitor -geom +240+0', \
-	Action(Mouse 3) 'Exec gnome-terminal --geometry +1267+660 -- ssh ducati')
+	Action(Mouse 3) 'Popup itaHostsMenu')
 *FvwmButtonsXLoad: (1x1+5+0, \
 	Title 'nord', \
 	ColorSet 19, \
 	Action(Mouse 1) 'Exec pro-tws nord -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel nord vtMonitor -geom +240+0', \
-	Action(Mouse 3) 'Exec gnome-terminal --geometry +1267+660 -- ssh ikea')
+	Action(Mouse 3) 'Popup nordHostsMenu')
 *FvwmButtonsXLoad: (1x1+6+0, \
 	Title 'can', \
 	ColorSet 20, \
 	Action(Mouse 1) 'Exec pro-tws canxr -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel canxr vtMonitor -geom +240+0', \
-	Action(Mouse 3) 'Exec gnome-terminal --geometry +1267+660 -- ssh jacques')
+	Action(Mouse 3) 'Popup canHostsMenu')
 *FvwmButtonsXLoad: (1x1+7+0, \
 	Title 'brz', \
 	ColorSet 21, \
 	Action(Mouse 1) 'Exec pro-tws brzxr -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel brzxr vtMonitor -geom +240+0', \
-	Action(Mouse 3) 'Exec gnome-terminal --geometry +1267+660 -- ssh jaguar')
+	Action(Mouse 3) 'Popup brzHostsMenu')
 *FvwmButtonsXLoad: (1x1+8+0, \
 	Title 'kr-nhf', \
 	ColorSet 22, \
 	Action(Mouse 1) 'Exec pro-tws kr-nhf -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel kr-nhf vtMonitor -geom +240+0', \
-	Action(Mouse 3) 'Exec gnome-terminal --geometry +1267+660 -- ssh soju')
+	Action(Mouse 3) 'Popup kr-nhfHostsMenu')
 *FvwmButtonsXLoad: (1x1+9+0, \
 	Title 'syd', \
 	ColorSet 23, \
 	Action(Mouse 1) 'Exec pro-tws syd -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel syd vtMonitor -geom +240+0', \
-	Action(Mouse 3) 'Exec gnome-terminal --geometry +1267+660 -- ssh acdc')
+	Action(Mouse 3) 'Popup sydHostsMenu')
 # Gap
 *FvwmButtonsXLoad: (1x1+11+0, \
 	Title 'Main', \
