@@ -1,0 +1,186 @@
+###############################################################################
+# FVWM Buttons Config
+###############################################################################
+
+# ------------------------------
+# Adding extra desk fvwm buttons
+#
+#DestroyModuleConfig FvwmButtons: *
+*FvwmButtonsGeometry 300x48-250-0
+*FvwmButtons: Font "xft:Sans:Bold:size=8:antialias=True"
+#*FvwmButtons(Swallow "FvwmPager" "FvwmPager 0 9")
+#*FvwmPagerBack #908090
+#*FvwmPagerFore #484048
+#*FvwmPagerFont -adobe-helvetica-bold-r-*-*-10-*-*-*-*-*-*-*
+#*FvwmPagerHilight #cab3ca
+#*FvwmPagerGeometry -0-0
+#*FvwmPagerSmallFont 5x8
+#*FvwmPagerDeskTopScale 32
+#*FvwmPagerLabel 0 "Desk 1"
+#*FvwmPagerLabel 1 "Desk 2"
+#*FvwmPagerLabel 2 "Desk 3"
+#*FvwmPagerLabel 3 "Desk 4"
+#*FvwmPagerLabel 4 "Desk 5"
+#*FvwmPagerLabel 5 "Desk 6"
+#*FvwmPagerLabel 6 "Desk 7"
+#*FvwmPagerLabel 7 "Desk 8"
+#*FvwmPagerLabel 8 "Desk 9"
+#*FvwmPagerLabel 9 "Desk 10"
+
+# --------------------------------------------------------------
+# Navigation Buttons
+
+DestroyModuleConfig FvwmButtonsXLoad: *
+*FvwmButtonsXLoad: Geometry 1740x20+255-0
+*FvwmButtonsXload: Font "xft:Sans:Bold:size=8:antialias=True"
+*FvwmButtonsXLoad: Colorset 1
+*FvwmButtonsXLoad: ActiveColorset 2
+*FvwmButtonsXLoad: PressColorset 7
+*FvwmButtonsXLoad: Rows 1
+*FvwmButtonsXLoad: Columns 18
+*FvwmButtonsXLoad: (1x1+0+0, \
+	Title 'arb', \
+	ColorSet 14, \
+	Action(Mouse 1) 'Exec pro-tws arb -geom +1140+300', \
+	Action(Mouse 2) 'Exec ssh_tunnel arb vtMonitor -geom +240+0', \
+	Action(Mouse 3) 'Popup arbHostsMenu')
+*FvwmButtonsXLoad: (1x1+1+0, \
+	Title "comm", \
+	ColorSet 15, \
+	Action(Mouse 1) 'Exec pro-tws com -geom +1140+300', \
+	Action(Mouse 2) 'Exec ssh_tunnel com vtMonitor -geom +240+0', \
+	Action(Mouse 3) 'Popup commHostsMenu')
+*FvwmButtonsXLoad: (1x1+2+0, \
+	Title "de", \
+	ColorSet 16, \
+	Action(Mouse 1) 'Exec pro-tws de -geom +1140+300', \
+	Action(Mouse 2) 'Exec ssh_tunnel de vtMonitor -geom +240+0', \
+	Action(Mouse 3) 'Popup deHostsMenu')
+*FvwmButtonsXLoad: (1x1+3+0, \
+	Title "bas", \
+	ColorSet 17, \
+	Action(Mouse 1) 'Exec pro-tws bas -geom +1140+300', \
+	Action(Mouse 2) 'Exec ssh_tunnel bas vtMonitor -geom +240+0', \
+	Action(Mouse 3) 'Popup basHostsMenu')
+*FvwmButtonsXLoad: (1x1+4+0, \
+	Title "ita", \
+	ColorSet 18, \
+	Action(Mouse 1) 'Exec pro-tws ita -geom +1140+300', \
+	Action(Mouse 2) 'Exec ssh_tunnel ita vtMonitor -geom +240+0', \
+	Action(Mouse 3) 'Popup itaHostsMenu')
+*FvwmButtonsXLoad: (1x1+5+0, \
+	Title 'nord', \
+	ColorSet 19, \
+	Action(Mouse 1) 'Exec pro-tws nord -geom +1140+300', \
+	Action(Mouse 2) 'Exec ssh_tunnel nord vtMonitor -geom +240+0', \
+	Action(Mouse 3) 'Popup nordHostsMenu')
+*FvwmButtonsXLoad: (1x1+6+0, \
+	Title 'can', \
+	ColorSet 20, \
+	Action(Mouse 1) 'Exec pro-tws canxr -geom +1140+300', \
+	Action(Mouse 2) 'Exec ssh_tunnel canxr vtMonitor -geom +240+0', \
+	Action(Mouse 3) 'Popup canHostsMenu')
+*FvwmButtonsXLoad: (1x1+7+0, \
+	Title 'brz', \
+	ColorSet 21, \
+	Action(Mouse 1) 'Exec pro-tws brzxr -geom +1140+300', \
+	Action(Mouse 2) 'Exec ssh_tunnel brzxr vtMonitor -geom +240+0', \
+	Action(Mouse 3) 'Popup brzHostsMenu')
+*FvwmButtonsXLoad: (1x1+8+0, \
+	Title 'kr-nhf', \
+	ColorSet 22, \
+	Action(Mouse 1) 'Exec pro-tws kr-nhf -geom +1140+300', \
+	Action(Mouse 2) 'Exec ssh_tunnel kr-nhf vtMonitor -geom +240+0', \
+	Action(Mouse 3) 'Popup kr-nhfHostsMenu')
+*FvwmButtonsXLoad: (1x1+9+0, \
+	Title 'syd', \
+	ColorSet 23, \
+	Action(Mouse 1) 'Exec pro-tws syd -geom +1140+300', \
+	Action(Mouse 2) 'Exec ssh_tunnel syd vtMonitor -geom +240+0', \
+	Action(Mouse 3) 'Popup sydHostsMenu')
+# Gap
+*FvwmButtonsXLoad: (1x1+11+0, \
+	Title 'Main', \
+	Action(Mouse 1) 'Exec gnome-terminal --profile small_font_fullscreen --geometry +0+0', \
+	Action(Mouse 3) 'Exec gnome-terminal --profile large_font_fullscreen --geometry +0+0')
+*FvwmButtonsXLoad: (1x1+12+0, \
+	Title 'Shell', \
+	Action(Mouse 1) 'Exec gnome-terminal --profile tmux_additional --geometry +400+450', \
+	Action(Mouse 2) 'Exec gnome-terminal --profile tmux_temp --geometry +1267+660', \
+	Action(Mouse 3) 'Exec gnome-terminal --geometry +1267+660')
+*FvwmButtonsXLoad: (1x1+13+0, \
+	Title 'Win', \
+	Action(Mouse 1) 'Exec /usr/bin/remmina 2> /dev/null', \
+	Action(Mouse 2) 'Popup TwsMenu', \
+	Action(Mouse 3) 'Exec slack.sh 2>/dev/null')
+# Gap
+*FvwmButtonsXLoad: (1x1+15+0, \
+	Title 'FVWM', \
+	Action(Mouse 1) 'Restart --dont-preserve-state --pass-args fvwm', \
+	Action(Mouse 2) 'Popup CdeColorChangeMenu', \
+	Action(Mouse 3) 'Exec pkill xclock')
+*FvwmButtonsXLoad: (1x1+16+0, \
+	Title 'ScShot', \
+	Action(Mouse 1) 'Exec import $(mktemp /home/svora/images/screenshot.$(date +"%Y%m%d.%H%M").XXX.png)', \
+	Action(Mouse 3) 'Exec rm -f /home/svora/images/screenshot.*.png')
+*FvwmButtonsXLoad: (1x1+17+0, \
+	Title 'Lock', \
+	Action(Mouse 1) 'Exec xset s activate', \
+	Action(Mouse 3) 'Popup Quit-Verify')
+
+#Module FvwmButtons FvwmButtonsXload
+Style "FvwmButtons" StaysOnTop
+
+###############################################################################
+# FVWM Icon Manager
+###############################################################################
+
+#DestroyModuleConfig FvwmIconMan: *
+
+#Module FvwmIconMan
+
+# Make FvwmIconMan title-bar-less, sticky, and give it an icon
+#Style "Fvwm*"       Icon toolbox.xpm,NoTitle,NoHandles,Sticky
+#Style "FvwmIconMan" HandleWidth 2, Handles, BorderWidth 3
+
+#Definitions used by the modules
+
+#*FvwmIconMan: NumManagers        2
+#*FvwmIconMan: Resolution         global
+#*FvwmIconMan: Background         steelblue
+#*FvwmIconMan: Foreground         white
+#*FvwmIconMan: Font               7x13
+#*FvwmIconMan: UseWinList         true
+#*FvwmIconMan: DrawIcons          true
+#*FvwmIconMan: Shape              true
+#*FvwmIconMan: FollowFocus        true
+#*FvwmIconMan: Tips               needed
+#*FvwmIconMan: Sort               name
+#*FvwmIconMan: ButtonGeometry     195x0
+#*FvwmIconMan: ManagerGeometry    9x0+250-3
+
+# Button Styles
+#*FvwmIconMan: PlainButton            up white steelblue
+#*FvwmIconMan: SelectButton           down white steelblue
+#*FvwmIconMan: FocusButton            up white brown
+#*FvwmIconMan: FocusAndSelectButton   down white brown
+#*FvwmIconMan: TitleButton            raisededge white steelblue
+#*FvwmIconMan: NoIconAction           "SendToModule FvwmAnimate animate"
+#*FvwmIconMan: Font                   "xft:Sans:Bold:size=8:antialias=True"
+
+#*FvwmIconMan: Action    Mouse   1 N sendcommand Focus
+#*FvwmIconMan: Action    Mouse   2 N sendcommand WarpToWindow
+#*FvwmIconMan: Action    Mouse   3 N sendcommand Iconify
+
+#Style "FvwmIconMan" StaysOnTop
+
+DestroyModuleConfig FvwmButtonsXLoadPanel: *
+*FvwmButtonsXLoadPanel: Colorset 4
+*FvwmButtonsXLoadPanel: Geometry 20x20-550-0
+*FvwmButtonsXLoadPanel: Rows 1
+*FvwmButtonsXLoadPanel: Frame 1
+*FvwmButtonsXLoadPanel: Padding 0 0
+*FvwmButtonsXLoadPanel: (Panel(left, steps 20, delay 20, position top, smooth, indicator 10) \
+"FvwmButtonsXLoad" 'Module FvwmButtons FvwmButtonsXLoad')
+
+Module FvwmButtons FvwmButtonsXloadPanel

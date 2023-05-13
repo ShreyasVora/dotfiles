@@ -1,0 +1,38 @@
+###############################################################################
+# FVWM Colorsets
+###############################################################################
+
+######
+# Colorsets
+#
+# 0-8 are defined in the imported theme files
+#
+# 14 - arb
+# 15 - comm
+# 16 - de
+# 17 - bas
+# 18 - ita
+# 19 - nord
+# 20 - can
+# 21 - brz
+# 22 - kr-nhf
+# 23 - syd
+###########
+Colorset 14  fg #000000, bg #ffaf87
+Colorset 15  fg #000000, bg #87875f
+Colorset 16  fg #ffffff, bg #af00ff
+Colorset 17  fg #ffffff, bg #0087ff
+Colorset 18  fg #ffffff, bg #ff0000
+Colorset 19  fg #000000, bg #87ffff
+Colorset 20  fg #000000, bg #ff5f00
+Colorset 21  fg #000000, bg #008000
+Colorset 22  fg #000000, bg #87af00
+Colorset 23  fg #000000, bg #00d7d7
+
+Read /home/svora/.fvwm/colors/scheme.fvwm2rc
+
+MenuStyle * MenuColorset 1
+*FvwmButtons: Colorset 1
+*FvwmPager: Colorset '*' 1
+*FvwmPager: WindowColorsets '*' 2
+*FvwmPager: HilightColorset '*' 2
