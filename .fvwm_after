@@ -20,8 +20,8 @@ AddToMenu TwsMenu
 + "Firefox%mini-firefox.png%"        Exec firefox 2> /dev/null
 + "Windows%mini-windows10.png%"      Exec /usr/bin/remmina 2> /dev/null
 + "PyCharm%mini-python.png%"         Exec /snap/pycharm-community/current/bin/pycharm.sh
-+ "sqlDeveloper%mini-sql-file.png%"	 Exec /oracle_client/product/11.2.0/sqldeveloper/sqldeveloper.sh
-+ "PR Check"     	 	 	 	 	 Exec /home/svora/support/tools/load_pnl.sh -net arb,bas,nord,de,com,globex,ita -q
++ "sqlDeveloper%mini-sql-file.png%"  Exec /oracle_client/product/11.2.0/sqldeveloper/sqldeveloper.sh
++ "PR Check"                         Exec /home/svora/support/tools/load_pnl.sh -net arb,bas,nord,de,com,globex,ita -q
 
 ###############################################################################
 # Shells
@@ -36,23 +36,14 @@ AddToMenu TwsMenu
 #+ "Gnome"         Exec gnome-terminal --geometry +1267+660
 #+ "Other"	      Popup OtherShellsMenu
 
-AddToMenu OtherShellsMenu
-+ "Gnome"         Exec gnome-terminal --geometry 141x38+1267+660
-+ "Terminator"    Exec terminator --geometry=1279x676+0+0
-+ "xterm"         Exec xterm +sb -geom 141x36+1282+700 -en utf-8
-+ "Tmux ->"       Exec gnome-terminal --profile large_font_fullscreen --geometry +2550+0
+#AddToMenu OtherShellsMenu
+#+ "Gnome"         Exec gnome-terminal --geometry 141x38+1267+660
+#+ "Terminator"    Exec terminator --geometry=1279x676+0+0
+#+ "xterm"         Exec xterm +sb -geom 141x36+1282+700 -en utf-8
+#+ "Tmux ->"       Exec gnome-terminal --profile large_font_fullscreen --geometry +2550+0
 
 ###############################################################################
 # Quick Tools
-###############################################################################
-
-AddToMenu TwsMenu
-+ "Tools"            Title
-+ "Screenshot"       Exec import $(mktemp /home/svora/images/screenshot.$(date +'%Y%m%d.%H%M').XXX.png)
-+ "Lock Screen"      Exec xset s activate
-
-###############################################################################
-# Not-so-quick Tools
 ###############################################################################
 
 AddToMenu ToolsMenu
@@ -300,7 +291,7 @@ DestroyModuleConfig FvwmButtonsXLoad: *
 *FvwmButtonsXLoad: (1x1+13+0, \
 	Title 'Win', \
 	Action(Mouse 1) 'Exec /usr/bin/remmina 2> /dev/null', \
-	Action(Mouse 2) 'Exec chromium-browser --proxy-server=extproxy:3128 2> /dev/null', \
+	Action(Mouse 2) 'Popup TwsMenu', \
 	Action(Mouse 3) 'Exec slack.sh 2>/dev/null')
 # Gap
 *FvwmButtonsXLoad: (1x1+15+0, \
