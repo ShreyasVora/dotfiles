@@ -10,6 +10,7 @@ export CDPATH=${CDPATH/\/srg\/pro\/release\/current\/test:/}
 export NO_XCONSOLE=true
 export EDITOR=vim
 export LESS=W${LESS/e/}#10
+export PYTHONDONTWRITEBYTECODE=something_non_empty
 
 if [[ $(date +%a) = Mon ]]; then
 	export GREP_COLORS='ms=1;31'
