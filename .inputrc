@@ -16,9 +16,10 @@ set menu-complete-display-prefix On
 
 # To identify the relevant escape codes for different keystrokes, run `cat`, then hit the key. Then replace ^[ with \e
 
-# cycle through all possible matching files in dir
+# cycle through all possible matching files in dir. Ctrl-A to list all matches
 TAB:menu-complete
 "\e[Z":menu-complete-backward
+Control-a:complete
 
 # Cycle through history based on characters already typed on the line (with ctrl+up/down arrows)
 "\e[1;5A":history-search-backward
