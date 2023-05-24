@@ -112,7 +112,7 @@ DestroyModuleConfig FvwmButtonsXLoad: *
 	Title 'Win', \
 	Action(Mouse 1) 'Exec /usr/bin/remmina 2> /dev/null', \
 	Action(Mouse 2) 'Popup TwsMenu', \
-	Action(Mouse 3) 'Exec slack.sh 2>/dev/null')
+	Action(Mouse 3) 'Exec slack --proxy-server=deskproxy-uk:2868 2>/dev/null')
 # Gap
 *FvwmButtonsXLoad: (1x1+15+0, \
 	Title 'FVWM', \
