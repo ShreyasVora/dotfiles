@@ -7,17 +7,8 @@ DestroyMenu TwsMenu
 AddToMenu TwsMenu
 + "Shells"        	 Title
 + "Gnome"         Exec gnome-terminal --geometry +1267+660
-#+ "Tmux Main"     Exec gnome-terminal --profile small_font_fullscreen --geometry +0+0
-#+ "Tmux LMain"    Exec gnome-terminal --profile large_font_fullscreen --geometry +0+0
-#+ "Tmux 2nd"      Exec gnome-terminal --profile tmux_additional --geometry +400+450
-#+ "Tmux temp"     Exec gnome-terminal --profile tmux_temp --geometry +1267+660
-#+ "Other"	      Popup OtherShellsMenu
-
-#AddToMenu OtherShellsMenu
-#+ "Gnome"         Exec gnome-terminal --geometry 141x38+1267+660
 + "Terminator"    Exec terminator --geometry=1279x676+0+0
 + "xterm"         Exec xterm +sb -geom 141x36+1282+700 -en utf-8
-#+ "Tmux ->"       Exec gnome-terminal --profile large_font_fullscreen --geometry +2550+0
 
 ###############################################################################
 # TWSs and Screens
@@ -120,7 +111,7 @@ PipeRead 'for i in $(grep pro-syd /admin/var/sysid/globalhosts | grep -v worksta
 
 AddToMenu RootMenu
 + "Root Menu"    Title
-+ "Colours Menu" Popup CdeColorSetMenu
+#+ "Colours Menu" Popup CdeColorSetMenu
 + "Tools"        Popup ToolsMenu
 + "Settings"     Popup SettingsMenu
 + "Fvwm_modules" Popup Module-Popup
