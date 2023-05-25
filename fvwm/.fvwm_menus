@@ -6,9 +6,9 @@ DestroyMenu TwsMenu
 
 AddToMenu TwsMenu
 + "Shells"        	 Title
-+ "Gnome"         Exec gnome-terminal --geometry +1267+660
-+ "Terminator"    Exec terminator --geometry=1279x676+0+0
-+ "xterm"         Exec xterm +sb -geom 141x36+1282+700 -en utf-8
++ "Gnome"         Exec gnome-terminal
++ "Terminator"    Exec terminator
++ "xterm"         Exec xterm +sb -en utf-8
 
 ###############################################################################
 # TWSs and Screens
