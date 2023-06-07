@@ -116,7 +116,7 @@ DestroyModuleConfig FvwmButtonsXLoad: *
 # Gap
 *FvwmButtonsXLoad: (1x1+15+0, \
 	Title 'FVWM', \
-	Action(Mouse 1) 'Restart --dont-preserve-state --pass-args fvwm', \
+	Action(Mouse 1) 'Restart --pass-args fvwm', \
 	Action(Mouse 2) 'Popup CdeColorChangeMenu', \
 	Action(Mouse 3) 'Exec pkill xclock')
 *FvwmButtonsXLoad: (1x1+16+0, \
@@ -125,7 +125,7 @@ DestroyModuleConfig FvwmButtonsXLoad: *
 	Action(Mouse 3) 'Exec rm -f /home/svora/images/screenshot.*.png')
 *FvwmButtonsXLoad: (1x1+17+0, \
 	Title 'Lock', \
-	Action(Mouse 1) 'Exec xlock', \
+	Action(Mouse 1) 'Exec xlock -mode image +sound -allowroot', \
 	Action(Mouse 3) 'Popup Quit-Verify')
 
 #Module FvwmButtons FvwmButtonsXload
