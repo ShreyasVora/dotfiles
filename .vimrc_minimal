@@ -1,0 +1,40 @@
+" =====================
+" General vim settings
+" =====================
+
+set nocompatible                 " turn off compatibility mode
+set viminfo+=:1000               " Increase vim command history
+set history=1000                 " Increase vim command history
+set hidden                       " Necessary for ctrlspace plugin
+filetype indent plugin on        " determine filetype and indent accordingly
+syntax on                        " set colour scheme settings
+set t_md=                        " I think this is required to help vim work in tmux
+set ignorecase smartcase         " case insensitive search except when using caps
+set backspace=indent,eol,start   " allow backspacing over autoindent, line break and start of insert action
+set visualbell                   " use visual instead of audio warning
+set noswapfile                   " no swp file
+
+set background=dark
+set cursorline cursorcolumn
+highlight Search ctermbg=blue
+highlight CursorLine cterm=bold ctermbg=234
+highlight CursorColumn cterm=bold ctermbg=234
+
+set number
+set hlsearch               " Enable higlighting of search results
+set incsearch              " incremental search enabled
+set shiftwidth=4 tabstop=4 " tab = 4 spaces
+
+" Required for tmux
+if &term =~ '256color'
+	set t_ut=
+endif
+
+" ==============
+" Key mappings
+" ==============
+
+" Comment out lines matching previous search
+nnoremap <Leader># :%g//s/^/#sv/gc<CR>
+" Map backspace to erase
+noremap! <C-?> <C-h>
