@@ -126,7 +126,7 @@ DestroyModuleConfig FvwmButtonsXLoad: *
 	Action(Mouse 3) 'Exec rm -f /home/svora/images/screenshot.*.png')
 *FvwmButtonsXLoad: (1x1+17+0, \
 	Title 'Lock', \
-	Action(Mouse 1) 'Exec xlock -mode image +sound -allowroot', \
+	Action(Mouse 1) 'Exec xset s activate', \
 	Action(Mouse 3) 'Popup Quit-Verify')
 
 #Module FvwmButtons FvwmButtonsXload
