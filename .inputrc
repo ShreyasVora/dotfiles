@@ -30,3 +30,6 @@ Control-a:complete
 
 # Ctrl-Backspace: delete previous word
 # Doesn't work "\C-?": unix-word-rubout
+
+set enable-bracketed-paste off
+
