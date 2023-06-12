@@ -63,5 +63,6 @@ alias grepcsv='cd ~/nodes/makoCode; /srg/pro/release/current/scr/grepc -node ~/n
 alias riah='~/scripts/run_in_all_hosts.sh'
 alias riahp='~/scripts/run_in_all_hosts.sh -prod'
 alias cd.='cd ~/dotfiles'
-alias h='~/scripts/cheats.sh'
 alias xset_reset_mouse='xset mouse 2 4'
+#alias h='~/scripts/cheats.sh'
+alias h='glow ~/scripts/docs/ --config ~/dotfiles/.glow.yml'
