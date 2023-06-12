@@ -14,6 +14,7 @@ set ignorecase smartcase         " case insensitive search except when using cap
 set backspace=indent,eol,start   " allow backspacing over autoindent, line break and start of insert action
 set autoindent                   " when creating new line
 set visualbell                   " use visual instead of audio warning
+set path+=**                     " search down into all subdirs when looking for files with :find
 set wildmenu                     " when using tab completion for filenames
 silent! set wildoptions=pum      " show popup menu instead of horizontal menu
 set noswapfile                   " no swp file
@@ -69,6 +70,8 @@ augroup SetFileType
 	autocmd!
 	autocmd BufRead,BufNewFile .bash* set filetype=sh
 	autocmd BufRead,BufNewFile procMan.* set filetype=dosini
+	autocmd BufRead,BufNewFile *.ini set filetype=dosini
+	autocmd BufNewFile,BufRead *.md set filetype=markdown
 augroup END
 
 
@@ -99,7 +102,7 @@ noremap <Leader><Down> gt
 nnoremap <Leader>d :bd<CR>
 nnoremap <Leader>co :copen<CR>
 nnoremap <Leader>cl :cclose<CR>
-nnoremap <Leader>ww :Gw<CR>
+nnoremap <Leader>gw :Gw<CR>
 
 " Vim folds
 " zf creates a fold
@@ -157,6 +160,7 @@ if($DOMAIN == "dev-lon")
 	Plug 'vim-ctrlspace/vim-ctrlspace'
 	Plug 'matze/vim-ini-fold'
 	Plug 'tpope/vim-unimpaired'
+	Plug 'vimwiki/vimwiki'
 	call plug#end()
 
 	" NERDTree Config            > View filestructure in tree view
@@ -179,7 +183,7 @@ if($DOMAIN == "dev-lon")
 
 	" Git gutter                 > Show git status of lines in left bar
 	" ----------
-	nnoremap <Leader>g :GitGutterLineHighlightsToggle<CR>
+	nnoremap <Leader>g :set cursorline! cursorcolumn!<CR>:GitGutterLineHighlightsToggle<CR>
 	let g:gitgutter_preview_win_floating = 1
 	command! Gqf GitGutterQuickFix | copen
 
@@ -208,5 +212,9 @@ if($DOMAIN == "dev-lon")
 
 	" Vim ini fold autocmd
 	autocmd BufRead * normal zR
+
+	" Vim wiki preferences
+	let g:vimwiki_list = [{'path': '~/scripts/cheats/', 'syntax': 'markdown', 'ext': '.md'}]
+	let g:vimwiki_global_ext = 0
 
 endif
