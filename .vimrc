@@ -214,7 +214,12 @@ if($DOMAIN == "dev-lon")
 	autocmd BufRead * normal zR
 
 	" Vim wiki preferences
-	let g:vimwiki_list = [{'path': '~/scripts/docs/', 'syntax': 'markdown', 'ext': '.md'}]
+	let g:vimwiki_list = [
+				\{'path': '~/scripts/docs/', 'syntax': 'markdown', 'ext': '.md'},
+				\{'path': '~/scripts/docs/bash/', 'syntax': 'markdown', 'ext': '.md'},
+				\{'path': '~/scripts/docs/cpp/', 'syntax': 'markdown', 'ext': '.md'},
+				\{'path': '~/scripts/docs/vim/', 'syntax': 'markdown', 'ext': '.md'},
+				\{'path': '~/scripts/docs/fvwm/', 'syntax': 'markdown', 'ext': '.md'}]
 	let g:vimwiki_global_ext = 0
 
 endif
