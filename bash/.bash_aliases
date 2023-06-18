@@ -11,6 +11,10 @@ alias lessf='less +F'
 alias ssh='ssh -X'
 alias t='tmux; clear'
 alias isol='cores=$(cat /sys/devices/system/cpu/isolated); [[ -n $cores ]] && echo $cores || echo "No isolated cores on $HOST"'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
 
 # Vi procMan files
 alias virt='vim $RELEASE/data/procMan.virt'
