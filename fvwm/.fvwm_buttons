@@ -72,7 +72,8 @@ DestroyModuleConfig FvwmButtonsXLoad: *
 	Title 'nord', \
 	ColorSet 19, \
 	Action(Mouse 1) 'Exec pro-tws nord -geom +1140+300', \
-	Action(Mouse 2) 'Exec ssh_tunnel nord vtMonitor -geom +240+0', \
+#	Action(Mouse 2) 'Exec ssh_tunnel nord vtMonitor -geom +240+0', \
+	Action(Mouse 2) 'Exec pro-tws nord2 -geom +1140+300', \
 	Action(Mouse 3) 'Popup nordHostsMenu')
 *FvwmButtonsXLoad: (1x1+6+0, \
 	Title 'can', \
