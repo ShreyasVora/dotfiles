@@ -90,8 +90,6 @@ nnoremap <C-Up> {
 nnoremap <C-Down> }
 " Map backspace to erase
 noremap! <C-?> <C-h>
-" Save and go to next file in buffer
-nnoremap <F6> :wn<CR>
 " Clear shell output and execute current script with no args
 nnoremap <F9> :!clear && %:p<CR>
 " Use Leader to move buffers / tabs. Map d to close buffer
@@ -113,6 +111,8 @@ nnoremap <Leader>gw :Gw<CR>
 nnoremap <Space> za
 nnoremap z<Up> zk
 nnoremap z<Down> zj
+nnoremap <Leader>cp :set foldcolumn=0 nonumber norelativenumber
+nnoremap <Leader>cP :set foldcolumn=1 number relativenumber
 
 " Misc
 " -----------
