@@ -111,8 +111,8 @@ nnoremap <Leader>gw :Gw<CR>
 nnoremap <Space> za
 nnoremap z<Up> zk
 nnoremap z<Down> zj
-nnoremap <Leader>cp :set foldcolumn=0 nonumber norelativenumber
-nnoremap <Leader>cP :set foldcolumn=1 number relativenumber
+nnoremap <Leader>cp :set foldcolumn=0 nonumber norelativenumber<CR>
+nnoremap <Leader>cP :set foldcolumn=1 number relativenumber<CR>
 
 " Misc
 " -----------
