@@ -10,6 +10,7 @@ syntax on                        " set colour scheme settings
 set ignorecase smartcase         " case insensitive search except when using caps
 set backspace=indent,eol,start   " allow backspacing over autoindent, line break and start of insert action
 set noswapfile                   " no swp file
+set background=dark
 
 set number
 set hlsearch               " Enable higlighting of search results
