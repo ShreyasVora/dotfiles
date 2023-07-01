@@ -744,3 +744,21 @@ svscst()
 	ssh -X uk01dw708 'echo /home/svora/scripts/strippedStackDump | tmux loadb -' 2>/dev/null
 	sudo su - pro
 }
+
+devpull()
+{
+	if [[ -z $2 ]]; then echo error;
+	else
+		devfile=$(echo $1 | sed -E "s?^\./?$(pwd)/?g")
+		rsync uk01vis710:$devfile $2
+	fi
+}
+
+devpush()
+{
+	if [[ -z $2 ]]; then echo error;
+	else
+		devloc=$(echo $2 | sed -E "s?^\.\$?$(pwd)/?g")
+		rsync $1 uk01vis710:$devloc/
+	fi
+}
