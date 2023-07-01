@@ -146,6 +146,15 @@ EOF
 	LESS+=S
 	if [[ -z $pid ]]; then
 		echo PID not specified
+	elif compgen -G "$pid" >/dev/null && [[ "$pid" =~ .gz$ ]]; then
+		file=$pid
+		$mode $file z
+	elif compgen -G "$pid" >/dev/null; then
+		file=$pid
+		$mode $file
+	elif compgen -G "$pid.gz" >/dev/null; then
+		file=$pid.gz
+		$mode $file z
 	elif compgen -G "./*$pid" >/dev/null && [[ "$pid" =~ .gz$ ]]; then
 		file=./*$pid
 		$mode $file z
