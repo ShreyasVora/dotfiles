@@ -3,24 +3,13 @@
 " =====================
 
 set nocompatible                 " turn off compatibility mode
-set hidden                       " Necessary for ctrlspace plugin
-filetype indent plugin on        " determine filetype and indent accordingly
-syntax on                        " set colour scheme settings
-"set t_md=                        " I think this is required to help vim work in tmux
+set hidden
 set ignorecase smartcase         " case insensitive search except when using caps
-set backspace=indent,eol,start   " allow backspacing over autoindent, line break and start of insert action
-set noswapfile                   " no swp file
 set background=dark
-
-set number
+syntax on
 set hlsearch               " Enable higlighting of search results
 set incsearch              " incremental search enabled
-set shiftwidth=4 tabstop=4 " tab = 4 spaces
-
-" Required for tmux
-"if &term =~ '256color'
-"	set t_ut=
-"endif
+set path+=**               " search down into all subdirs when looking for files with :find
 
 " Map backspace to erase
 noremap! <C-?> <C-h>
