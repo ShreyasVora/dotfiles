@@ -43,6 +43,9 @@ crons          - list all user crons on this box, or a particular user's cron
 clean          - clean up current working directory of any file older than a day old. Useful for /var/core
 vwhich         - vi a file that isn't in pwd but is in path
 svscst         - become pro and add /home/svora/scripts/strippedStackDump to tmux buffer
+devpush        - sync a file over to dev
+devpull        - sync a file over from dev
+mkpatch        - commit currently staged changes in a git repo, turn it into a patch, delete the temp branch
 """ > /dev/null
 
 
@@ -761,4 +764,20 @@ devpush()
 		devloc=$(echo $2 | sed -E "s?^\.\$?$(pwd)/?g")
 		rsync $1 uk01vis710:$devloc/
 	fi
+}
+
+mkpatch()
+{
+	main=$(git branch --show-current)
+	trap "git checkout $main" INT
+	if git branch | grep -q '\ssv$'; then 
+		git checkout sv
+	else
+		git checkout -b sv
+	fi
+	read -p 'Commit message: ' -r
+	git commit -m "$REPLY"
+	git format-patch -1
+	git checkout $main
+	git branch -D sv
 }
