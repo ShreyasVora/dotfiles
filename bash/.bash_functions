@@ -780,4 +780,5 @@ mkpatch()
 	git format-patch -1
 	git checkout $main
 	git branch -D sv
+	trap - INT
 }
