@@ -744,7 +744,7 @@ tgb()
 
 svscst()
 {
-	ssh -X uk01dw708 'echo /home/svora/scripts/strippedStackDump | tmux loadb -' 2>/dev/null
+	ssh -X uk01dw919 'echo /home/svora/scripts/strippedStackDump | tmux loadb -' 2>/dev/null
 	sudo su - pro
 }
 
