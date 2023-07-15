@@ -42,6 +42,7 @@ ms             - make script (copy from by bash_template script)
 crons          - list all user crons on this box, or a particular user's cron
 clean          - clean up current working directory of any file older than a day old. Useful for /var/core
 vwhich         - vi a file that isn't in pwd but is in path
+vscp           - vi a file over ssh connection
 svscst         - become pro and add /home/svora/scripts/strippedStackDump to tmux buffer
 devpush        - sync a file over to dev
 devpull        - sync a file over from dev
@@ -683,6 +684,11 @@ EOF
 vwhich ()
 {
 	vim $(which $1)
+}
+
+vscp ()
+{
+	vim scp://$1/$2
 }
 
 gou()
