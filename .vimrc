@@ -20,6 +20,7 @@ silent! set wildoptions=pum      " show popup menu instead of horizontal menu
 set noswapfile                   " no swp file
 set guioptions+=a                " visual mode text copied to clipboard (this doesn't seem to work)
 set list                         " By default, show whitespace characters
+let g:netrw_silent = 1           " Silence the prompts when editting files with vim scp://
 
 " --------------------
 " Colorscheme settings
