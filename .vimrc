@@ -28,17 +28,17 @@ let g:netrw_silent = 1           " Silence the prompts when editting files with 
 colorscheme koehler
 set background=dark
 set cursorline cursorcolumn
-highlight Search ctermbg=blue
-highlight CursorLine cterm=bold ctermbg=234
-highlight CursorColumn cterm=bold ctermbg=234
-highlight VertSplit ctermbg=19 ctermfg=19
-highlight QuickFixLine ctermbg=8 ctermfg=0
+highlight Search ctermbg=blue guibg=blue
+highlight CursorLine cterm=bold gui=bold ctermbg=234 guibg=#1c1c1c
+highlight CursorColumn cterm=bold gui=bold ctermbg=234 guibg=#1c1c1c
+highlight VertSplit ctermbg=19 guibg=#0000af ctermfg=19 guifg=#0000af
+highlight QuickFixLine ctermbg=8 guibg=#808080 ctermfg=0 guifg=#000000
 
 " Vim folds, game changing
 set foldcolumn=1
 set foldmethod=indent
-hi foldcolumn ctermbg=0 ctermfg=39
-hi folded ctermbg=0 ctermfg=39
+hi foldcolumn ctermbg=0 guibg=#000000 ctermfg=39 guifg=#00afff
+hi folded ctermbg=0 guibg=#000000 ctermfg=39 guifg=#00afff
 
 " allow use of mouse
 if has('mouse')
@@ -47,8 +47,8 @@ endif
 
 " Lineno bar settings
 set relativenumber number  " Show relative line number from current line
-hi LineNrAbove ctermfg=240
-hi LineNrBelow ctermfg=240
+hi LineNrAbove ctermfg=240 guifg=#585858
+hi LineNrBelow ctermfg=240 guifg=#585858
 set so=7                   " j/k moves by 7
 set cmdheight=1            " command bar height
 set hlsearch               " Enable higlighting of search results
@@ -71,7 +71,7 @@ augroup SetFileType
 	autocmd!
 	autocmd BufRead,BufNewFile .bash* set filetype=sh
 	autocmd BufRead,BufNewFile procMan.* set filetype=dosini
-	autocmd BufRead,BufNewFile *.ini set filetype=dosini
+	autocmd BufRead,BufEnter *.ini set filetype=dosini
 	autocmd BufNewFile,BufRead *.md set filetype=markdown
 augroup END
 
@@ -123,7 +123,7 @@ nnoremap <C-f> :let @/=""<Left>
 
 " Toggle list mode on or off. This displays whitespace characters nicely
 set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
-highlight SpecialKey ctermfg=238
+highlight SpecialKey ctermfg=238 guifg=#444444
 nnoremap <Leader>l :set list! list?<CR>
 
 " Toggle cursorline / column highlighting
@@ -166,7 +166,7 @@ if($DOMAIN == "dev-lon")
 
 	" NERDTree Config            > View filestructure in tree view
 	" Define colors
-	hi Directory ctermfg=red
+	hi Directory ctermfg=red guifg=red
 	" Mapping to open NERDTree
 	nnoremap <Leader>n :NERDTreeToggle<CR>
 	" Enable seeing hidden files (beginning with .)
@@ -212,7 +212,7 @@ if($DOMAIN == "dev-lon")
 	let g:CtrlSpaceStatuslineFunction = "airline#extensions#ctrlspace#statusline()"
 
 	" Vim ini fold autocmd
-	autocmd BufRead * normal zR
+	autocmd BufRead,BufEnter *ini normal zR
 
 	" Vim wiki preferences
 	let g:vimwiki_list = [
