@@ -25,20 +25,12 @@ let g:netrw_silent = 1           " Silence the prompts when editting files with 
 " --------------------
 " Colorscheme settings
 " --------------------
-colorscheme koehler
-set background=dark
+source ~/dotfiles/vim/colorscheme.vim
 set cursorline cursorcolumn
-highlight Search ctermbg=blue guibg=blue
-highlight CursorLine cterm=bold gui=bold ctermbg=234 guibg=#1c1c1c
-highlight CursorColumn cterm=bold gui=bold ctermbg=234 guibg=#1c1c1c
-highlight VertSplit ctermbg=19 guibg=#0000af ctermfg=19 guifg=#0000af
-highlight QuickFixLine ctermbg=8 guibg=#808080 ctermfg=0 guifg=#000000
 
 " Vim folds, game changing
 set foldcolumn=1
 set foldmethod=indent
-hi foldcolumn ctermbg=0 guibg=#000000 ctermfg=39 guifg=#00afff
-hi folded ctermbg=0 guibg=#000000 ctermfg=39 guifg=#00afff
 
 " allow use of mouse
 if has('mouse')
@@ -47,8 +39,6 @@ endif
 
 " Lineno bar settings
 set relativenumber number  " Show relative line number from current line
-hi LineNrAbove ctermfg=240 guifg=#585858
-hi LineNrBelow ctermfg=240 guifg=#585858
 set so=7                   " j/k moves by 7
 set cmdheight=1            " command bar height
 set hlsearch               " Enable higlighting of search results
@@ -123,7 +113,6 @@ nnoremap <C-f> :let @/=""<Left>
 
 " Toggle list mode on or off. This displays whitespace characters nicely
 set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
-highlight SpecialKey ctermfg=238 guifg=#444444
 nnoremap <Leader>l :set list! list?<CR>
 
 " Toggle cursorline / column highlighting
@@ -190,7 +179,7 @@ if($DOMAIN == "dev-lon")
 
 	" Airline Config             > Customise status bar and tabline
 	" --------------
-	let g:airline_theme = 'dark'      " Still experimenting here
+	let g:airline_theme = g:sv_color_theme  " This is defined in the imported colorschemes.vim file
 	let g:airline#extensions#tabline#enabled = 1
 	let g:airline#extensions#tabline#left_alt_sep = '>'
 	let g:airline#extensions#tabline#left_sep = '>'

@@ -5,6 +5,8 @@
 # Basic bash aliases
 alias hist='cat /home/svora/dotfiles/.bash_history | grep -i'
 alias vi='vim'
+alias gvi='gvim -geometry +200+200'
+alias gvim='gvim -geometry 250x60+100+100'
 alias grep='grep --color=auto'
 alias lessg='less +G'
 alias lessf='less +F'
