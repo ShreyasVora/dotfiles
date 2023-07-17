@@ -99,7 +99,7 @@ nnoremap <Leader>gw :Gw<CR>
 " zo opens fold, zc closes. za toggles open/closed
 " zR opens all folds in file, zM closes them
 " If I find folds annoying, I will disable the below mapping
-nnoremap <Space> za
+nnoremap <Space> zA
 nnoremap z<Up> zk
 nnoremap z<Down> zj
 nnoremap <Leader>cp :set foldcolumn=0 nonumber norelativenumber<CR>
