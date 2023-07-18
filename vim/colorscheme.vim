@@ -1,1 +1,1 @@
-colorscheme.retrobox.vim
+/home/svora/dotfiles/vim/colorscheme.peachpuff.vim
