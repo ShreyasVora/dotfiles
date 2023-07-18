@@ -1,1 +1,0 @@
-/home/svora/dotfiles/vim/colorscheme.peachpuff.vim
