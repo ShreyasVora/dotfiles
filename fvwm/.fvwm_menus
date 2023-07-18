@@ -22,7 +22,7 @@ AddToMenu TwsMenu
 + "Firefox%mini-firefox.png%"        Exec firefox 2> /dev/null
 + "Windows%mini-windows10.png%"      Exec /usr/bin/remmina 2> /dev/null
 + "PyCharm%mini-python.png%"         Exec /snap/pycharm-community/current/bin/pycharm.sh
-+ "sqlDeveloper%mini-sql-file.png%"  Exec /oracle_client/product/11.2.0/sqldeveloper/sqldeveloper.sh
++ "sqlDeveloper%mini-sql-file.png%"  Exec /opt/sqldeveloper/sqldeveloper/bin/sqldeveloper
 + "PR Check"                         Exec /home/svora/support/tools/load_pnl.sh -net arb,bas,nord,de,com,globex,ita -q
 
 ###############################################################################
