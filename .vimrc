@@ -25,7 +25,7 @@ let g:netrw_silent = 1           " Silence the prompts when editting files with 
 " --------------------
 " Colorscheme settings
 " --------------------
-source ~/dotfiles/vim/colorscheme.vim
+source ~/vim/colorscheme.vim
 set cursorline cursorcolumn
 
 " Vim folds, game changing
