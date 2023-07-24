@@ -788,3 +788,19 @@ mkpatch()
 	git branch -D sv
 	trap - INT
 }
+
+appatch()
+{
+	if [[ $1 =~ ^00 ]]; then
+		git am < $1
+	elif [[ $1 =~ \.patch$ ]]; then
+		git apply $1
+	fi
+	err_code=$?
+	if [[ $err_code -eq 0 ]]; then
+		echo -e "Successfully applied patch $1.\nRemoving the patch."
+		rm $1
+	else
+		echo -e "=========================================\nERROR: Something went wrong with applying that patch.\nERROR: Will not remove the patch.\n========================================="
+	fi
+}
