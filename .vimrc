@@ -6,7 +6,7 @@ let mapleader = ","              " Remap leader to ,
 set nocompatible                 " turn off compatibility mode
 set viminfo+=:1000               " Increase vim command history
 set history=1000                 " Increase vim command history
-set hidden                       " Necessary for ctrlspace plugin
+set hidden                       " Useful default config
 filetype indent plugin on        " determine filetype and indent accordingly
 syntax on                        " set colour scheme settings
 set t_md=                        " I think this is required to help vim work in tmux
@@ -147,10 +147,11 @@ if($DOMAIN == "dev-lon")
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'bling/vim-bufferline'
-	Plug 'vim-ctrlspace/vim-ctrlspace'
 	Plug 'matze/vim-ini-fold'
 	Plug 'tpope/vim-unimpaired'
 	Plug 'vimwiki/vimwiki'
+	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+	Plug 'junegunn/fzf.vim'
 	call plug#end()
 
 	" NERDTree Config            > View filestructure in tree view
@@ -193,12 +194,6 @@ if($DOMAIN == "dev-lon")
 	" Bufferline                 > Integrate bufferline into airline
 	" ----------
 	let g:airline#extensions#bufferline#enabled = 1
-
-	" Ctrlspace config           > Improved interactions with buffers and tabs
-	" ----------------
-	set showtabline=0
-	let g:airline#extensions#ctrlspace#enabled = 1
-	let g:CtrlSpaceStatuslineFunction = "airline#extensions#ctrlspace#statusline()"
 
 	" Vim ini fold autocmd
 	autocmd BufRead,BufEnter *ini normal zR
