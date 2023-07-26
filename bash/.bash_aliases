@@ -76,4 +76,6 @@ alias h='glow ~/scripts/docs/ --config ~/dotfiles/.glow.yml'
 alias glow='glow --config ~/dotfiles/.glow.yml'
 
 # FZF stuff
-alias ff='find . -type f | fzf --height=10% | xargs -r -o vim'
+alias fzv='find . -type f | fzf --height=15% | xargs -r -o vim'
+alias fzk="ps auwwx | fzf --height=25% | awk '{print \$2}' | xargs -r -o kill"
+alias fzsk="ps auwwx | fzf --height=25% | awk '{print \$2}' | xargs -r -o sudo kill"

@@ -809,3 +809,8 @@ pff()
 {
 	/home/svora/scripts/procflatAdj $@ | fzf --height 40%
 }
+
+fzg()
+{
+	grep -rl "$1" | fzf --height=40% --preview="grep $1 {}"
+}
