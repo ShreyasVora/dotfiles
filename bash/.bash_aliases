@@ -74,3 +74,6 @@ alias xset_reset_mouse='xset mouse 2 4'
 #alias h='~/scripts/cheats.sh'
 alias h='glow ~/scripts/docs/ --config ~/dotfiles/.glow.yml'
 alias glow='glow --config ~/dotfiles/.glow.yml'
+
+# FZF stuff
+alias ff='find . -type f | fzf | xargs -r -o vim'

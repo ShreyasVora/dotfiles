@@ -109,7 +109,7 @@ nnoremap <Leader>cP :set foldcolumn=1 number relativenumber<CR>
 " -----------
 " When you have search results up, but want to highlight something else
 " without jumping there, hit ctrl-f. Yeah I know, very niche.
-nnoremap <C-f> :let @/=""<Left>
+"nnoremap <C-f> :let @/=""<Left>
 
 " Toggle list mode on or off. This displays whitespace characters nicely
 set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
@@ -206,5 +206,8 @@ if($DOMAIN == "dev-lon")
 				\{'path': '~/scripts/docs/vim/', 'syntax': 'markdown', 'ext': '.md'},
 				\{'path': '~/scripts/docs/fvwm/', 'syntax': 'markdown', 'ext': '.md'}]
 	let g:vimwiki_global_ext = 0
+
+	" Fzf
+	nnoremap <C-f> :FZF<CR>
 
 endif

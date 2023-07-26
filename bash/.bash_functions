@@ -804,3 +804,8 @@ appatch()
 		echo -e "=========================================\nERROR: Something went wrong with applying that patch.\nERROR: Will not remove the patch.\n========================================="
 	fi
 }
+
+pff()
+{
+	/home/svora/scripts/procflatAdj $@ | fzf --height 40%
+}
