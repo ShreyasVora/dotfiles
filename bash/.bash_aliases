@@ -76,4 +76,4 @@ alias h='glow ~/scripts/docs/ --config ~/dotfiles/.glow.yml'
 alias glow='glow --config ~/dotfiles/.glow.yml'
 
 # FZF stuff
-alias ff='find . -type f | fzf | xargs -r -o vim'
+alias ff='find . -type f | fzf --height=10% | xargs -r -o vim'

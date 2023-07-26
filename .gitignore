@@ -1,2 +1,4 @@
+.gitignore
+.fzf_history
 .bash_history
 *.swp

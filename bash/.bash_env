@@ -36,5 +36,5 @@ export HISTSIZE=1000
 export HISTIGNORE="lt:ls:cd:lo:exit:pwd:hi:b:history:gs:gl:hist*"
 export HISTCONTROL=ignoreboth
 export TERM='xterm-256color'
-export FZF_DEFAULT_OPTS='--height 10% --layout=reverse --border -m'
-export FZF_DEFAULT_COMMAND='find . -not -path "./.git/*"'
+export FZF_DEFAULT_OPTS='--height 50% --layout=reverse --border -m --cycle --no-mouse --info=inline --marker='*' --history=/home/svora/dotfiles/.fzf_history'
+export FZF_DEFAULT_COMMAND='find . -type f -not -path "./.git/*"'
