@@ -11,7 +11,6 @@ alias grep='grep --color=auto'
 alias lessg='less +G'
 alias lessf='less +F'
 alias ssh='ssh -X'
-alias t='tmux; clear'
 alias isol='cores=$(cat /sys/devices/system/cpu/isolated); [[ -n $cores ]] && echo $cores || echo "No isolated cores on $HOST"'
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -79,3 +78,4 @@ alias glow='glow --config ~/dotfiles/.glow.yml'
 alias fzv='find . -type f | fzf --height=15% | xargs -r -o vim'
 alias fzk="ps auwwx | fzf --height=25% | awk '{print \$2}' | xargs -r -o kill"
 alias fzsk="ps auwwx | fzf --height=25% | awk '{print \$2}' | xargs -r -o sudo kill"
+alias fzh='cat /home/svora/dotfiles/.bash_history | fzf --height=75% | xargs -I "{}" bash -c "{}"'
