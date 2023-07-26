@@ -77,6 +77,6 @@ alias glow='glow --config ~/dotfiles/.glow.yml'
 
 # FZF stuff
 alias fzv="find . -type f | fzf --height=15% | xargs -r bash -c 'vim "\$@" < /dev/tty' vim"
-alias fzk="ps auwwx | fzf --height=25% | awk '{print \$2}' | xargs -r -o kill"
-alias fzsk="ps auwwx | fzf --height=25% | awk '{print \$2}' | xargs -r -o sudo kill"
+alias fzk="ps auwwx | fzf --height=25% | awk '{print \$2}' | xargs -r kill"
+alias fzsk="ps auwwx | fzf --height=25% | awk '{print \$2}' | xargs -r sudo kill"
 alias fzh='cat /home/svora/dotfiles/.bash_history | fzf --height=75% | xargs -I "{}" bash -c "{}"'
