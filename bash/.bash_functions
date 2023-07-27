@@ -47,6 +47,11 @@ svscst         - become pro and add /home/svora/scripts/strippedStackDump to tmu
 devpush        - sync a file over to dev
 devpull        - sync a file over from dev
 mkpatch        - commit currently staged changes in a git repo, turn it into a patch, delete the temp branch
+
+==== FZF ====
+pff      - procflat searcher using fzf
+pfg      - procflat searcher using fzf, then ssh to chosen process host
+fzg      - use fzf to grep -r for a string from current dir and show results in preview window
 """ > /dev/null
 
 
@@ -808,6 +813,14 @@ appatch()
 pff()
 {
 	/home/svora/scripts/procflatAdj $@ | fzf --height 40%
+}
+
+pfg()
+{
+	host=$(/home/svora/scripts/procflatAdj $@ | fzf --height 40% | awk '{print $2}')
+	if [[ -n $host ]]; then
+		ssh -X $host
+	fi
 }
 
 fzg()
