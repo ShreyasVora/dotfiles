@@ -6,7 +6,7 @@ DestroyMenu TwsMenu
 
 AddToMenu TwsMenu
 + "Shells"        	 Title
-+ "Gnome"         Exec gnome-terminal
++ "Gnome"         Exec dbus-launch --exit-with-session gnome-terminal
 + "Terminator"    Exec terminator
 + "xterm"         Exec xterm +sb -en utf-8
 
@@ -62,52 +62,52 @@ PipeRead 'for i in /home/svora/.fvwm/colors/CdeColors/*.fvwm2rc; do \
 DestroyMenu arbHostsMenu
 AddToMenu arbHostsMenu "pro-arb Hosts" Title
 PipeRead 'for i in $(grep pro-arb /admin/var/sysid/globalhosts | grep -v workstation | cut -d: -f1 | grep -vE "(v(r|c|f|)(d|m|k|h|l)(b|s)|hv|virt|00[0-9]$)"); do \
-	echo "AddToMenu arbHostsMenu $i Exec gnome-terminal --geometry +1267+660 -- ssh $i"; done'
+	echo "AddToMenu arbHostsMenu $i Exec dbus-launch --exit-with-session gnome-terminal --geometry +1267+660 -- ssh $i"; done'
 
 DestroyMenu commHostsMenu
 AddToMenu commHostsMenu "pro-comm Hosts" Title
 PipeRead 'for i in $(grep pro-comm /admin/var/sysid/globalhosts | grep -v workstation | cut -d: -f1 | grep -vE "(v(r|c|f|)(d|m|k|h|l)(b|s)|hv|virt|00[0-9]$)"); do \
-	echo "AddToMenu commHostsMenu $i Exec gnome-terminal --geometry +1267+660 -- ssh $i"; done'
+	echo "AddToMenu commHostsMenu $i Exec dbus-launch --exit-with-session gnome-terminal --geometry +1267+660 -- ssh $i"; done'
 
 DestroyMenu deHostsMenu
 AddToMenu deHostsMenu "pro-de Hosts" Title
 PipeRead 'for i in $(grep pro-de /admin/var/sysid/globalhosts | grep -v workstation | cut -d: -f1 | grep -vE "(v(r|c|f|)(d|m|k|h|l)(b|s)|hv|virt|00[0-9]$)"); do \
-	echo "AddToMenu deHostsMenu $i Exec gnome-terminal --geometry +1267+660 -- ssh $i"; done'
+	echo "AddToMenu deHostsMenu $i Exec dbus-launch --exit-with-session gnome-terminal --geometry +1267+660 -- ssh $i"; done'
 
 DestroyMenu basHostsMenu
 AddToMenu basHostsMenu "pro-bas Hosts" Title
 PipeRead 'for i in $(grep pro-bas /admin/var/sysid/globalhosts | grep -v workstation | cut -d: -f1 | grep -vE "(v(r|c|f|)(d|m|k|h|l)(b|s)|hv|virt|00[0-9]$)"); do \
-	echo "AddToMenu basHostsMenu $i Exec gnome-terminal --geometry +1267+660 -- ssh $i"; done'
+	echo "AddToMenu basHostsMenu $i Exec dbus-launch --exit-with-session gnome-terminal --geometry +1267+660 -- ssh $i"; done'
 
 DestroyMenu itaHostsMenu
 AddToMenu itaHostsMenu "pro-ita Hosts" Title
 PipeRead 'for i in $(grep pro-ita /admin/var/sysid/globalhosts | grep -v workstation | cut -d: -f1 | grep -vE "(v(r|c|f|)(d|m|k|h|l)(b|s)|hv|virt|00[0-9]$)"); do \
-	echo "AddToMenu itaHostsMenu $i Exec gnome-terminal --geometry +1267+660 -- ssh $i"; done'
+	echo "AddToMenu itaHostsMenu $i Exec dbus-launch --exit-with-session gnome-terminal --geometry +1267+660 -- ssh $i"; done'
 
 DestroyMenu nordHostsMenu
 AddToMenu nordHostsMenu "pro-nord Hosts" Title
 PipeRead 'for i in $(grep pro-nord /admin/var/sysid/globalhosts | grep -v workstation | cut -d: -f1 | grep -vE "(v(r|c|f|)(d|m|k|h|l)(b|s)|hv|virt|00[0-9]$)"); do \
-	echo "AddToMenu nordHostsMenu $i Exec gnome-terminal --geometry +1267+660 -- ssh $i"; done'
+	echo "AddToMenu nordHostsMenu $i Exec dbus-launch --exit-with-session gnome-terminal --geometry +1267+660 -- ssh $i"; done'
 
 DestroyMenu canHostsMenu
 AddToMenu canHostsMenu "pro-can Hosts" Title
 PipeRead 'for i in $(grep pro-can /admin/var/sysid/globalhosts | grep -v workstation | cut -d: -f1 | grep -vE "(v(r|c|f|)(d|m|k|h|l)(b|s)|hv|virt|00[0-9]$)"); do \
-	echo "AddToMenu canHostsMenu $i Exec gnome-terminal --geometry +1267+660 -- ssh $i"; done'
+	echo "AddToMenu canHostsMenu $i Exec dbus-launch --exit-with-session gnome-terminal --geometry +1267+660 -- ssh $i"; done'
 
 DestroyMenu brzHostsMenu
 AddToMenu brzHostsMenu "pro-brz Hosts" Title
 PipeRead 'for i in $(grep pro-brz /admin/var/sysid/globalhosts | grep -v workstation | cut -d: -f1 | grep -vE "(v(r|c|f|)(d|m|k|h|l)(b|s)|hv|virt|00[0-9]$)"); do \
-	echo "AddToMenu brzHostsMenu $i Exec gnome-terminal --geometry +1267+660 -- ssh $i"; done'
+	echo "AddToMenu brzHostsMenu $i Exec dbus-launch --exit-with-session gnome-terminal --geometry +1267+660 -- ssh $i"; done'
 
 DestroyMenu kr-nhfHostsMenu
 AddToMenu kr-nhfHostsMenu "pro-kr-nhf Hosts" Title
 PipeRead 'for i in $(grep pro-kr-nhf /admin/var/sysid/globalhosts | grep -v workstation | cut -d: -f1 | grep -vE "(v(r|c|f|)(d|m|k|h|l)(b|s)|hv|virt|00[0-9]$)"); do \
-	echo "AddToMenu kr-nhfHostsMenu $i Exec gnome-terminal --geometry +1267+660 -- ssh $i"; done'
+	echo "AddToMenu kr-nhfHostsMenu $i Exec dbus-launch --exit-with-session gnome-terminal --geometry +1267+660 -- ssh $i"; done'
 
 DestroyMenu sydHostsMenu
 AddToMenu sydHostsMenu "pro-syd Hosts" Title
 PipeRead 'for i in $(grep pro-syd /admin/var/sysid/globalhosts | grep -v workstation | cut -d: -f1 | grep -vE "(v(r|c|f|)(d|m|k|h|l)(b|s)|hv|virt|00[0-9]$)"); do \
-	echo "AddToMenu sydHostsMenu $i Exec gnome-terminal --geometry +1267+660 -- ssh $i"; done'
+	echo "AddToMenu sydHostsMenu $i Exec dbus-launch --exit-with-session gnome-terminal --geometry +1267+660 -- ssh $i"; done'
 
 AddToMenu RootMenu
 + "Root Menu"    Title
