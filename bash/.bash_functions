@@ -817,7 +817,7 @@ pff()
 
 pfg()
 {
-	host=$(/home/svora/scripts/procflatAdj $@ | fzf --height 40% | awk '{print $2}')
+	host=$(/home/svora/scripts/procflatAdj $@ | fzf --no-multi --height 40% -1 --header='Press Enter to go to selected host.' | awk '{print $2}')
 	if [[ -n $host ]]; then
 		ssh -X $host
 	fi
@@ -827,3 +827,40 @@ fzg()
 {
 	grep -rl "$1" | fzf --height=40% --preview="grep $1 {}"
 }
+
+fzv()
+{
+	if [[ -n $1 ]]; then
+		find . -type f | fzf -1 --height=15% --query="$1"| xargs -r bash -c 'vim "$@" < /dev/tty' vim
+	else
+		find . -type f | fzf -1 --height=15% | xargs -r bash -c 'vim "\$@" < /dev/tty' vim
+	fi
+}
+
+fzk()
+{
+	if [[ -n $1 ]]; then
+		ps uwwx | fzf --height=25% --bind='ctrl-r:reload(ps uwwx)' --header='Press CTRL-R to reload' --query="$1" | awk '{print $2}' | xargs -r kill
+	else
+		ps uwwx | fzf --height=25% --bind='ctrl-r:reload(ps uwwx)' --header='Press CTRL-R to reload' | awk '{print $2}' | xargs -r kill
+	fi
+}
+
+fzsk()
+{
+	if [[ -n $1 ]]; then
+		ps auwwx | fzf --height=25% --bind='ctrl-r:reload(ps uwwx)' --header='Press CTRL-R to reload' --query="$1" | awk '{print $2}' | xargs -r sudo kill
+	else
+		ps auwwx | fzf --height=25% --bind='ctrl-r:reload(ps uwwx)' --header='Press CTRL-R to reload' | awk '{print $2}' | xargs -r sudo kill
+	fi
+}
+
+fzh()
+{
+	if [[ -n $1 ]]; then
+		grep "$1" /home/svora/dotfiles/.bash_history | uniq | fzf --height=75% | perl -e 'ioctl STDOUT, 0x5412, $_ for grep { $_ ne "\n" } split //, do{ chomp($_ = <>); print "\r"; $_ }'
+	else
+		cat /home/svora/dotfiles/.bash_history | uniq | fzf --height=75% | perl -e 'ioctl STDOUT, 0x5412, $_ for grep { $_ ne "\n" } split //, do{ chomp($_ = <>); print "\r"; $_ }'
+	fi
+}
+
