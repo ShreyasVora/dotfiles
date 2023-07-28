@@ -16,6 +16,8 @@ hwshosts    - cat the hwshosts file and search it
 globalhosts - similar to above
 
 ==== NAVIGATION ====
+cd       - replaces standard cd with fuzzy option
+cdh      - standard cd so we still have the option to cd to home dir
 cdv      - cd /srg/pro/data/var and subdirs
 cde      - cd /srg/pro/data/etc and subdirs
 cda      - cd /srg/pro/data and subdirs
@@ -858,9 +860,34 @@ fzsk()
 fzh()
 {
 	if [[ -n $1 ]]; then
-		grep "$1" /home/svora/dotfiles/.bash_history | uniq | fzf --height=75% | perl -e 'ioctl STDOUT, 0x5412, $_ for grep { $_ ne "\n" } split //, do{ chomp($_ = <>); print "\r"; $_ }'
+		grep "$1" /home/svora/dotfiles/.bash_history | awk '!x[$0]++' | fzf --no-multi --tac --height=75% | perl -e 'ioctl STDOUT, 0x5412, $_ for grep { $_ ne "\n" } split //, do{ chomp($_ = <>); print "\r"; $_ }'
 	else
-		cat /home/svora/dotfiles/.bash_history | uniq | fzf --height=75% | perl -e 'ioctl STDOUT, 0x5412, $_ for grep { $_ ne "\n" } split //, do{ chomp($_ = <>); print "\r"; $_ }'
+		cat /home/svora/dotfiles/.bash_history | awk '!x[$0]++' | fzf --no-multi --tac --height=75% | perl -e 'ioctl STDOUT, 0x5412, $_ for grep { $_ ne "\n" } split //, do{ chomp($_ = <>); print "\r"; $_ }'
 	fi
 }
 
+cdh()
+{
+	builtin cd
+}
+
+cd()
+{
+    if [[ "$#" != 0 ]]; then
+        builtin cd "$@";
+        return
+    fi
+    while true; do
+        local lsd=$(echo ".." && ls -p -1 | grep '/$' | sed 's;/$;;')
+        local dir="$(printf '%s\n' "${lsd[@]}" |
+            fzf --reverse --preview '
+                __cd_nxt="$(echo {})";
+                __cd_path="$(echo $(pwd)/${__cd_nxt} | sed "s;//;/;")";
+                echo $__cd_path;
+                echo;
+                ls -p -1 --color=always "${__cd_path}";
+        ')"
+        [[ ${#dir} != 0 ]] || return 0
+        builtin cd "$dir" &> /dev/null
+    done
+}
