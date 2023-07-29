@@ -1,0 +1,17 @@
+" ============================================================
+" Extra vim settings that are not necessary, but nice-to-haves
+" ============================================================
+
+set viminfo+=:1000               " Increase vim command history
+set history=1000                 " Increase vim command history
+filetype indent plugin on        " determine filetype and indent accordingly
+set t_md=                        " I think this is required to help vim work in tmux
+set backspace=indent,eol,start   " allow backspacing over autoindent, line break and start of insert action
+set autoindent                   " when creating new line
+set visualbell                   " use visual instead of audio warning
+set wildmenu                     " when using tab completion for filenames
+silent! set wildoptions=pum      " show popup menu instead of horizontal menu
+set noswapfile                   " no swp file
+set guioptions+=a                " visual mode text copied to clipboard (this doesn't seem to work)
+set list                         " By default, show whitespace characters
+let g:netrw_silent = 1           " Silence the prompts when editting files with vim scp://

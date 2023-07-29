@@ -1,0 +1,15 @@
+" =====================
+" Main vim config file
+" =====================
+
+source /home/svora/dotfiles/vim/vimrc_minimal
+source /home/svora/dotfiles/vim/vimrc_extended
+
+source /home/svora/dotfiles/vim/display.vim
+source /home/svora/dotfiles/vim/mappings.vim
+
+" This is restricted to only being used in dev-lon as I haven't got these
+" installed elsewhere
+if($DOMAIN == "dev-lon")
+	source /home/svora/dotfiles/vim/plugins.vim
+endif
