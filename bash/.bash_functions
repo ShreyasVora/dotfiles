@@ -835,7 +835,7 @@ fzv()
 	if [[ -n $1 ]]; then
 		find . -type f | fzf -1 --height=15% --query="$1"| xargs -r bash -c 'vim "$@" < /dev/tty' vim
 	else
-		find . -type f | fzf -1 --height=15% | xargs -r bash -c 'vim "\$@" < /dev/tty' vim
+		find . -type f | fzf -1 --height=15% | xargs -r bash -c 'vim "$@" < /dev/tty' vim
 	fi
 }
 
