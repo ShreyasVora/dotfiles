@@ -2,7 +2,6 @@
 " General vim settings
 " =====================
 
-let mapleader = ","              " Remap leader to ,
 set nocompatible                 " turn off compatibility mode
 set viminfo+=:1000               " Increase vim command history
 set history=1000                 " Increase vim command history
@@ -73,7 +72,6 @@ augroup END
 
 " Fundamental
 " -----------
-nnoremap ; :
 nnoremap <Leader>, <C-w>
 " Comment out lines matching previous search
 nnoremap <Leader># :%g//s/^/#sv/gc<CR>
@@ -152,6 +150,8 @@ if($DOMAIN == "dev-lon")
 	Plug 'vimwiki/vimwiki'
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
+	Plug 'christoomey/vim-tmux-navigator'
+	Plug 'unblevable/quick-scope'
 	call plug#end()
 
 	" NERDTree Config            > View filestructure in tree view
@@ -209,5 +209,13 @@ if($DOMAIN == "dev-lon")
 
 	" Fzf
 	nnoremap <C-f> :FZF<CR>
+
+	" Vim tmux navigator
+	let g:tmux_navigator_no_mappings = 1
+
+	noremap <silent> <M-Left> :<C-U>TmuxNavigateLeft<cr>
+	noremap <silent> <M-Down> :<C-U>TmuxNavigateDown<cr>
+	noremap <silent> <M-Up> :<C-U>TmuxNavigateUp<cr>
+	noremap <silent> <M-Right> :<C-U>TmuxNavigateRight<cr>
 
 endif
