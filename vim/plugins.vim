@@ -156,6 +156,7 @@ noremap <silent> <M-Right> :<C-U>TmuxNavigateRight<cr>
 let g:NERDCreateDefaultMappings = 0
 let g:NERDSpaceDelims = 1
 let g:NERDTrimTrailingWhitespace = 1
+"let g:NERDCustomDelimiters = { 'dosini': { 'left': '#','right': '' }}
 nnoremap <C-_> <Plug>NERDCommenterTogglej
 vnoremap <C-_> <Plug>NERDCommenterToggle
 
