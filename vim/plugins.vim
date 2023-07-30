@@ -1,3 +1,9 @@
+" =====================
+" Plugins and plugin settings / maps
+" =====================
+
+call plug#begin()
+
 " Only load coc config if on dw919
 " Load it first so it doesn't intrude with other keybinds
 if ($HOST == "uk01dw919")
@@ -19,9 +25,9 @@ if ($HOST == "uk01dw919")
 	" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 	" other plugin before putting this into your config
 	inoremap <silent><expr> <TAB>
-			\ coc#pum#visible() ? coc#pum#next(1) :
-			\ CheckBackspace() ? "\<Tab>" :
-			\ coc#refresh()
+		\ coc#pum#visible() ? coc#pum#next(1) :
+		\ CheckBackspace() ? "\<Tab>" :
+		\ coc#refresh()
 	inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 	" Make <CR> to accept selected completion item or notify coc.nvim to format
@@ -44,9 +50,9 @@ if ($HOST == "uk01dw919")
 
 	function! ShowDocumentation()
 		if CocAction('hasProvider', 'hover')
-			call CocActionAsync('doHover')
+		call CocActionAsync('doHover')
 		else
-			call feedkeys('K', 'in')
+		call feedkeys('K', 'in')
 		endif
 	endfunction
 
@@ -62,7 +68,6 @@ if ($HOST == "uk01dw919")
 	augroup end
 endif
 
-call plug#begin()
 Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'
@@ -129,11 +134,11 @@ autocmd BufRead,BufEnter *ini normal zR
 
 " Vim wiki preferences
 let g:vimwiki_list = [
-			\{'path': '~/scripts/docs/', 'syntax': 'markdown', 'ext': '.md'},
-			\{'path': '~/scripts/docs/bash/', 'syntax': 'markdown', 'ext': '.md'},
-			\{'path': '~/scripts/docs/cpp/', 'syntax': 'markdown', 'ext': '.md'},
-			\{'path': '~/scripts/docs/vim/', 'syntax': 'markdown', 'ext': '.md'},
-			\{'path': '~/scripts/docs/fvwm/', 'syntax': 'markdown', 'ext': '.md'}]
+		\{'path': '~/scripts/docs/', 'syntax': 'markdown', 'ext': '.md'},
+		\{'path': '~/scripts/docs/bash/', 'syntax': 'markdown', 'ext': '.md'},
+		\{'path': '~/scripts/docs/cpp/', 'syntax': 'markdown', 'ext': '.md'},
+		\{'path': '~/scripts/docs/vim/', 'syntax': 'markdown', 'ext': '.md'},
+		\{'path': '~/scripts/docs/fvwm/', 'syntax': 'markdown', 'ext': '.md'}]
 let g:vimwiki_global_ext = 0
 
 " Fzf

@@ -64,7 +64,7 @@ endif
 " Write visual selection to a new file
 command! -range -nargs=1 Vw call SaveVisualSelection(<q-args>)
 function! SaveVisualSelection(filename)
-    silent! normal! gv"zy
-    call writefile(getreg('z', 1, 1), a:filename, 'a')
-    echon "Visual selection saved to " . a:filename
+	  silent! normal! gv"zy
+	  call writefile(getreg('z', 1, 1), a:filename, 'a')
+	  echon "Visual selection saved to " . a:filename
 endfunction
