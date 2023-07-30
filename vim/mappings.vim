@@ -42,9 +42,11 @@ nnoremap <Leader>cP :set foldcolumn=1 number relativenumber<CR>
 " Change leader key
 let mapleader="\<Space>"
 
-" Yank to system clipboard
-vmap Y "*y
-nmap Y "*yy
+" Yank to / paste from system clipboard
+nnoremap <Leader>y :let @+ = getline('.')<Bar>call setreg('+', substitute(@+, '\n', '', 'g'))<CR>
+vnoremap <Leader>y "+y
+nnoremap <Leader>p "+p
+nnoremap <Leader>P "+P
 
 " Make backspace erase in normal mode
 nnoremap <C-?> hx

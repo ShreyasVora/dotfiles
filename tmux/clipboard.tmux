@@ -8,14 +8,14 @@ set -g mode-style 'bg=#5fff00,fg=#5f0087'
 # Define word seperators
 set -g word-separators "<>(){}[]'\";@*+,=!£$%^&:#~?`¬|\\ "
 
-bind v copy-mode                                                                   # Enter copy-mode
-bind p paste-buffer                                                                # Paste from tmux clipboard
-bind -n MouseDown2Pane paste-buffer                                                # Can also use middle mouse for this
-bind -T copy-mode-vi Escape send -X cancel                                         # Clear selection and exit copy mode
-bind -T copy-mode-vi q send -X clear-selection                                     # Clear selection but stay in copy mode
-bind -T copy-mode-vi v send -X begin-selection                                     # Begin selection
-bind -T copy-mode-vi Space send -X rectangle-toggle                                # Toggle rectangle vs linewise
-bind -T copy-mode-vi Enter send -X copy-pipe-and-cancel "xclip -i -sel c"          # Copy selection to clipboard
+bind v copy-mode                                                                              # Enter copy-mode
+bind p run-shell "xclip -sel c -o | tmux load-buffer - && tmux paste-buffer"                  # Get current system clipboard and load this into tmux buffer. Then paste it
+bind -n MouseDown2Pane run-shell "xclip -sel c -o | tmux load-buffer - && tmux paste-buffer"  # Can also use middle mouse for this
+bind -T copy-mode-vi Escape send -X cancel                                                    # Clear selection and exit copy mode
+bind -T copy-mode-vi q send -X clear-selection                                                # Clear selection but stay in copy mode
+bind -T copy-mode-vi v send -X begin-selection                                                # Begin selection
+bind -T copy-mode-vi Space send -X rectangle-toggle                                           # Toggle rectangle vs linewise
+bind -T copy-mode-vi Enter send -X copy-pipe-and-cancel "xclip -i -sel c"                     # Copy selection to clipboard
 
 # Mouse drag copy settings
 # These need to go at the bottom of the file due to the overrides in the plugin I guess
