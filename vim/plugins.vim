@@ -14,7 +14,9 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'unblevable/quick-scope'
+Plug 'jiangmiao/auto-pairs'
+Plug 'preservim/nerdcommenter'
+Plug 'easymotion/vim-easymotion'
 call plug#end()
 
 " NERDTree Config            > View filestructure in tree view
@@ -34,10 +36,12 @@ augroup FugitiveAutocommand
 	autocmd!
 	autocmd VimEnter * if argc() == 0 | call timer_start(100, { -> execute('silent! 0Git') }) | endif
 augroup END
+nnoremap <Leader>gw :Gw<CR>
 
 " Git gutter                 > Show git status of lines in left bar
 " ----------
 nnoremap <Leader>g :set cursorline! cursorcolumn!<CR>:GitGutterLineHighlightsToggle<CR>
+command! GGA GitGutterAll
 let g:gitgutter_preview_win_floating = 1
 command! Gqf GitGutterQuickFix | copen
 
@@ -215,3 +219,17 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+" NERD Commenter
+let g:NERDCreateDefaultMappings = 0
+let g:NERDSpaceDelims = 1
+let g:NERDTrimTrailingWhitespace = 1
+nnoremap <C-_> <Plug>NERDCommenterTogglej
+vnoremap <C-_> <Plug>NERDCommenterToggle
+
+" Easy motion
+let g:EasyMotion_smartcase = 1
+let g:EasyMotion_move_highlight = 0
+nmap <Leader>s <Plug>(easymotion-prefix)
+nnoremap ; <Plug>(easymotion-next)
+nnoremap , <Plug>(easymotion-prev)
