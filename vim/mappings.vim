@@ -54,3 +54,22 @@ nnoremap <Leader># :%g//s/^/#sv/gc<CR>
 
 " Clear shell output and execute current script with no args
 nnoremap <F9> :!clear && %:p<CR>
+
+nnoremap gf :call CreateAndOpenNewFile()<CR>
+
+function! CreateAndOpenNewFile()
+    let filename = expand('<cWORD>')
+    if empty(filename)
+        echo "No filename under cursor."
+        return
+    endif
+
+    if filereadable(filename)
+        execute "edit " . filename
+    else
+        let user_choice = input("Create new file '" . filename . "'? (y/n): ")
+        if user_choice =~? '^y$'
+            execute "edit " . filename
+        endif
+    endif
+endfunction

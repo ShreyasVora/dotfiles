@@ -42,6 +42,7 @@ augroup SetFileType
 	autocmd BufRead,BufNewFile,BufEnter procMan.* set filetype=dosini
 	autocmd BufRead,BufNewFile,BufEnter *.ini set filetype=dosini
 	autocmd BufRead,BufNewFile,BufEnter *.md set filetype=markdown
+	autocmd BufRead,BufNewFile,BufEnter *.tmux set filetype=tmux
 augroup END
 
 " ------------
