@@ -11,13 +11,13 @@ noremap <Leader><Up> gT
 noremap <Leader><Down> gt
 nnoremap <silent> <leader>d :call CloseBuffer()<CR>
 function! CloseBuffer()
-  if len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
-    " Only one buffer, so close it
-    execute "bd"
-  else
-    " More than one buffer, switch to the previous buffer and then close the current one
-    execute "b# | bd #"
-  endif
+	if len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+		" Only one buffer, so close it
+		execute "bd"
+	else
+		" More than one buffer, switch to the previous buffer and then close the current one
+		execute "b# | bd #"
+	endif
 endfunction
 map <s-Right> :vertical resize +5<CR>
 map <s-Left> :vertical resize -5<CR>
@@ -60,18 +60,18 @@ nnoremap <F9> :!clear && %:p<CR>
 nnoremap gf :call CreateAndOpenNewFile()<CR>
 
 function! CreateAndOpenNewFile()
-    let filename = expand('<cWORD>')
-    if empty(filename)
-        echo "No filename under cursor."
-        return
-    endif
+		let filename = expand('<cWORD>')
+		if empty(filename)
+				echo "No filename under cursor."
+				return
+		endif
 
-    if filereadable(filename)
-        execute "edit " . filename
-    else
-        let user_choice = input("Create new file '" . filename . "'? (y/n): ")
-        if user_choice =~? '^y$'
-            execute "edit " . filename
-        endif
-    endif
+		if filereadable(filename)
+				execute "edit " . filename
+		else
+				let user_choice = input("Create new file '" . filename . "'? (y/n): ")
+				if user_choice =~? '^y$'
+					execute "edit " . filename
+				endif
+		endif
 endfunction

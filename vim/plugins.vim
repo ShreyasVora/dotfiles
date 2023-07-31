@@ -143,6 +143,8 @@ let g:vimwiki_global_ext = 0
 
 " Fzf
 nnoremap <C-f> :FZF<CR>
+" Map W to w as I keep typing that by mistake.
+cabbr W w
 
 " Vim tmux navigator
 let g:tmux_navigator_no_mappings = 1
