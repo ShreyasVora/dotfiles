@@ -38,7 +38,8 @@ endif
 
 augroup SetFileType
 	autocmd!
-	autocmd BufRead,BufNewFile,BufEnter .bash* bash* set filetype=sh
+	autocmd BufRead,BufNewFile,BufEnter .bash* set filetype=sh
+	autocmd BufRead,BufNewFile,BufEnter bash* set filetype=sh
 	autocmd BufRead,BufNewFile,BufEnter procMan.* set filetype=dosini
 	autocmd BufRead,BufNewFile,BufEnter *.ini set filetype=dosini
 	autocmd BufRead,BufNewFile,BufEnter *.md set filetype=markdown
