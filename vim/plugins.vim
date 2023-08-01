@@ -86,6 +86,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'easymotion/vim-easymotion'
 call plug#end()
 
+
 " NERDTree Config            > View filestructure in tree view
 " Define colors
 hi Directory ctermfg=red guifg=red
@@ -142,7 +143,10 @@ let g:vimwiki_list = [
 let g:vimwiki_global_ext = 0
 
 " Fzf
-nnoremap <C-f> :FZF<CR>
+let g:fzf_layout = {'down':'40%'}
+nnoremap <C-p> :FZF<CR>
+nnoremap <C-g> :Rg <C-r><C-w><CR>
+nnoremap <C-f> :Rg 
 " Map W to w as I keep typing that by mistake.
 cabbr W w
 
