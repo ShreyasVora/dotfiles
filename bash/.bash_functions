@@ -825,12 +825,7 @@ pfg()
 	fi
 }
 
-fzg()
-{
-	grep -rl "$1" | fzf --height=40% --preview="grep $1 {}"
-}
-
-fzv()
+v()
 {
 	if [[ -n $1 ]]; then
 		find . -type f | fzf -1 --height=15% --query="$1"| xargs -r bash -c 'vim "$@" < /dev/tty' vim
@@ -839,16 +834,22 @@ fzv()
 	fi
 }
 
-fzk()
+k()
 {
 	if [[ -n $1 ]]; then
-		ps -eo user,pid,ppid,%cpu,%mem,comm --sort -%mem | fzf --height=25% --bind='ctrl-r:reload(ps -eo user,pid,ppid,%cpu,%mem,comm --sort -%cpu,-%mem),ctrl-a:reload(ps -eo user,pid,ppid,%cpu,%mem,comm --sort -%mem,-%cpu)' --header='Sort by CPU(C-r) or MEM(C-a)' --query="$1" | awk '{print $2}' | xargs -r sudo kill
+		extra="--query '$1'"
 	else
-		ps -eo user,pid,ppid,%cpu,%mem,comm --sort -%mem | fzf --height=25% --bind='ctrl-r:reload(ps -eo user,pid,ppid,%cpu,%mem,comm --sort -%cpu,-%mem),ctrl-a:reload(ps -eo user,pid,ppid,%cpu,%mem,comm --sort -%mem,-%cpu)' --header='Sort by CPU(C-r) or MEM(C-a)' | awk '{print $2}' | xargs -r sudo kill
+		extra=
+	fi
+	pid=$(ps -eo user,pid,ppid,%cpu,%mem,comm --sort -%mem | fzf --height=25% --bind='ctrl-r:reload(ps -eo user,pid,ppid,%cpu,%mem,comm --sort -%cpu,-%mem),ctrl-a:reload(ps -eo user,pid,ppid,%cpu,%mem,comm --sort -%mem,-%cpu)' --header='Sort by CPU(C-r) or MEM(C-a)' $extra)
+
+	if [[ $(echo $pid | awk '{print $1}') == $USER ]];
+	then kill $(echo $pid | awk '{print $2}')
+	else sudo kill $(echo $pid | awk '{print $2}')
 	fi
 }
 
-fzh()
+function hi()
 {
 	if [[ -n $1 ]]; then
 		grep "$1" /home/svora/dotfiles/.bash_history | awk '!x[$0]++' | fzf --no-multi --tac --height=75% | perl -e 'ioctl STDOUT, 0x5412, $_ for grep { $_ ne "\n" } split //, do{ chomp($_ = <>); print "\r"; $_ }'
