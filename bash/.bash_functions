@@ -71,6 +71,7 @@ function llog() {
 	file=
 	lessflg=
 	debug=
+	selection=
 	mode=llog_cat
 	shift
 	while [[ $# -gt 0 ]]; do
@@ -186,7 +187,10 @@ EOF
 		$mode $file z
 	else
 		new_pid=$(ps auwwx | awk '$1 ~ /^pro$/ {$3=$4=$5=$6=$7=$8=""; print $0}' | grep $pid | awk "\$1\$2\$3\$4 "'!'"~ /$pid/" | grep -vE '\b(grep|awk)\b')
-		if [[ $(echo "$new_pid" | wc -l) -gt 1 ]]; then
+		if [[ $(echo "$new_pid" | wc -l) -gt 1 ]] && [[ -n $FZF ]]; then
+			selection=$(echo "$new_pid" | fzf --header="ERROR: Multiple PIDs found for search string $pid. Please select one:" | awk '{print $2}')
+			echo llog $selection | perl -e 'ioctl STDOUT, 0x5412, $_ for grep { $_ ne "\n" } split //, do{ chomp($_ = <>); print "\r"; $_ }'
+		elif [[ $(echo "$new_pid" | wc -l) -gt 1 ]]; then
 			echo -e "ERROR: Multiple PIDs found for search string $pid. Please restrict your search. PIDs found:\n$new_pid"
 		elif [[ -z $new_pid ]]; then
 			echo "Is $pid a PID? If so, no log file found. Is it a search pattern? If so, process does not appear to be running at the moment."
