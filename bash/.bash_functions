@@ -188,7 +188,7 @@ EOF
 	else
 		new_pid=$(ps auwwx | awk '$1 ~ /^pro$/ {$3=$4=$5=$6=$7=$8=""; print $0}' | grep $pid | awk "\$1\$2\$3\$4 "'!'"~ /$pid/" | grep -vE '\b(grep|awk)\b')
 		if [[ $(echo "$new_pid" | wc -l) -gt 1 ]] && [[ -n $FZF ]]; then
-			selection=$(echo "$new_pid" | fzf --header="ERROR: Multiple PIDs found for search string $pid. Please select one:" | awk '{print $2}')
+			selection=$(echo "$new_pid" | fzf --header="ERROR: Multiple PIDs found for search string $pid. Please select one:" --no-multi -1 --height=20% --min-height=5 | awk '{print $2}')
 			echo llog $selection | perl -e 'ioctl STDOUT, 0x5412, $_ for grep { $_ ne "\n" } split //, do{ chomp($_ = <>); print "\r"; $_ }'
 		elif [[ $(echo "$new_pid" | wc -l) -gt 1 ]]; then
 			echo -e "ERROR: Multiple PIDs found for search string $pid. Please restrict your search. PIDs found:\n$new_pid"
@@ -204,12 +204,12 @@ EOF
 	LESS=${LESS/S/}
 
 	if [[ -n $debug ]]; then
-		echo "File is $pid, view mode is $mode"
-		echo "Parent dir is $parent_dir"
-		echo "Searching for $sta, case insensitive $cins, and excluding $excl"
+		echo "[DEBUG] File is $pid, view mode is $mode"
+		echo "[DEBUG] Parent dir is $parent_dir"
+		echo "[DEBUG] Searching for $sta, case insensitive $cins, and excluding $excl"
 	fi
 	if [[ -n $file ]]; then
-		echo Reading $file.
+		echo [EXIT] $file.
 	fi
 }
 
