@@ -842,9 +842,9 @@ fzv()
 fzk()
 {
 	if [[ -n $1 ]]; then
-		ps -eo user,pid,ppid,%cpu,%mem,comm | fzf --height=25% --bind='ctrl-1:reload(ps -eo user,pid,ppid,%cpu,%mem,comm --sort -%cpu,-%mem),ctrl-2:reload(ps -eo user,pid,ppid,%cpu,%mem,comm --sort -%mem,-%cpu)' --header='Press CTRL-1 to sort by CPU, CTRL-2 to sort by MEM' --query="$1" | awk '{print $2}' | xargs -r sudo kill
+		ps -eo user,pid,ppid,%cpu,%mem,comm --sort -%mem | fzf --height=25% --bind='ctrl-r:reload(ps -eo user,pid,ppid,%cpu,%mem,comm --sort -%cpu,-%mem),ctrl-t:reload(ps -eo user,pid,ppid,%cpu,%mem,comm --sort -%mem,-%cpu)' --header='Sort by CPU(C-r) or MEM(C-t)' --query="$1" | awk '{print $2}' | xargs -r sudo kill
 	else
-		ps -eo user,pid,ppid,%cpu,%mem,comm | fzf --height=25% --bind='ctrl-1:reload(ps -eo user,pid,ppid,%cpu,%mem,comm --sort -%cpu,-%mem),ctrl-2:reload(ps -eo user,pid,ppid,%cpu,%mem,comm --sort -%mem,-%cpu)' --header='Press CTRL-1 to sort by CPU, CTRL-2 to sort by MEM' | awk '{print $2}' | xargs -r sudo kill
+		ps -eo user,pid,ppid,%cpu,%mem,comm --sort -%mem | fzf --height=25% --bind='ctrl-r:reload(ps -eo user,pid,ppid,%cpu,%mem,comm --sort -%cpu,-%mem),ctrl-t:reload(ps -eo user,pid,ppid,%cpu,%mem,comm --sort -%mem,-%cpu)' --header='Sort by CPU(C-r) or MEM(C-t)' | awk '{print $2}' | xargs -r sudo kill
 	fi
 }
 
