@@ -213,13 +213,15 @@ EOF
 function proc() {
 
 	# table header formatting
-	header="\n %10s %28s %15s %25s \n"
+	header="%10s %28s %15s %25s \n"
 	divider=============================================
 	divider=$divider$divider$divider
 	width=100
 	tofind='command'
 	cd_flag=
 	proc=
+	result=
+	selection=
 
 	flag=0 #flag for first match to print table header. if no data found flag no match
 	while (( "$#" )); do
@@ -242,13 +244,8 @@ function proc() {
 	proc="${proc:=vtServer}"
 	if [ -d /local/data/hosts/$SECOND/$HOST ]; then cd /local/data/hosts/$SECOND/$HOST; else cd $RUNTIME_DATA/data/hosts/$HOST; fi
 	# $1 command to find
-	for line in $(files=$(find . -type f -regextype awk -regex "\./$proc.*[0-9]+(\.gz)?" | sed 's:^./::'); if [[ -n $files ]]; then ls -1tr $files; fi); do
+	result=$(for line in $(files=$(find . -type f -regextype awk -regex "\./$proc.*[0-9]+(\.gz)?" | sed 's:^./::'); if [[ -n $files ]]; then ls -1tr $files; fi); do
 		if [[ `( head -7 $line | zgrep  -m 1 -i "$tofind"  2> /dev/null )`  ]]; then # is the algo found in command? supress errors
-			if [[ $flag ==  "0" ]]; then
-				printf "$header" "Date" "Total Size (bytes)" "File Name" "Command"
-				printf "%$width.${width}s \n" "$divider"
-				flag=1
-			fi
 			a=`stat -c '%.19y %15s %20n ' $line` # Formatted for Date to the second, total size in bytes, and file name
 			b=`head  -7 $line | zgrep -m1  command $line | cut -d' ' -f4-6`
 			b="${b} ..."
@@ -258,15 +255,26 @@ function proc() {
 				printf "%s\t%s \n" "${a}" "${b}"
 			fi
 		fi
-	done
+	done)
+	
+	hdr=$(printf "$header" "Date" "Total Size (bytes)" "File Name" "Command"; printf "%$width.${width}s \n" "$divider")
 
-	if [[ $flag == "0" ]]; then
-		printf "\n%s \n\n" "No matches found!"
-	fi
 	if [[ -z $cd_flag ]]; then
 		cd - >/dev/null
 	fi
 	unset proc
+
+	if [[ -n $result ]] && [[ -n $FZF ]]; then
+		selection=$(echo "$result" | fzf --header "$hdr" -0 --no-multi --height=40%)
+	elif [[ -n $result ]]; then
+		echo "$hdr"
+		echo "$result"
+		return
+	else
+		echo "No results found!"
+		return
+	fi
+	echo llog $(echo $selection | awk '{print $4}') | perl -e 'ioctl STDOUT, 0x5412, $_ for grep { $_ ne "\n" } split //, do{ chomp($_ = <>); print "\r"; $_ }'
 }
 
 function hwshosts()
