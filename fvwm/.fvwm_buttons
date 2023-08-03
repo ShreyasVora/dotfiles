@@ -101,13 +101,13 @@ DestroyModuleConfig FvwmButtonsXLoad: *
 # Gap
 *FvwmButtonsXLoad: (1x1+11+0, \
 	Title 'Main', \
-	Action(Mouse 1) 'Exec dbus-launch gnome-terminal --profile small_font_fullscreen --geometry +0+0', \
-	Action(Mouse 3) 'Exec dbus-launch gnome-terminal --profile large_font_fullscreen --geometry +0+0')
+	Action(Mouse 1) 'Exec xfce4-terminal --geometry 364x90+0+0 --command="tmux new-session -A -s main"', \
+	Action(Mouse 3) 'Exec xfce4-terminal --geometry 283x75+0+0 --command="tmux new-session -A -s main"')
 *FvwmButtonsXLoad: (1x1+12+0, \
 	Title 'Shell', \
-	Action(Mouse 1) 'Exec dbus-launch gnome-terminal --profile tmux_additional --geometry +400+450', \
-	Action(Mouse 2) 'Exec dbus-launch gnome-terminal --profile tmux_temp --geometry +1267+660', \
-	Action(Mouse 3) 'Exec dbus-launch gnome-terminal --geometry +1267+660')
+	Action(Mouse 1) 'Exec xfce4-terminal --geometry 200x50+400+450 --command="tmux new-session -A -s second"', \
+	Action(Mouse 2) 'Exec xfce4-terminal --geometry 141x37+1267+660 --command="tmux"', \
+	Action(Mouse 3) 'Exec xfce4-terminal --geometry 141x37+1267+660')
 *FvwmButtonsXLoad: (1x1+13+0, \
 	Title 'Win', \
 	Action(Mouse 1) 'Exec /usr/bin/remmina 2> /dev/null', \

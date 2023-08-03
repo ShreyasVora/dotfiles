@@ -22,7 +22,7 @@ setw -g automatic-rename off                                       # Set window 
 set -g pane-border-format '#P'                                     # Set pane title to just be #P (pane_id)
 set -g pane-active-border-style 'fg=#00ff00,bg=#444444'            # For current active pane, have special border format to highlight it
 set -g pane-border-style 'fg=#606060'                              # Dull colours for inactive pane
-set -g window-active-style 'bg=#0f0f0f'                            # Slightly highlighted background for active pane
+set -g window-active-style 'bg=default'                            # Slightly highlighted background for active pane
 
 # == Misc ==
 set -g base-index 1                                                # Start numbering windows at 1, not 0.
