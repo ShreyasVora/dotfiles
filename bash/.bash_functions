@@ -861,7 +861,8 @@ k()
 
 	if [[ $(echo $pid | awk '{print $1}') == $USER ]];
 	then kill $(echo $pid | awk '{print $2}')
-	else sudo kill $(echo $pid | awk '{print $2}')
+	elif [[ -n $pid ]];
+	then sudo kill $(echo $pid | awk '{print $2}')
 	fi
 }
 
