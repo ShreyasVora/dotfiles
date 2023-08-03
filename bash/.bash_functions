@@ -857,7 +857,7 @@ k()
 	else
 		extra=
 	fi
-	pid=$(ps -eo user,pid,ppid,%cpu,%mem,comm --sort -%mem | fzf --height=25% --bind='ctrl-r:reload(ps -eo user,pid,ppid,%cpu,%mem,comm --sort -%cpu,-%mem),ctrl-a:reload(ps -eo user,pid,ppid,%cpu,%mem,comm --sort -%mem,-%cpu)' --header='Sort by CPU(C-r) or MEM(C-a)' $extra)
+	pid=$(ps -eo user,pid,ppid,%cpu,%mem,comm --sort -%mem | fzf --height=25% --bind='alt-c:reload(ps -eo user,pid,ppid,%cpu,%mem,comm --sort -%cpu,-%mem),alt-m:reload(ps -eo user,pid,ppid,%cpu,%mem,comm --sort -%mem,-%cpu)' --header='Sort by CPU(A-c) or MEM(A-m)' $extra)
 
 	if [[ $(echo $pid | awk '{print $1}') == $USER ]];
 	then kill $(echo $pid | awk '{print $2}')
