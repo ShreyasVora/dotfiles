@@ -865,7 +865,7 @@ k()
 	fi
 }
 
-function hi()
+function h()
 {
 	if [[ -n $1 ]]; then
 		grep "$1" /home/svora/dotfiles/.bash_history | awk '!x[$0]++' | fzf --no-multi --tac --height=75% | perl -e 'ioctl STDOUT, 0x5412, $_ for grep { $_ ne "\n" } split //, do{ chomp($_ = <>); print "\r"; $_ }'
