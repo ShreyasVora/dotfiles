@@ -12,6 +12,7 @@ alias lessg='less +G'
 alias lessf='less +F'
 alias ssh='ssh -X'
 alias isol='cores=$(cat /sys/devices/system/cpu/isolated); [[ -n $cores ]] && echo $cores || echo "No isolated cores on $HOST"'
+alias -- -="cd -"
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
