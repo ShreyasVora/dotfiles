@@ -39,9 +39,6 @@ nnoremap <Leader>cP :set foldcolumn=1 number relativenumber<CR>
 " Other
 " -----------
 
-" Change leader key
-let mapleader="\<Space>"
-
 " Yank to / paste from system clipboard
 nnoremap <Leader>y :let @+ = getline('.')<Bar>call setreg('+', substitute(@+, '\n', '', 'g'))<CR>
 vnoremap <Leader>y "+y
@@ -61,13 +58,15 @@ nnoremap gf :call CreateAndOpenNewFile()<CR>
 
 function! CreateAndOpenNewFile()
 		let filename = expand('<cWORD>')
+		let vim_path = &path
+
 		if empty(filename)
 				echo "No filename under cursor."
 				return
 		endif
 
-		if filereadable(filename)
-				execute "edit " . filename
+		if !empty(globpath(vim_path, filename))
+				execute "find " . filename
 		else
 				let user_choice = input("Create new file '" . filename . "'? (y/n): ")
 				if user_choice =~? '^y$'
