@@ -84,6 +84,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'jiangmiao/auto-pairs'
 Plug 'preservim/nerdcommenter'
 Plug 'easymotion/vim-easymotion'
+Plug 'mhinz/vim-grepper'
 call plug#end()
 
 
@@ -109,7 +110,7 @@ nnoremap <Leader>gw :Gw<CR>
 " Git gutter                 > Show git status of lines in left bar
 " ----------
 let g:gitgutter_preview_win_floating = 1
-nnoremap <Leader>g :set cursorline! cursorcolumn!<CR>:GitGutterLineHighlightsToggle<CR>
+"nnoremap <Leader>g :set cursorline! cursorcolumn!<CR>:GitGutterLineHighlightsToggle<CR>
 command! GGA GitGutterAll
 command! Gqf GitGutterQuickFix | copen
 
@@ -172,3 +173,12 @@ let g:EasyMotion_move_highlight = 0
 nmap <Leader>s <Plug>(easymotion-prefix)
 nnoremap ; <Plug>(easymotion-next)
 nnoremap , <Plug>(easymotion-prev)
+
+" Vim-grepper
+let g:grepper = { 'tools': ['rg', 'git', 'grep', 'findstr'], 'next_tool': '<leader>g' }
+nmap gs  <plug>(GrepperOperator)
+xmap gs  <plug>(GrepperOperator)
+nnoremap <leader>g :Grepper -tool rg<CR>
+nnoremap <leader>G :Grepper -tool rg -buffers<cr>
+nnoremap <leader>* :Grepper -tool rg -cword -noprompt<cr>
+command! Todo :Grepper -tool git -query '\(TODO\|FIXME\)'<CR>
