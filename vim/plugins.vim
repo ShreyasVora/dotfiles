@@ -158,6 +158,10 @@ noremap <silent> <M-Left> :<C-U>TmuxNavigateLeft<cr>
 noremap <silent> <M-Down> :<C-U>TmuxNavigateDown<cr>
 noremap <silent> <M-Up> :<C-U>TmuxNavigateUp<cr>
 noremap <silent> <M-Right> :<C-U>TmuxNavigateRight<cr>
+inoremap <silent> <M-Left> <esc>:<C-U>TmuxNavigateLeft<cr>
+inoremap <silent> <M-Down> <esc>:<C-U>TmuxNavigateDown<cr>
+inoremap <silent> <M-Up> <esc>:<C-U>TmuxNavigateUp<cr>
+inoremap <silent> <M-Right> <esc>:<C-U>TmuxNavigateRight<cr>
 
 " NERD Commenter
 let g:NERDCreateDefaultMappings = 0
