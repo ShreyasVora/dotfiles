@@ -4,6 +4,12 @@
 
 " Motion
 " -----------
+nnoremap <Up> <Nop>
+nnoremap <Down> <Nop>
+nnoremap <Left> <Nop>
+nnoremap <Right> <Nop>
+nnoremap <expr> j v:count ? 'j' : 'gj'
+nnoremap <expr> k v:count ? 'k' : 'gk'
 " Use Leader to move buffers / tabs. Map d to close buffer
 nnoremap <Leader><Left> :bprev<CR>
 nnoremap <Leader><Right> :bnext<CR>
@@ -47,9 +53,6 @@ nnoremap <Leader>P "+P
 
 " Make backspace erase in normal mode
 nnoremap <C-?> hx
-
-" Comment out lines matching previous search
-nnoremap <Leader># :%g//s/^/#sv/gc<CR>
 
 " Clear shell output and execute current script with no args
 nnoremap <F9> :!clear && %:p<CR>

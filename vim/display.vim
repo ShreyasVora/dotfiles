@@ -46,6 +46,9 @@ augroup SetFileType
 	autocmd BufRead,BufNewFile,BufEnter *.tmux set filetype=tmux
 augroup END
 
+" Automatically resize vim splits if vim is resized
+autocmd VimResized * wincmd =
+
 " ------------
 " Misc
 " ------------
