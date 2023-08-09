@@ -2,6 +2,13 @@
 # Contains all my bash env variables
 ######################################
 
+# Set some bash options
+shopt -s autocd cdspell direxpand dirspell globstar
+# autocd - type name of dir to cd there (only works for dirs in current dir)
+# cdspell/dirspell - help with typos in dir name when typing
+# direxpand - expand dir globs
+# globstar - ** is recursive, so lt **/*txt lists all txt files beneath current dir
+
 # Add some important directories to my path
 export PATH=$PATH:/home/svora/scripts/alias_scripts:/home/svora/scripts:/home/svora/support/tools
 export CDPATH=${CDPATH/\/srg\/pro\/release\/current\/test:/}
@@ -31,11 +38,15 @@ fi
 # HISTSIZE is how many cached commands to keep in memory
 # ignoreboth ignores dups and also ignores spaces, ie a command that starts with a space is ignored.
 export HISTFILE="$HOME/dotfiles/.bash_history"
-export HISTFILESIZE=100000
-export HISTSIZE=1000
-export HISTIGNORE="lt:ls:cd:lo:exit:pwd:hi:b:history:gs:gl:hist*"
+export HISTFILESIZE=999999
+export HISTSIZE=99999
+export HISTIGNORE="lt:ls:cd:lo:exit:pwd:hi:b:history:gs:gl:hist*:h *"
 export HISTCONTROL=ignoreboth
+
+# TERM colors - this is important for TMUX to function properly
 export TERM='xterm-256color'
+
+# FZF stuff
 export FZF_DEFAULT_OPTS='--height 50% --layout=reverse --border -m --cycle --no-mouse --info=inline --marker='*' --history=/home/svora/dotfiles/.fzf_history --bind change:first'
 export FZF_DEFAULT_COMMAND='find . -type f -not -path "./.git/*"'
 export FZF=true
