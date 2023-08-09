@@ -8,8 +8,18 @@ nnoremap <Up> <Nop>
 nnoremap <Down> <Nop>
 nnoremap <Left> <Nop>
 nnoremap <Right> <Nop>
-nnoremap <expr> j v:count ? 'j' : 'gj'
-nnoremap <expr> k v:count ? 'k' : 'gk'
+nnoremap <expr> j v:count ? 'jzz' : 'gjzz'
+nnoremap <expr> k v:count ? 'kzz' : 'gkzz'
+set scrolloff=9
+
+nnoremap } }zz
+nnoremap { {zz
+nnoremap N Nzz
+nnoremap n nzz
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+nnoremap G Gzz
+
 " Use Leader to move buffers / tabs. Map d to close buffer
 nnoremap <Leader><Left> :bprev<CR>
 nnoremap <Leader><Right> :bnext<CR>

@@ -60,10 +60,8 @@ nnoremap <Leader>l :set list! list?<CR>
 " Toggle cursorline / column highlighting
 nnoremap H :set cursorline! cursorcolumn!<CR>
 
-" Use <C-L> to clear the highlighting of :set hlsearch.
-if maparg('<C-L>', 'n') ==# ''
-	nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
-endif
+" Use // to clear the highlighting of :set hlsearch.
+nnoremap <silent> // :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR>
 
 " Write visual selection to a new file
 command! -range -nargs=1 Vw call SaveVisualSelection(<q-args>)
