@@ -145,6 +145,10 @@ let g:vimwiki_global_ext = 0
 
 " Fzf
 let g:fzf_layout = {'down':'40%'}
+let g:fzf_action = {
+			\ 'alt-q' : 'fill-quickfix',
+			\ 'alt-x' : 'split',
+			\ 'alt-v' : 'vsplit'}
 nnoremap <C-p> :FZF<CR>
 nnoremap <C-g> :Rg <C-r><C-w><CR>
 nnoremap <C-f> :Rg 
