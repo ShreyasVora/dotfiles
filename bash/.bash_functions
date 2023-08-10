@@ -853,7 +853,7 @@ v()
 k()
 {
 	if [[ -n $1 ]]; then
-		extra="--query '$1'"
+		extra="--query $1"
 	else
 		extra=
 	fi
