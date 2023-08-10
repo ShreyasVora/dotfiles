@@ -3,10 +3,9 @@
 ######################################
 
 # Set some bash options
-shopt -s autocd cdspell direxpand dirspell globstar
+shopt -s autocd cdspell dirspell globstar
 # autocd - type name of dir to cd there (only works for dirs in current dir)
 # cdspell/dirspell - help with typos in dir name when typing
-# direxpand - expand dir globs
 # globstar - ** is recursive, so lt **/*txt lists all txt files beneath current dir
 
 # Add some important directories to my path
