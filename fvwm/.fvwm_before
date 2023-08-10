@@ -9,6 +9,8 @@ Module FvwmAuto 600
 Key Alt_L A 64 Close
 #Key F9    A  S Desk 0 8
 #Key F10   A  S Desk 0 9
+Key s A 64 Exec import -silent $(mktemp /home/svora/images/screenshot.$(date +"%Y%m%d.%H%M").XXX.png)
+Key s A M Exec import -silent $(mktemp /home/svora/images/screenshot.$(date +"%Y%m%d.%H%M").XXX.png)
 
 Style * SnapAttraction 8 SameType
 Style * SnapGrid 8
