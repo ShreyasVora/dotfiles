@@ -11,7 +11,7 @@ shopt -s autocd cdspell dirspell globstar
 # Add some important directories to my path
 export PATH=$PATH:/home/svora/scripts/alias_scripts:/home/svora/scripts:/home/svora/support/tools
 export CDPATH=${CDPATH/\/srg\/pro\/release\/current\/test:/}
-[[ "$DOMAIN" = "dev-lon" ]] && export CDPATH=$CDPATH:/srg/pro:/srg/pro/data:/srg/dev/release/prod-config/prod
+# CDPATH is added to in support .bash files too.
 
 export NO_XCONSOLE=true
 export EDITOR=vim
