@@ -4,4 +4,4 @@ source /home/svora/dotfiles/bash/.bash_env
 source /home/svora/dotfiles/bash/.bash_prompt
 source /home/svora/dotfiles/bash/.bash_functions
 source /home/svora/dotfiles/bash/.bash_aliases
-source /home/svora/dotfiles/bash/.bash_central
+source /home/svora/support/dotfiles/.bash_central

@@ -22,27 +22,9 @@ alias .....='cd ../../../..'
 alias virt='vim $RELEASE/data/procMan.virt'
 alias vspark='vim $RELEASE/data/procMan.spark'
 
-# ctrl_procman shortcuts
-alias cpmp='ctrl_procman -me -preview'
-alias cpp='ctrl_procman -preview'
-alias cpmr='ctrl_procman -me -read'
-alias cpr='ctrl_procman -read'
-alias cpmpg='ctrl_procman -me -preview -f procMan.globex'
-alias cppg='ctrl_procman -preview -f procMan.globex'
-alias cpmrg='ctrl_procman -me -read -f procMan.globex'
-alias cprg='ctrl_procman -read -f procMan.globex'
-alias cpmps='ctrl_procman -me -preview -f procMan.spark'
-alias cpps='ctrl_procman -preview -f procMan.spark'
-alias cpmrs='ctrl_procman -me -read -f procMan.spark'
-alias cprs='ctrl_procman -read -f procMan.spark'
-
 # Other useful support aliases
-alias pf='/home/svora/scripts/procflatAdj'
-alias procc='proc -cd'  # My proc function does not cd by default
-alias d='xauth list | grep `hostname` | tail -n 1 | sed "s/^/xauth add /g"; echo export DISPLAY=$DISPLAY'  # To echo the information that would be needed to set display properly
 alias lt='ls -FlAtr --color=auto'
 alias ltoday='ls -FlAtr *$(h2e -t)*'
-alias wai='/srg/pro/data/config/whereAmI'
 
 # Support repo scripts
 alias capacity_planning='python3 ~/support/tools/capacity_planning.py -config ~/support/tools/capacity_planning.json -network'
@@ -73,3 +55,5 @@ alias cd.='cd ~/dotfiles'
 alias xset_reset_mouse='xset mouse 2 4'
 alias cheat='glow ~/scripts/docs/ --config ~/dotfiles/.glow.yml'
 alias glow='glow --config ~/dotfiles/.glow.yml'
+
+source /home/svora/support/dotfiles/.bash_aliases
