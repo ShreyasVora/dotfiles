@@ -24,6 +24,14 @@ bind-key -T copy-mode-vi -n 'M-Left' if-shell "$is_vim" 'send-keys M-Left'  'sel
 bind-key -T copy-mode-vi -n 'M-Down' if-shell "$is_vim" 'send-keys M-Down'  'select-pane -D'
 bind-key -T copy-mode-vi -n 'M-Up' if-shell "$is_vim" 'send-keys M-Up'  'select-pane -U'
 bind-key -T copy-mode-vi -n 'M-Right' if-shell "$is_vim" 'send-keys M-Right'  'select-pane -R'
+bind-key -n 'M-h' if-shell "$is_vim" 'send-keys M-Left'  'select-pane -L'
+bind-key -n 'M-j' if-shell "$is_vim" 'send-keys M-Down'  'select-pane -D'
+bind-key -n 'M-k' if-shell "$is_vim" 'send-keys M-Up'  'select-pane -U'
+bind-key -n 'M-l' if-shell "$is_vim" 'send-keys M-Right'  'select-pane -R'
+bind-key -T copy-mode-vi -n 'M-h' if-shell "$is_vim" 'send-keys M-Left'  'select-pane -L'
+bind-key -T copy-mode-vi -n 'M-j' if-shell "$is_vim" 'send-keys M-Down'  'select-pane -D'
+bind-key -T copy-mode-vi -n 'M-k' if-shell "$is_vim" 'send-keys M-Up'  'select-pane -U'
+bind-key -T copy-mode-vi -n 'M-l' if-shell "$is_vim" 'send-keys M-Right'  'select-pane -R'
 
 # == Moving panes around ==
 bind l display-panes                        # Display pane numbers of each pane currently visible
