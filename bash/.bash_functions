@@ -568,39 +568,6 @@ devpush()
 	fi
 }
 
-mkpatch()
-{
-	main=$(git branch --show-current)
-	trap "git checkout $main" INT
-	if git branch | grep -q '\ssv$'; then 
-		git checkout sv
-	else
-		git checkout -b sv
-	fi
-	read -p 'Commit message: ' -r
-	git commit -m "$REPLY"
-	git format-patch -1
-	git checkout $main
-	git branch -D sv
-	trap - INT
-}
-
-appatch()
-{
-	if [[ $1 =~ ^00 ]]; then
-		git am < $1
-	elif [[ $1 =~ \.patch$ ]]; then
-		git apply $1
-	fi
-	err_code=$?
-	if [[ $err_code -eq 0 ]]; then
-		echo -e "Successfully applied patch $1.\nRemoving the patch."
-		rm $1
-	else
-		echo -e "=========================================\nERROR: Something went wrong with applying that patch.\nERROR: Will not remove the patch.\n========================================="
-	fi
-}
-
 pff()
 {
 	/home/svora/scripts/procflatAdj $@ | fzf --height 40%

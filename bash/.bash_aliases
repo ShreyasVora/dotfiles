@@ -45,6 +45,7 @@ alias gd='git diff'
 alias gds='git diff --staged'
 alias gg='clear; git status; git --no-pager diff; git add .; git status'
 alias gcmp='git checkout master && git pull'
+alias gpom='git pull origin master'
 
 # SVORA stuff
 alias grepcsv='cd ~/nodes/makoCode; /srg/pro/release/current/scr/grepc -node ~/nodes/makoCode'
