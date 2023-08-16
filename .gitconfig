@@ -6,10 +6,10 @@
 [alias]
 	mwps = push -o merge_request.create -o merge_request.target=master -o merge_request.merge_when_pipeline_succeeds
 	when = !stat -c %y .git/FETCH_HEAD
-	lol = log --pretty=format:\"%C(auto)%h%d%Creset %C(cyan)%cd%Creset - %C(green)%cn%Creset - %C(red)%s%Creset\" --no-merges --date=format:'%Y-%m-%d %H:%M:%S'
+	lol = log --pretty=format:\"%C(auto)%h%Creset %C(cyan)%cd%Creset %<(21)%C(green)%cn%Creset %C(red)%s%Creset %C(auto)%d%C(reset)\" --no-merges --date=format:'%Y-%m-%d %H:%M:%S'
 	lolf = log --pretty=format:\"%C(auto)%h%d%Creset %C(cyan)(%aD -> %cD)%Creset %C(green)%cn <%ce>%C(red) %s%Creset\" --no-merges
 	logf = log --name-status --no-merges
-	logt = log --graph --decorate --oneline $(git rev-list -g --all)
+	rl = reflog --format='%C(auto)%h %<|(17)%C(magenta)%gd %C(green)%ci%C(reset) %C(red)%gs'
 [safe]
 	directory = /export/srg/pro/data
 	directory = /srg/pro/data
