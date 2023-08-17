@@ -56,5 +56,6 @@ alias cd.='cd ~/dotfiles'
 alias xset_reset_mouse='xset mouse 2 4'
 alias cheat='glow ~/scripts/docs/ --config ~/dotfiles/.glow.yml'
 alias glow='glow --config ~/dotfiles/.glow.yml'
+alias procc='FZF= proc'
 
 source /srg/pro/data/support/dotfiles/.bash_aliases
