@@ -4,9 +4,9 @@
 
 # == Creating new panes ==
 bind Right split-window -h
-bind Left split-window -h\; swap-pane -D\; select-pane -L
+bind Left split-window -h\; swap-pane -U
 bind Down split-window -v
-bind Up split-window -v\; swap-pane -D\; select-pane -U
+bind Up split-window -v\; swap-pane -U
 bind S-Right split-window -hf
 bind S-Down split-window -vf
 # Unbind defaults
