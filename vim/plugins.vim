@@ -4,6 +4,24 @@
 
 call plug#begin()
 
+if ($HOST == "uk01dw950")
+	" To get this to work, I had to run /bin/python install.py in the
+	" ~/.vim/plugged/YouCompleteMe directory.
+	Plug 'ycm-core/YouCompleteMe'
+	let g:ycm_server_keep_logfiles = 1
+	let g:ycm_server_log_level = 'debug'
+	let g:ycm_clangd_binary_path = '/srg/pro/release/compiler/llvm/current/CentOS9/x86_64/bin/clangd'
+	let g:ycm_enable_inlay_hints = 1
+	let g:ycm_clear_inlay_hints_in_insert_mode = 1
+	" let g:ycm_autoclose_preview_window_after_completion = 1
+	" let g:ycm_use_ultisnips_completer = 0
+	" let g:ycm_always_populate_location_list = 1
+	let g:ycm_enable_semantic_highlighting = 1
+	nmap gy :YcmCompleter GoTo<CR>
+	nmap gd :YcmCompleter GoToDefinition<CR>
+	nmap fy :YcmCompleter FixIt<CR>
+	nmap sy <Plug>(YCMFindSymbolInWorkspace)
+endif
 Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'
