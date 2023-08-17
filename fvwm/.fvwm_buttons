@@ -6,7 +6,7 @@
 # Adding extra desk fvwm buttons
 #
 #DestroyModuleConfig FvwmButtons: *
-*FvwmButtonsGeometry 300x48-2810-0
+*FvwmButtonsGeometry 300x48+2010-0
 *FvwmButtons: Font "xft:Sans:Bold:size=8:antialias=True"
 #*FvwmButtons(Swallow "FvwmPager" "FvwmPager 0 9")
 #*FvwmPagerBack #908090
@@ -177,7 +177,7 @@ Style "FvwmButtons" StaysOnTop
 
 DestroyModuleConfig FvwmButtonsXLoadPanel: *
 *FvwmButtonsXLoadPanel: Colorset 4
-*FvwmButtonsXLoadPanel: Geometry 20x20-3110-0
+*FvwmButtonsXLoadPanel: Geometry 20x20-550-0
 *FvwmButtonsXLoadPanel: Rows 1
 *FvwmButtonsXLoadPanel: Frame 1
 *FvwmButtonsXLoadPanel: Padding 0 0
