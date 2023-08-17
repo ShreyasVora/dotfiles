@@ -11,6 +11,7 @@ Key Alt_L A 64 Close
 #Key F10   A  S Desk 0 9
 Key s A 64 Exec import -silent $(mktemp /home/svora/images/screenshot.$(date +"%Y%m%d.%H%M").XXX.png)
 Key s A M Exec import -silent $(mktemp /home/svora/images/screenshot.$(date +"%Y%m%d.%H%M").XXX.png)
+Mouse 2 R A WindowList transient
 
 Style * SnapAttraction 8 SameType
 Style * SnapGrid 8
