@@ -1,10 +1,15 @@
+# Set fvwm background using grainy bitmap. bg colour set to default #fed (look up web colours / hex triplets), and fg set to something random.
+# Note, this one is the default.
 #Exec xsetroot -fg \#888050 -bg \#fed -bitmap $RELEASE/data/icons/grainy.xbm
+Exec xsetroot -fg \#$(shuf -n1 -e 1 2 3 4 5 6 7 8 9 0 a b c d e f)$(shuf -n1 -e 1 2 3 4 5 6 7 8 9 0 a b c d e f)$(shuf -n1 -e 1 2 3 4 5 6 7 8 9 0 a b c d e f) -bg \#fed -bitmap $RELEASE/data/icons/grainy.xbm
 
-Style "*" FocusFollowsMouse  
 # The alternative (default) is ClickToFocus
+Style "*" FocusFollowsMouse
 
+# Set timeout for raising / lowering something (ms)
 Module FvwmAuto 600
-#Style "*" SmartPlacement, RandomPlacement
+# if placement is not specified for a window and would require user input, place it in a smart location where it doesn't overlap instead.
+Style "*" SmartPlacement, RandomPlacement
 
 Key Alt_L A 64 Close
 #Key F9    A  S Desk 0 8
@@ -15,4 +20,5 @@ Mouse 2 R A WindowList transient
 
 Style * SnapAttraction 8 SameType
 Style * SnapGrid 8
-
+# Move where icons go onto left monitor
+Style * IconBox 300x1000+2250+10@p
