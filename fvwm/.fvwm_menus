@@ -49,10 +49,11 @@ AddToMenu SettingsMenu
 
 DestroyMenu RootMenu
 
-DestroyMenu CdeColorChangeMenu
-AddToMenu CdeColorChangeMenu "Cde Colors" Title
-PipeRead 'for i in /home/svora/.fvwm/colors/CdeColors/*.fvwm2rc; do \
-	echo "AddToMenu CdeColorChangeMenu $(basename -s .fvwm2rc $i) Read $i"; done'
+DestroyMenu ColorChangeMenu
+AddToMenu ColorChangeMenu "Colorscheme" Title
+PipeRead 'for i in /home/svora/.fvwm/colors/main/*.fvwm2rc; do \
+	echo "AddToMenu ColorChangeMenu $(basename -s .fvwm2rc $i) Read $i"; done'
+AddToMenu ColorChangeMenu "Randomise" Exec ln -nfs $(find ~/.fvwm/colors/main/ -type f | sort -R | tail -1) ~/.fvwm/colors/scheme.fvwm2rc
 
 AddToMenu RootMenu
 + "Root Menu"    Title

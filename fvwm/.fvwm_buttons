@@ -117,7 +117,7 @@ DestroyModuleConfig FvwmButtonsXLoad: *
 *FvwmButtonsXLoad: (1x1+15+0, \
 	Title 'FVWM', \
 	Action(Mouse 1) 'Restart --pass-args fvwm', \
-	Action(Mouse 2) 'Popup CdeColorChangeMenu', \
+	Action(Mouse 2) 'Popup ColorChangeMenu', \
 	Action(Mouse 3) 'Exec pkill xclock')
 *FvwmButtonsXLoad: (1x1+16+0, \
 	Title 'ScShot', \
