@@ -43,61 +43,61 @@ DestroyModuleConfig FvwmButtonsXLoad: *
 	ColorSet 14, \
 	Action(Mouse 1) 'Exec pro-tws arb -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel arb vtMonitor -geom +240+0', \
-	Action(Mouse 3) 'Popup arbHostsMenu')
+	Action(Mouse 3) 'Exec xfce4-terminal --geometry 200x50+400+450 --command="/home/svora/scripts/tmux/prod_launch -net arb"')
 *FvwmButtonsXLoad: (1x1+1+0, \
 	Title "comm", \
 	ColorSet 15, \
 	Action(Mouse 1) 'Exec pro-tws com -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel com vtMonitor -geom +240+0', \
-	Action(Mouse 3) 'Popup commHostsMenu')
+	Action(Mouse 3) 'Exec xfce4-terminal --geometry 200x50+400+450 --command="/home/svora/scripts/tmux/prod_launch -net comm"')
 *FvwmButtonsXLoad: (1x1+2+0, \
 	Title "de", \
 	ColorSet 16, \
 	Action(Mouse 1) 'Exec pro-tws de -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel de vtMonitor -geom +240+0', \
-	Action(Mouse 3) 'Popup deHostsMenu')
+	Action(Mouse 3) 'Exec xfce4-terminal --geometry 200x50+400+450 --command="/home/svora/scripts/tmux/prod_launch -net de"')
 *FvwmButtonsXLoad: (1x1+3+0, \
 	Title "bas", \
 	ColorSet 17, \
 	Action(Mouse 1) 'Exec pro-tws bas -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel bas vtMonitor -geom +240+0', \
-	Action(Mouse 3) 'Popup basHostsMenu')
+	Action(Mouse 3) 'Exec xfce4-terminal --geometry 200x50+400+450 --command="/home/svora/scripts/tmux/prod_launch -net bas"')
 *FvwmButtonsXLoad: (1x1+4+0, \
 	Title "ita", \
 	ColorSet 18, \
 	Action(Mouse 1) 'Exec pro-tws ita -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel ita vtMonitor -geom +240+0', \
-	Action(Mouse 3) 'Popup itaHostsMenu')
+	Action(Mouse 3) 'Exec xfce4-terminal --geometry 200x50+400+450 --command="/home/svora/scripts/tmux/prod_launch -net ita"')
 *FvwmButtonsXLoad: (1x1+5+0, \
 	Title 'nord', \
 	ColorSet 19, \
 	Action(Mouse 1) 'Exec pro-tws nord -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel nord vtMonitor -geom +240+0', \
-	Action(Mouse 3) 'Popup nordHostsMenu')
+	Action(Mouse 3) 'Exec xfce4-terminal --geometry 200x50+400+450 --command="/home/svora/scripts/tmux/prod_launch -net nord"')
 *FvwmButtonsXLoad: (1x1+6+0, \
 	Title 'can', \
 	ColorSet 20, \
 	Action(Mouse 1) 'Exec pro-tws canxr -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel canxr vtMonitor -geom +240+0', \
-	Action(Mouse 3) 'Popup canHostsMenu')
+	Action(Mouse 3) 'Exec xfce4-terminal --geometry 200x50+400+450 --command="/home/svora/scripts/tmux/prod_launch -net can"')
 *FvwmButtonsXLoad: (1x1+7+0, \
 	Title 'brz', \
 	ColorSet 21, \
 	Action(Mouse 1) 'Exec pro-tws brzxr -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel brzxr vtMonitor -geom +240+0', \
-	Action(Mouse 3) 'Popup brzHostsMenu')
+	Action(Mouse 3) 'Exec xfce4-terminal --geometry 200x50+400+450 --command="/home/svora/scripts/tmux/prod_launch -net brz"')
 *FvwmButtonsXLoad: (1x1+8+0, \
 	Title 'kr-nhf', \
 	ColorSet 22, \
 	Action(Mouse 1) 'Exec pro-tws kr-nhf -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel kr-nhf vtMonitor -geom +240+0', \
-	Action(Mouse 3) 'Popup kr-nhfHostsMenu')
+	Action(Mouse 3) 'Exec xfce4-terminal --geometry 200x50+400+450 --command="/home/svora/scripts/tmux/prod_launch -net kr-nhf"')
 *FvwmButtonsXLoad: (1x1+9+0, \
 	Title 'syd', \
 	ColorSet 23, \
 	Action(Mouse 1) 'Exec pro-tws syd -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel syd vtMonitor -geom +240+0', \
-	Action(Mouse 3) 'Popup sydHostsMenu')
+	Action(Mouse 3) 'Exec xfce4-terminal --geometry 200x50+400+450 --command="/home/svora/scripts/tmux/prod_launch -net syd"')
 # Gap
 *FvwmButtonsXLoad: (1x1+11+0, \
 	Title 'Main', \
