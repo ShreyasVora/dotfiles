@@ -62,7 +62,7 @@ nnoremap <Leader>p "+p
 nnoremap <Leader>P "+P
 
 " Make backspace erase in normal mode
-nnoremap <C-?> hx
+nnoremap <C-H> hx
 
 " Clear shell output and execute current script with no args
 nnoremap <F9> :!clear && %:p<CR>
