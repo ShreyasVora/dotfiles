@@ -1,7 +1,0 @@
-# Master bash file which is sourced by .bashrc. Contains all bash files to source
-
-source /home/svora/dotfiles/bash/.bash_env
-source /home/svora/dotfiles/bash/.bash_prompt
-source /home/svora/dotfiles/bash/.bash_functions
-source /home/svora/dotfiles/bash/.bash_aliases
-source /srg/pro/data/support/dotfiles/.bash_central
