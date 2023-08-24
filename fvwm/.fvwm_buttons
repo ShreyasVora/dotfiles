@@ -43,71 +43,71 @@ DestroyModuleConfig FvwmButtonsXLoad: *
 	ColorSet 14, \
 	Action(Mouse 1) 'Exec pro-tws arb -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel arb vtMonitor -geom +240+0', \
-	Action(Mouse 3) 'Exec xfce4-terminal --geometry 200x50+400+450 --command="/home/svora/scripts/tmux/prod_launch -net arb"')
+	Action(Mouse 3) 'Exec mate-terminal --geometry 256x60+400+450 --command="/home/svora/scripts/tmux/prod_launch -net arb"')
 *FvwmButtonsXLoad: (1x1+1+0, \
 	Title "comm", \
 	ColorSet 15, \
 	Action(Mouse 1) 'Exec pro-tws com -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel com vtMonitor -geom +240+0', \
-	Action(Mouse 3) 'Exec xfce4-terminal --geometry 200x50+400+450 --command="/home/svora/scripts/tmux/prod_launch -net comm"')
+	Action(Mouse 3) 'Exec mate-terminal --geometry 256x60+400+450 --command="/home/svora/scripts/tmux/prod_launch -net comm"')
 *FvwmButtonsXLoad: (1x1+2+0, \
 	Title "de", \
 	ColorSet 16, \
 	Action(Mouse 1) 'Exec pro-tws de -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel de vtMonitor -geom +240+0', \
-	Action(Mouse 3) 'Exec xfce4-terminal --geometry 200x50+400+450 --command="/home/svora/scripts/tmux/prod_launch -net de"')
+	Action(Mouse 3) 'Exec mate-terminal --geometry 256x60+400+450 --command="/home/svora/scripts/tmux/prod_launch -net de"')
 *FvwmButtonsXLoad: (1x1+3+0, \
 	Title "bas", \
 	ColorSet 17, \
 	Action(Mouse 1) 'Exec pro-tws bas -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel bas vtMonitor -geom +240+0', \
-	Action(Mouse 3) 'Exec xfce4-terminal --geometry 200x50+400+450 --command="/home/svora/scripts/tmux/prod_launch -net bas"')
+	Action(Mouse 3) 'Exec mate-terminal --geometry 256x60+400+450 --command="/home/svora/scripts/tmux/prod_launch -net bas"')
 *FvwmButtonsXLoad: (1x1+4+0, \
 	Title "ita", \
 	ColorSet 18, \
 	Action(Mouse 1) 'Exec pro-tws ita -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel ita vtMonitor -geom +240+0', \
-	Action(Mouse 3) 'Exec xfce4-terminal --geometry 200x50+400+450 --command="/home/svora/scripts/tmux/prod_launch -net ita"')
+	Action(Mouse 3) 'Exec mate-terminal --geometry 256x60+400+450 --command="/home/svora/scripts/tmux/prod_launch -net ita"')
 *FvwmButtonsXLoad: (1x1+5+0, \
 	Title 'nord', \
 	ColorSet 19, \
 	Action(Mouse 1) 'Exec pro-tws nord -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel nord vtMonitor -geom +240+0', \
-	Action(Mouse 3) 'Exec xfce4-terminal --geometry 200x50+400+450 --command="/home/svora/scripts/tmux/prod_launch -net nord"')
+	Action(Mouse 3) 'Exec mate-terminal --geometry 256x60+400+450 --command="/home/svora/scripts/tmux/prod_launch -net nord"')
 *FvwmButtonsXLoad: (1x1+6+0, \
 	Title 'can', \
 	ColorSet 20, \
 	Action(Mouse 1) 'Exec pro-tws canxr -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel canxr vtMonitor -geom +240+0', \
-	Action(Mouse 3) 'Exec xfce4-terminal --geometry 200x50+400+450 --command="/home/svora/scripts/tmux/prod_launch -net can"')
+	Action(Mouse 3) 'Exec mate-terminal --geometry 256x60+400+450 --command="/home/svora/scripts/tmux/prod_launch -net can"')
 *FvwmButtonsXLoad: (1x1+7+0, \
 	Title 'brz', \
 	ColorSet 21, \
 	Action(Mouse 1) 'Exec pro-tws brzxr -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel brzxr vtMonitor -geom +240+0', \
-	Action(Mouse 3) 'Exec xfce4-terminal --geometry 200x50+400+450 --command="/home/svora/scripts/tmux/prod_launch -net brz"')
+	Action(Mouse 3) 'Exec mate-terminal --geometry 256x60+400+450 --command="/home/svora/scripts/tmux/prod_launch -net brz"')
 *FvwmButtonsXLoad: (1x1+8+0, \
 	Title 'kr-nhf', \
 	ColorSet 22, \
 	Action(Mouse 1) 'Exec pro-tws kr-nhf -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel kr-nhf vtMonitor -geom +240+0', \
-	Action(Mouse 3) 'Exec xfce4-terminal --geometry 200x50+400+450 --command="/home/svora/scripts/tmux/prod_launch -net kr-nhf"')
+	Action(Mouse 3) 'Exec mate-terminal --geometry 256x60+400+450 --command="/home/svora/scripts/tmux/prod_launch -net kr-nhf"')
 *FvwmButtonsXLoad: (1x1+9+0, \
 	Title 'syd', \
 	ColorSet 23, \
 	Action(Mouse 1) 'Exec pro-tws syd -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel syd vtMonitor -geom +240+0', \
-	Action(Mouse 3) 'Exec xfce4-terminal --geometry 200x50+400+450 --command="/home/svora/scripts/tmux/prod_launch -net syd"')
+	Action(Mouse 3) 'Exec mate-terminal --geometry 256x60+400+450 --command="/home/svora/scripts/tmux/prod_launch -net syd"')
 # Gap
 *FvwmButtonsXLoad: (1x1+11+0, \
 	Title 'Main', \
-	Action(Mouse 1) 'Exec xfce4-terminal --geometry 364x90+0+0 --command="tmux new-session -A -s main"', \
-	Action(Mouse 3) 'Exec xfce4-terminal --geometry 283x75+0+0 --command="tmux new-session -A -s main"')
+	Action(Mouse 1) 'Exec mate-terminal --geometry +0+0 --profile small_font_fullscreen', \
+	Action(Mouse 3) 'Exec mate-terminal --geometry +0+0 --profile large_font_fullscreen')
 *FvwmButtonsXLoad: (1x1+12+0, \
 	Title 'Shell', \
-	Action(Mouse 1) 'Exec xfce4-terminal --geometry 200x50+400+450 --command="tmux new-session -A -s second"', \
-	Action(Mouse 2) 'Exec xfce4-terminal --geometry 141x37+1267+660 --command="tmux"', \
-	Action(Mouse 3) 'Exec xfce4-terminal --geometry 141x37+1267+660')
+	Action(Mouse 1) 'Exec mate-terminal --geometry 256x60+400+450 --command="/home/svora/scripts/tmux/prod_launch -net dev"'), \
+	Action(Mouse 2) 'Exec mate-terminal --geometry +1267+660 --profile tmux_tmp', \
+	Action(Mouse 3) 'Exec mate-terminal --geometry +1267+660')
 *FvwmButtonsXLoad: (1x1+13+0, \
 	Title 'Win', \
 	Action(Mouse 1) 'Exec /usr/bin/remmina 2> /dev/null', \
