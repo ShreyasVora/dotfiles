@@ -1,5 +1,5 @@
 # This contains FVWM Buttons config, as well as keyboard shortcuts
-read .fvwm_before
+read fvwm_before
 
 # A few clocks scattered round
 Exec xclock -bg black -fg lime -digital -update 1 -geom 248x38-2312-0
@@ -7,6 +7,6 @@ Exec xclock -bg black -fg lime -digital -update 1 -geom 248x38-4872-0
 Exec xclock -bg black -fg lime -digital -update 1 -geom 248x38-2560-0
 Exec xclock -bg black -fg lime -digital -update 1 -geom 248x38-0-0
 
-read dotfiles/fvwm/.fvwm_menus
-read dotfiles/fvwm/.fvwm_colors
-read dotfiles/fvwm/.fvwm_buttons
+read dotfiles/fvwm/fvwm_menus
+read dotfiles/fvwm/fvwm_colors
+read dotfiles/fvwm/fvwm_buttons
