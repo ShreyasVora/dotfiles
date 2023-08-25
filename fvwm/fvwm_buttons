@@ -77,13 +77,13 @@ DestroyModuleConfig FvwmButtonsXLoad: *
 *FvwmButtonsXLoad: (1x1+6+0, \
 	Title 'can', \
 	ColorSet 20, \
-	Action(Mouse 1) 'Exec pro-tws canxr -geom +1140+300', \
+	Action(Mouse 1) 'Exec ssh_tunnel canxx; pro-tws canxr -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel canxr vtMonitor -geom +240+0', \
 	Action(Mouse 3) 'Exec mate-terminal --geometry 256x60+400+450 --command="/home/svora/scripts/tmux/prod_launch -net can"')
 *FvwmButtonsXLoad: (1x1+7+0, \
 	Title 'brz', \
 	ColorSet 21, \
-	Action(Mouse 1) 'Exec pro-tws brzxr -geom +1140+300', \
+	Action(Mouse 1) 'Exec ssh_tunnel brzxx; pro-tws brzxr -geom +1140+300', \
 	Action(Mouse 2) 'Exec ssh_tunnel brzxr vtMonitor -geom +240+0', \
 	Action(Mouse 3) 'Exec mate-terminal --geometry 256x60+400+450 --command="/home/svora/scripts/tmux/prod_launch -net brz"')
 *FvwmButtonsXLoad: (1x1+8+0, \
