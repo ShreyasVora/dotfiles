@@ -1,8 +1,6 @@
-# Set rate of keys per second when holding down a key in bash
-xset r rate 600 30 2>/dev/null
-# Fix infrequent issue where kb is set to american (with " and @ swapped)
-setxkbmap gb 2>/dev/null
-# Source Xresources but only if not in cron (else complains of display errors)
-if [[ -n $DISPLAY ]]; then
-	xrdb ~/.Xresources
+if [[ $DOMAIN = dev-lon ]]; then
+	# Set rate of keys per second when holding down a key in bash
+	xset r rate 600 30 2>/dev/null
+	# Fix infrequent issue where kb is set to american (with " and @ swapped)
+	setxkbmap gb 2>/dev/null
 fi
