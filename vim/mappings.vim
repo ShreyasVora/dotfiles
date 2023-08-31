@@ -8,6 +8,7 @@ nnoremap <Up> <Nop>
 nnoremap <Down> <Nop>
 nnoremap <Left> <Nop>
 nnoremap <Right> <Nop>
+nnoremap Q <Nop>
 nnoremap <expr> j v:count ? 'jzz' : 'gjzz'
 nnoremap <expr> k v:count ? 'kzz' : 'gkzz'
 set scrolloff=9
