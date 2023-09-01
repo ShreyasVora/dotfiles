@@ -68,23 +68,23 @@ nnoremap <C-H> hx
 " Clear shell output and execute current script with no args
 nnoremap <F9> :!clear && %:p<CR>
 
-nnoremap gf :call CreateAndOpenNewFile()<CR>
+" nnoremap gf :call CreateAndOpenNewFile()<CR>
 
-function! CreateAndOpenNewFile()
-		let filename = expand('<cWORD>')
-		let vim_path = &path
+" function! CreateAndOpenNewFile()
+		" let filename = expand('<cWORD>')
+		" let vim_path = &path
 
-		if empty(filename)
-				echo "No filename under cursor."
-				return
-		endif
+		" if empty(filename)
+				" echo "No filename under cursor."
+				" return
+		" endif
 
-		if !empty(globpath(vim_path, filename))
-				execute "find " . filename
-		else
-				let user_choice = input("Create new file '" . filename . "'? (y/n): ")
-				if user_choice =~? '^y$'
-					execute "edit " . filename
-				endif
-		endif
-endfunction
+		" if !empty(globpath(vim_path, filename))
+				" execute "find " . filename
+		" else
+				" let user_choice = input("Create new file '" . filename . "'? (y/n): ")
+				" if user_choice =~? '^y$'
+					" execute "edit " . filename
+				" endif
+		" endif
+" endfunction
