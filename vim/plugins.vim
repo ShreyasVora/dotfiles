@@ -4,8 +4,8 @@
 
 call plug#begin()
 
-Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'Xuyuanp/nerdtree-git-plugin'
+"Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
+"Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
@@ -20,16 +20,17 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'preservim/nerdcommenter'
 Plug 'easymotion/vim-easymotion'
 Plug 'mhinz/vim-grepper'
+Plug 'markonm/traces.vim'
 call plug#end()
 
 
 " NERDTree Config            > View filestructure in tree view
 " Define colors
-hi Directory ctermfg=red guifg=red
+" hi Directory ctermfg=red guifg=red
 " Mapping to open NERDTree
-nnoremap <Leader>n :NERDTreeToggle<CR>
+" nnoremap <Leader>n :NERDTreeToggle<CR>
 " Enable seeing hidden files (beginning with .)
-let NERDTreeShowHidden=1
+" let NERDTreeShowHidden=1
 " Close the tab if NERDTree is the only window remaining in it.
 " autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 

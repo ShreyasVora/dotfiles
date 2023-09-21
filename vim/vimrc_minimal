@@ -10,6 +10,7 @@ syntax on
 set hlsearch               " Enable higlighting of search results
 set incsearch              " incremental search enabled
 set path+=**               " search down into all subdirs when looking for files with :find
+set noswapfile
 
 " Map backspace to erase
 noremap! <C-?> <C-h>
