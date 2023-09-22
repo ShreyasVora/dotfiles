@@ -41,8 +41,8 @@ map <s-Down> :resize -5<CR>
 nnoremap z<Up> zk
 nnoremap z<Down> zj
 " Binds to clear up the left column in my vim to allow easier copy/pasting
-nnoremap <Leader>cp :set foldcolumn=0 nonumber norelativenumber<CR>
-nnoremap <Leader>cP :set foldcolumn=1 number relativenumber<CR>
+nnoremap <Leader>cp :set foldcolumn=0 nonumber norelativenumber nolist<CR>
+nnoremap <Leader>cP :set foldcolumn=1 number relativenumber list<CR>
 
 " Other
 " -----------
