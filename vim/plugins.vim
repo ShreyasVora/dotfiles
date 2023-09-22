@@ -21,8 +21,9 @@ Plug 'preservim/nerdcommenter'
 Plug 'easymotion/vim-easymotion'
 Plug 'mhinz/vim-grepper'
 Plug 'markonm/traces.vim'
+Plug 'dense-analysis/ale'
+Plug 'ludovicchabant/vim-gutentags'
 call plug#end()
-
 
 " NERDTree Config            > View filestructure in tree view
 " Define colors
@@ -62,6 +63,7 @@ let g:airline_right_sep='<'
 let g:airline_focuslost_inactive = 0
 let g:airline#extensions#branch#enabled = 1
 let g:airline_section_y = '%{getcwd()}'
+let g:airline#extensions#ale#enabled = 1
 
 " Bufferline                 > Integrate bufferline into airline
 " ----------
@@ -125,4 +127,4 @@ xmap gs  <plug>(GrepperOperator)
 nnoremap <leader>g :Grepper -tool rg<CR>
 nnoremap <leader>G :Grepper -tool rg -buffers<cr>
 nnoremap <leader>* :Grepper -tool rg -cword -noprompt<cr>
-command! Todo :Grepper -tool git -query '\(TODO\|FIXME\)'<CR>
+" command! Todo :Grepper -tool git -query '\(TODO\|FIXME\)'<CR>

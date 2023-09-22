@@ -26,16 +26,7 @@ nnoremap <Leader><Left> :bprev<CR>
 nnoremap <Leader><Right> :bnext<CR>
 noremap <Leader><Up> gT
 noremap <Leader><Down> gt
-nnoremap <silent> <leader>d :call CloseBuffer()<CR>
-function! CloseBuffer()
-	if len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
-		" Only one buffer, so close it
-		execute "bd"
-	else
-		" More than one buffer, switch to the previous buffer and then close the current one
-		execute "b# | bd #"
-	endif
-endfunction
+nnoremap <leader>d :bd<CR>
 map <s-Right> :vertical resize +5<CR>
 map <s-Left> :vertical resize -5<CR>
 map <s-Up> :resize +5<CR>
