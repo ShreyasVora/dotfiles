@@ -109,5 +109,5 @@ nnoremap <leader>* :Grepper -tool rg -cword -noprompt<cr>
 " command! Todo :Grepper -tool git -query '\(TODO\|FIXME\)'<CR>
 
 " Vim-gutentags
-let g:gutentags_enabled_user_func = 0
-autocmd Filetype xdefaults,cpp,python let g:gutentags_enabled_user_func = 1
+let g:gutentags_exclude_project_root = ['/srg/dev/release/prod-config/prod/arb','/srg/dev/release/prod-config/prod/comm','/srg/dev/release/prod-config/prod/de','/srg/dev/release/prod-config/prod/bas','/srg/dev/release/prod-config/prod/ita','/srg/dev/release/prod-config/prod/nord','/srg/dev/release/prod-config/prod/can','/srg/dev/release/prod-config/prod/brz','/srg/dev/release/prod-config/prod/kr-nhf','/srg/dev/release/prod-config/prod/syd','/srg/dev/release/prod-config/prod/chi','/srg/dev/release/prod-config/prod/aurora','/srg/pro/data/support','/srg/dev/release/tools','/srg/codebase/support/pgm']
+" let g:gutentags_define_advanced_commands = 1
