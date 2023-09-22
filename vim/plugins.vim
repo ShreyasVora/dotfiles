@@ -19,6 +19,11 @@ Plug 'mhinz/vim-grepper'
 Plug 'markonm/traces.vim'
 Plug 'dense-analysis/ale'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'RRethy/vim-illuminate'
+Plug 'tpope/vim-obsession'
+Plug 'junegunn/gv.vim'
+Plug 'whiteinge/diffconflicts'
+Plug 'machakann/vim-highlightedyank'
 call plug#end()
 
 " Fugitive                   > An implementation of git into vim
@@ -108,6 +113,23 @@ nnoremap <leader>G :Grepper -tool rg -buffers<cr>
 nnoremap <leader>* :Grepper -tool rg -cword -noprompt<cr>
 " command! Todo :Grepper -tool git -query '\(TODO\|FIXME\)'<CR>
 
+" ALE
+" Note, errors seen in pylint should be managed in .config/pylintrc, not
+" within ALE. As a result, there's none of that here. Anything like this
+" belongs in the tool, not in ALE.
+let g:ale_linters = {'python': ['pylint']}
+let g:ale_set_balloons = 1
+let g:ale_sign_highlight_linenrs = 1
+let g:ale_virtualtext_cursor = 'current'
+
 " Vim-gutentags
 let g:gutentags_exclude_project_root = ['/srg/dev/release/prod-config/prod/arb','/srg/dev/release/prod-config/prod/comm','/srg/dev/release/prod-config/prod/de','/srg/dev/release/prod-config/prod/bas','/srg/dev/release/prod-config/prod/ita','/srg/dev/release/prod-config/prod/nord','/srg/dev/release/prod-config/prod/can','/srg/dev/release/prod-config/prod/brz','/srg/dev/release/prod-config/prod/kr-nhf','/srg/dev/release/prod-config/prod/syd','/srg/dev/release/prod-config/prod/chi','/srg/dev/release/prod-config/prod/aurora','/srg/pro/data/support','/srg/dev/release/tools','/srg/codebase/support/pgm']
 " let g:gutentags_define_advanced_commands = 1
+
+" Vim-illuminate
+let g:Illuminate_ftwhitelist = ['vim', 'sh', 'python', 'cpp', 'xdefaults']
+let g:Illuminate_ftHighlightGroups = { 'python:blacklist': ['Statement', 'Constant', 'Comment'] }
+let g:Illuminate_delay = 200
+
+" highlighted yank
+let g:highlightedyank_highlight_duration = 300

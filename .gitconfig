@@ -21,3 +21,10 @@
 	proxy = http://extproxy:3128
 [https]
 	proxy = http://extproxy:3128
+[merge]
+	tool = diffconflicts
+[mergetool "diffconflicts"]
+	cmd = vim -c DiffConflicts \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"
+	trustExitCode = true
+[mergetool]
+	keepBackup = false
