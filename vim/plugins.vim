@@ -3,9 +3,6 @@
 " =====================
 
 call plug#begin()
-
-"Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
-"Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
@@ -18,22 +15,11 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'preservim/nerdcommenter'
-Plug 'easymotion/vim-easymotion'
 Plug 'mhinz/vim-grepper'
 Plug 'markonm/traces.vim'
 Plug 'dense-analysis/ale'
 Plug 'ludovicchabant/vim-gutentags'
 call plug#end()
-
-" NERDTree Config            > View filestructure in tree view
-" Define colors
-" hi Directory ctermfg=red guifg=red
-" Mapping to open NERDTree
-" nnoremap <Leader>n :NERDTreeToggle<CR>
-" Enable seeing hidden files (beginning with .)
-" let NERDTreeShowHidden=1
-" Close the tab if NERDTree is the only window remaining in it.
-" autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 " Fugitive                   > An implementation of git into vim
 " --------
@@ -112,13 +98,6 @@ let g:NERDTrimTrailingWhitespace = 1
 "let g:NERDCustomDelimiters = { 'dosini': { 'left': '#','right': '' }}
 nnoremap <C-_> <Plug>NERDCommenterTogglej
 vnoremap <C-_> <Plug>NERDCommenterToggle
-
-" Easy motion
-let g:EasyMotion_smartcase = 1
-let g:EasyMotion_move_highlight = 0
-nmap <Leader>s <Plug>(easymotion-prefix)
-nnoremap ; <Plug>(easymotion-next)
-nnoremap , <Plug>(easymotion-prev)
 
 " Vim-grepper
 let g:grepper = { 'tools': ['rg', 'git', 'grep', 'findstr'], 'next_tool': '<leader>g' }
