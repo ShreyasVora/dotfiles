@@ -128,3 +128,7 @@ nnoremap <leader>g :Grepper -tool rg<CR>
 nnoremap <leader>G :Grepper -tool rg -buffers<cr>
 nnoremap <leader>* :Grepper -tool rg -cword -noprompt<cr>
 " command! Todo :Grepper -tool git -query '\(TODO\|FIXME\)'<CR>
+
+" Vim-gutentags
+let g:gutentags_enabled_user_func = 0
+autocmd Filetype xdefaults,cpp,python let g:gutentags_enabled_user_func = 1
