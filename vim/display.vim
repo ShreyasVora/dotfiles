@@ -8,16 +8,12 @@ endif
 
 set cursorline cursorcolumn
 
-set foldcolumn=1
-set foldmethod=indent
-
 " allow use of mouse
 if has('mouse')
 	set mouse=a
 endif
 
 " Lineno bar settings
-set relativenumber number  " Show relative line number from current line
 set cmdheight=1            " command bar height
 set showmatch              " show matching bracket
 set showcmd                " show what keys are being hit in the bottom right
@@ -38,12 +34,15 @@ endif
 
 augroup SetFileType
 	autocmd!
-	autocmd BufRead,BufNewFile,BufEnter .bash* set filetype=sh
-	autocmd BufRead,BufNewFile,BufEnter bash* set filetype=sh
-	autocmd BufRead,BufNewFile,BufEnter procMan.* set filetype=dosini
-	autocmd BufRead,BufNewFile,BufEnter *.ini set filetype=dosini
-	autocmd BufRead,BufNewFile,BufEnter *.md set filetype=markdown
-	autocmd BufRead,BufNewFile,BufEnter *.tmux set filetype=tmux
+	autocmd BufReadPre,BufNewFile,BufEnter .bash*,bash* set filetype=sh
+	autocmd BufReadPre,BufNewFile,BufEnter procMan.*,*.ini set filetype=dosini
+	autocmd BufReadPre,BufNewFile,BufEnter *.md set filetype=markdown
+	autocmd BufReadPre,BufNewFile,BufEnter *.tmux set filetype=tmux
+augroup END
+
+augroup programming
+  autocmd!
+  autocmd FileType cpp,xdefaults,python,sh setlocal number relativenumber foldcolumn=1 cmdheight=2 foldmethod=indent
 augroup END
 
 " Automatically resize vim splits if vim is resized
