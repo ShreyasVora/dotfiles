@@ -4,15 +4,10 @@
 
 " Motion
 " -----------
-nnoremap <Up> <Nop>
-nnoremap <Down> <Nop>
-nnoremap <Left> <Nop>
-nnoremap <Right> <Nop>
 nnoremap Q <Nop>
+set scrolloff=9
 nnoremap <expr> j v:count ? 'jzz' : 'gjzz'
 nnoremap <expr> k v:count ? 'kzz' : 'gkzz'
-set scrolloff=9
-
 nnoremap } }zz
 nnoremap { {zz
 nnoremap N Nzz
@@ -53,29 +48,5 @@ vnoremap <Leader>y "+y
 nnoremap <Leader>p "+p
 nnoremap <Leader>P "+P
 
-" Make backspace erase in normal mode
-nnoremap <C-H> hx
-
 " Clear shell output and execute current script with no args
 nnoremap <F9> :!clear && %:p<CR>
-
-" nnoremap gf :call CreateAndOpenNewFile()<CR>
-
-" function! CreateAndOpenNewFile()
-		" let filename = expand('<cWORD>')
-		" let vim_path = &path
-
-		" if empty(filename)
-				" echo "No filename under cursor."
-				" return
-		" endif
-
-		" if !empty(globpath(vim_path, filename))
-				" execute "find " . filename
-		" else
-				" let user_choice = input("Create new file '" . filename . "'? (y/n): ")
-				" if user_choice =~? '^y$'
-					" execute "edit " . filename
-				" endif
-		" endif
-" endfunction
